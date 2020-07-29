@@ -187,13 +187,13 @@
     <value>Frame rate</value>
   </data>
   <data name="MI_CodecVideo" xml:space="preserve">
-    <value>Video codec</value>
+    <value>Video format</value>
   </data>
   <data name="MI_CodecAudio" xml:space="preserve">
-    <value>Audio codec</value>
+    <value>Audio format</value>
   </data>
   <data name="MI_CodecAudioLingua" xml:space="preserve">
-    <value>Audio codec with language</value>
+    <value>Audio format with language</value>
   </data>
   <data name="MI_Lingue" xml:space="preserve">
     <value>Audio languages</value>
@@ -527,5 +527,8 @@
   </data>
   <data name="MI_AudioTagPubliscer" xml:space="preserve">
     <value>Record label</value>
+  </data>
+  <data name="MI_EncodedLibraryName" xml:space="preserve">
+    <value>Encoded video library</value>
   </data>
 </root>

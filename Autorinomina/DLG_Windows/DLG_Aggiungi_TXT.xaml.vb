@@ -1,6 +1,6 @@
 ﻿Public Class DLG_Aggiungi_TXT
     Public Property Testo As String = ""
-    Public RisultatoDialogo As Integer = -1
+    Public Property CreaNuovo As Boolean = False
 
     Protected Overrides Sub OnSourceInitialized(e As EventArgs)
         CustomWindow(Me, True)
@@ -37,15 +37,13 @@
 
     Private Sub BTN_Aggiungi_Click(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles BTN_Aggiungi.Click
         Testo = TB_Testo.Text
-        RisultatoDialogo = 0
         Me.DialogResult = True
     End Sub
 
     Private Sub BTN_AggiungiNuovo_Click(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles BTN_AggiungiNuovo.Click
         Testo = TB_Testo.Text
-        RisultatoDialogo = 1
+        CreaNuovo = True
         Me.DialogResult = True
-
     End Sub
 
     Private Sub TB_Testo_PreviewTextInput(sender As Object, e As System.Windows.Input.TextCompositionEventArgs) Handles TB_Testo.PreviewTextInput

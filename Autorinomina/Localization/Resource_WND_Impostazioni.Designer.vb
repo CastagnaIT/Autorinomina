@@ -22,7 +22,7 @@ Namespace Localization
     '''<summary>
     '''  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Public Class Resource_WND_Impostazioni
@@ -110,7 +110,7 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a Warning! Changing extensions recognized by the software may lead to unexpected behavior and errors. Therefore i am not responsible for any damage caused by improper use of this function..
+        '''  Cerca una stringa localizzata simile a Warning! Changing the extensions recognized by the software may cause unexpected behavior. The user is therefore aware that the improper use of this function may cause damage..
         '''</summary>
         Public Shared ReadOnly Property Extensions_WarningDesc() As String
             Get
@@ -304,6 +304,15 @@ Namespace Localization
         Public Shared ReadOnly Property OtherOptions_PreviewCheckLocalFile() As String
             Get
                 Return ResourceManager.GetString("OtherOptions_PreviewCheckLocalFile", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Suggest new words to add in the black-list.
+        '''</summary>
+        Public Shared ReadOnly Property OtherOptions_PreviewHintsNewBlackListWords() As String
+            Get
+                Return ResourceManager.GetString("OtherOptions_PreviewHintsNewBlackListWords", resourceCulture)
             End Get
         End Property
         

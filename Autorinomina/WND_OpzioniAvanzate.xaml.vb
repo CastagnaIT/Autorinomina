@@ -1,11 +1,16 @@
 ﻿Imports System.Data
 Imports System.Text.RegularExpressions
 Imports System.Windows.Threading
+Imports TvDbSharper
+Imports TvDbSharper.BaseSchemas
+Imports TvDbSharper.Clients.Languages.Json
 
 Public Class WND_OpzioniAvanzate
     Private Coll_Regex_SerieTv_Numerazione As New ObjectModel.ObservableCollection(Of Item_Regex)()
-    Dim DS_Lingua_Primaria As DataTable
-    Dim DS_Lingua_Secondaria As DataTable
+    Private Coll_Regex_TVDBLingue_Primaria As New CollItemsLinguaTVDB
+    Private Coll_Regex_TVDBLingue_Secondaria As New CollItemsLinguaTVDB
+
+    Dim tvdb_languages_file_path As String = DataPath & "\tvdb_languages.xml"
     Dim AvoidSave As String = True
 
     Class Item_Regex
@@ -74,117 +79,106 @@ Public Class WND_OpzioniAvanzate
         CB_Generica_WeakFilter.IsChecked = Boolean.Parse(XMLSettings_Read("CATEGORIA_generica_config_WeakFilter"))
 
         'TheTVDB
-        DS_Lingua_Primaria = TVDB_CaricaLingue()
-        DS_Lingua_Secondaria = TVDB_CaricaLingue()
+        CB_TVDB_Lingua_Principale.ItemsSource = Coll_Regex_TVDBLingue_Primaria
+        CB_TVDB_Lingua_Secondaria.ItemsSource = Coll_Regex_TVDBLingue_Secondaria
 
 
+        If IO.File.Exists(tvdb_languages_file_path) Then
+            Try
+                Coll_Regex_TVDBLingue_Primaria.AddRange(XmlSerialization.ReadFromXmlFile(Of ItemLinguaTVDB)(tvdb_languages_file_path, "tvdb_languages"))
+                Coll_Regex_TVDBLingue_Secondaria.AddRange(XmlSerialization.ReadFromXmlFile(Of ItemLinguaTVDB)(tvdb_languages_file_path, "tvdb_languages"))
 
-        If DS_Lingua_Primaria.Rows.Count = 0 Then
-            HY_RicaricaLingue_Click(Me, Nothing)
+                CB_TVDB_Lingua_Principale.SelectedItem = Coll_Regex_TVDBLingue_Primaria.FirstOrDefault(Function(i) i.Abbr.Equals(XMLSettings_Read("TVDB_LinguaPrimaria")))
+                CB_TVDB_Lingua_Secondaria.SelectedItem = Coll_Regex_TVDBLingue_Secondaria.FirstOrDefault(Function(i) i.Abbr.Equals(XMLSettings_Read("TVDB_LinguaSecondaria")))
+
+                CB_TVDB_Lingua_Principale.IsEnabled = True
+                CB_TVDB_Lingua_Secondaria.IsEnabled = True
+                LB_TVDB_Lingua_Principale.IsEnabled = True
+                LB_TVDB_Lingua_Secondaria.IsEnabled = True
+
+            Catch ex As Exception
+                Debug.Print(ex.Message)
+                IO.File.Delete(tvdb_languages_file_path)
+                HY_RicaricaLingue_Click(Me, Nothing)
+            End Try
         Else
-
-            CB_TVDB_Lingua_Principale.ItemsSource = DS_Lingua_Primaria.DefaultView
-            CB_TVDB_Lingua_Secondaria.ItemsSource = DS_Lingua_Secondaria.DefaultView
-
-            Dim DR_Primaria As DataRow = DS_Lingua_Primaria(0).Table.Select("abbreviation = '" & XMLSettings_Read("TVDB_LinguaPrimaria") & "'")(0)
-            CB_TVDB_Lingua_Principale.Text = DR_Primaria("name").ToString
-
-            Dim DR_Secondaria As DataRow = DS_Lingua_Secondaria(0).Table.Select("abbreviation = '" & XMLSettings_Read("TVDB_LinguaSecondaria") & "'")(0)
-            CB_TVDB_Lingua_Secondaria.Text = DR_Secondaria("name").ToString
-
-            CB_TVDB_Lingua_Principale.IsEnabled = True
-            CB_TVDB_Lingua_Secondaria.IsEnabled = True
-            LB_TVDB_Lingua_Principale.IsEnabled = True
-            LB_TVDB_Lingua_Secondaria.IsEnabled = True
+            HY_RicaricaLingue_Click(Me, Nothing)
         End If
-
 
 
         CB_TVDB_MetodoRicerca.SelectedIndex = IIf(XMLSettings_Read("TVDB_RicercaManuale").Equals("True"), 0, 1)
         CB_TVDB_NessunRisultato.SelectedIndex = IIf(XMLSettings_Read("TVDB_Risultati").Equals("True"), 0, 1)
-
-        SL_LimiteManualeCache.Value = Double.Parse(XMLSettings_Read("TVDB_CacheSize"))
-        LB_CacheLimite.Content = Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_Limit_Desc & Space(1) & FormatBYTE(Double.Parse(XMLSettings_Read("TVDB_CacheSize")))
-
-        Dim DimensioneCache As Long = GetFolderSize(IO.Path.Combine(DataPath, "Cache"), True)
-        LB_CacheAttuale.Content = Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_SpaceOccuped_Desc & Space(1) & FormatBYTE(DimensioneCache)
-
-        CB_TVDB_GestioneCacheAutomatica.IsChecked = Boolean.Parse(XMLSettings_Read("TVDB_CacheAutoEmpty"))
+        CB_TVDB_Lingua_Fallback.IsChecked = Boolean.Parse(XMLSettings_Read("TVDB_LinguaFallBack"))
+        CB_TVDB_AssociazioneStagioni.SelectedIndex = Integer.Parse(XMLSettings_Read("TVDB_AssociazioneStagioni"))
 
         AvoidSave = False
     End Sub
 
 
 
-
-    Private Sub HY_TVDB_SvuotaCache_Click(sender As Object, e As RoutedEventArgs)
-        Dim HL As Hyperlink = sender
-
-        If MsgBox(Localization.Resource_OpzioniAvanzate.Msg_TVDB_ClearCache, MsgBoxStyle.Question + MsgBoxStyle.YesNo, HL.Inlines.ToString) = MsgBoxResult.Yes Then
-            CancellaCacheTVDB()
-
-            Dim DimensioneCache As Long = GetFolderSize(IO.Path.Combine(DataPath, "cache"), True)
-            LB_CacheAttuale.Content = Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_SpaceOccuped_Desc & Space(1) & FormatBYTE(DimensioneCache)
-        End If
-    End Sub
-
-
     Private Sub HY_RicaricaLingue_Click(sender As System.Object, e As System.Windows.RoutedEventArgs)
         If Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
-            If IO.File.Exists(IO.Path.Combine(DataPath, "Cache\languages.xml")) Then IO.File.Delete(IO.Path.Combine(DataPath, "Cache\languages.xml"))
+            TB_TVDB_RicaricaLingue.IsEnabled = False
             CB_TVDB_Lingua_Principale.IsEnabled = False
             CB_TVDB_Lingua_Secondaria.IsEnabled = False
+            LB_TVDB_Lingua_Principale.IsEnabled = False
+            LB_TVDB_Lingua_Secondaria.IsEnabled = False
+            Coll_Regex_TVDBLingue_Primaria.Clear()
+            Coll_Regex_TVDBLingue_Secondaria.Clear()
 
             Dim start As System.Threading.ThreadStart = Sub()
+                                                            Try
+                                                                'recupero lingue da tvdb
+                                                                Dim tvDB As New TvDbClient()
+                                                                tvDB.Authentication.AuthenticateAsync(TVDB_APIKEY).Wait()
 
-                                                            Dim TV As New TvdbLib.TvdbHandler(New TvdbLib.Cache.XmlCacheProvider(IO.Path.Combine(DataPath, "Cache")), TVDB_APIKEY)
-                                                            TV.InitCache()
-                                                            Dim ListaLingue As List(Of TvdbLib.Data.TvdbLanguage) = TV.Languages
-                                                            TV.CloseCache()
+                                                                Dim Cerca_Lingue As Task(Of TvDbResponse(Of Language())) = tvDB.Languages.GetAllAsync()
+                                                                Cerca_Lingue.Wait()
+                                                                Dim ListaLingue As Language() = Cerca_Lingue.Result.Data
 
-                                                            Dispatcher.Invoke(DispatcherPriority.Normal, Sub()
-                                                                                                             DS_Lingua_Primaria = TVDB_CaricaLingue()
-                                                                                                             DS_Lingua_Secondaria = TVDB_CaricaLingue()
-                                                                                                             CB_TVDB_Lingua_Principale.IsEnabled = True
-                                                                                                             CB_TVDB_Lingua_Secondaria.IsEnabled = True
+                                                                For Each item In ListaLingue
+                                                                    Dispatcher.Invoke(DispatcherPriority.Normal, Sub()
+                                                                                                                     Coll_Regex_TVDBLingue_Primaria.Add(New ItemLinguaTVDB(item.EnglishName, item.Abbreviation))
+                                                                                                                     Coll_Regex_TVDBLingue_Secondaria.Add(New ItemLinguaTVDB(item.EnglishName, item.Abbreviation))
+                                                                                                                 End Sub)
+                                                                Next
 
 
-                                                                                                             CB_TVDB_Lingua_Principale.ItemsSource = DS_Lingua_Primaria.DefaultView
-                                                                                                             CB_TVDB_Lingua_Secondaria.ItemsSource = DS_Lingua_Secondaria.DefaultView
+                                                                'eseguo fallback (se necessario) , carico preferenze, salvo su xml
+                                                                Dispatcher.Invoke(DispatcherPriority.Normal, Sub()
 
-                                                                                                             Dim DR_Primaria As DataRow = DS_Lingua_Primaria.Select("abbreviation = '" & XMLSettings_Read("TVDB_LinguaPrimaria") & "'")(0)
-                                                                                                             CB_TVDB_Lingua_Principale.Text = DR_Primaria("name").ToString
+                                                                                                                 If Coll_Regex_TVDBLingue_Primaria.Count = 0 Then 'fallback in caso di errore o connessione assente
+                                                                                                                     Coll_Regex_TVDBLingue_Primaria.Add(New ItemLinguaTVDB("italian", "it"))
+                                                                                                                     Coll_Regex_TVDBLingue_Secondaria.Add(New ItemLinguaTVDB("italian", "it"))
 
-                                                                                                             Dim DR_Secondaria As DataRow = DS_Lingua_Secondaria.Select("abbreviation = '" & XMLSettings_Read("TVDB_LinguaSecondaria") & "'")(0)
-                                                                                                             CB_TVDB_Lingua_Secondaria.Text = DR_Secondaria("name").ToString
+                                                                                                                     Coll_Regex_TVDBLingue_Primaria.Add(New ItemLinguaTVDB("english", "en"))
+                                                                                                                     Coll_Regex_TVDBLingue_Secondaria.Add(New ItemLinguaTVDB("english", "en"))
+                                                                                                                 End If
 
-                                                                                                             CB_TVDB_Lingua_Principale.IsEnabled = True
-                                                                                                             CB_TVDB_Lingua_Secondaria.IsEnabled = True
-                                                                                                             LB_TVDB_Lingua_Principale.IsEnabled = True
-                                                                                                             LB_TVDB_Lingua_Secondaria.IsEnabled = True
-                                                                                                         End Sub)
+                                                                                                                 CB_TVDB_Lingua_Principale.SelectedItem = Coll_Regex_TVDBLingue_Primaria.FirstOrDefault(Function(i) i.Abbr.Equals(XMLSettings_Read("TVDB_LinguaPrimaria")))
+                                                                                                                 CB_TVDB_Lingua_Secondaria.SelectedItem = Coll_Regex_TVDBLingue_Secondaria.FirstOrDefault(Function(i) i.Abbr.Equals(XMLSettings_Read("TVDB_LinguaSecondaria")))
 
+                                                                                                                 CB_TVDB_Lingua_Principale.IsEnabled = True
+                                                                                                                 CB_TVDB_Lingua_Secondaria.IsEnabled = True
+                                                                                                                 LB_TVDB_Lingua_Principale.IsEnabled = True
+                                                                                                                 LB_TVDB_Lingua_Secondaria.IsEnabled = True
+
+                                                                                                                 XmlSerialization.WriteToXmlFile(tvdb_languages_file_path, Coll_Regex_TVDBLingue_Primaria, "tvdb_languages", False)
+                                                                                                             End Sub)
+
+                                                            Catch ex As Exception
+                                                                Debug.Print(ex.Message)
+
+                                                            Finally
+                                                                Dispatcher.Invoke(DispatcherPriority.Normal, Sub()
+                                                                                                                 TB_TVDB_RicaricaLingue.IsEnabled = True
+                                                                                                             End Sub)
+                                                            End Try
                                                         End Sub
 
             Dim Thread1 As New System.Threading.Thread(start)
             Thread1.Start()
-        End If
-    End Sub
 
-    Public Function TVDB_CaricaLingue() As DataTable
-        If IO.File.Exists(IO.Path.Combine(DataPath, "Cache\languages.xml")) = False Then
-            Return New DataTable
-        Else
-            Dim DS As New DataSet
-            DS.ReadXml(IO.Path.Combine(DataPath, "Cache\languages.xml"))
-            DS.Tables(0).DefaultView.Sort = "name"
-            Return DS.Tables(0)
-        End If
-    End Function
-
-    Private Sub SL_LimiteManualeCache_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of Double)) Handles SL_LimiteManualeCache.ValueChanged
-        If AvoidSave = False Then 'prevent nullreference at window open
-            LB_CacheLimite.Content = Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_Limit_Desc & Space(1) & FormatBYTE(e.NewValue)
         End If
     End Sub
 
@@ -234,36 +228,23 @@ Public Class WND_OpzioniAvanzate
 
         'TVDB
         If Not String.IsNullOrEmpty(CB_TVDB_Lingua_Principale.Text) AndAlso Not CB_TVDB_Lingua_Principale.Text.ToLower.Equals("unknown") Then
-            Dim DR_Primaria As DataRow = DS_Lingua_Primaria(0).Table.Select("name = '" & CB_TVDB_Lingua_Principale.Text & "'")(0)
-            Dim DR_Secondaria As DataRow = DS_Lingua_Secondaria(0).Table.Select("name = '" & CB_TVDB_Lingua_Secondaria.Text & "'")(0)
-
-            XMLSettings_Save("TVDB_LinguaPrimaria", DR_Primaria("abbreviation").ToString)
-            XMLSettings_Save("TVDB_LinguaSecondaria", DR_Secondaria("abbreviation").ToString)
+            XMLSettings_Save("TVDB_LinguaPrimaria", CType(CB_TVDB_Lingua_Principale.SelectedItem, ItemLinguaTVDB).Abbr)
         End If
+        If Not String.IsNullOrEmpty(CB_TVDB_Lingua_Secondaria.Text) AndAlso Not CB_TVDB_Lingua_Secondaria.Text.ToLower.Equals("unknown") Then
+            XMLSettings_Save("TVDB_LinguaSecondaria", CType(CB_TVDB_Lingua_Secondaria.SelectedItem, ItemLinguaTVDB).Abbr)
+        End If
+
 
         XMLSettings_Save("TVDB_RicercaManuale", IIf(CB_TVDB_MetodoRicerca.SelectedIndex = 0, "True", "False"))
         XMLSettings_Save("TVDB_Risultati", IIf(CB_TVDB_NessunRisultato.SelectedIndex = 0, "True", "False"))
-
-        XMLSettings_Save("TVDB_CacheSize", SL_LimiteManualeCache.Value.ToString)
-        XMLSettings_Save("TVDB_CacheAutoEmpty", CB_TVDB_GestioneCacheAutomatica.IsChecked.ToString)
+        XMLSettings_Save("TVDB_LinguaFallBack", CB_TVDB_Lingua_Fallback.IsChecked.ToString)
+        XMLSettings_Save("TVDB_AssociazioneStagioni", CB_TVDB_AssociazioneStagioni.SelectedIndex.ToString)
 
         Close()
     End Sub
 
     Private Sub BTN_Annulla_Click(sender As Object, e As RoutedEventArgs) Handles BTN_Annulla.Click
         Close()
-    End Sub
-
-    Private Sub CB_TVDB_GestioneCacheAutomatica_Action(sender As Object, e As RoutedEventArgs) Handles CB_TVDB_GestioneCacheAutomatica.Checked, CB_TVDB_GestioneCacheAutomatica.Unchecked
-        If CB_TVDB_GestioneCacheAutomatica.IsChecked Then
-            SL_LimiteManualeCache.Value = 31457280 '30MB default
-
-            LB_Text_GestioneManuale.IsEnabled = False
-            SL_LimiteManualeCache.IsEnabled = False
-        Else
-            LB_Text_GestioneManuale.IsEnabled = True
-            SL_LimiteManualeCache.IsEnabled = True
-        End If
     End Sub
 
     Private Sub BTN_SerieTv_Aggiungi_Click(sender As Object, e As RoutedEventArgs) Handles BTN_SerieTv_Aggiungi.Click

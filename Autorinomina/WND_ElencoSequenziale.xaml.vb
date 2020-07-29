@@ -98,7 +98,7 @@
 
         If DlgOpen.ShowDialog = True Then
 
-            Dim reader As IO.StreamReader = New IO.StreamReader(DlgOpen.FileName, System.Text.ASCIIEncoding.Unicode)
+            Dim reader As IO.StreamReader = New IO.StreamReader(DlgOpen.FileName, System.Text.ASCIIEncoding.Default)
             Dim ContenutoTXT As String = ""
             Try
                 ContenutoTXT = reader.ReadToEnd()

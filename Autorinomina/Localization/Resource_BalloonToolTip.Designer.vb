@@ -533,7 +533,7 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a DVD/BR order.
+        '''  Cerca una stringa localizzata simile a DVD/BD order.
         '''</summary>
         Public Shared ReadOnly Property Grid_TVDB_OrderEpisode_2() As String
             Get
@@ -542,7 +542,7 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a DVD/BR order (plus combined episodes).
+        '''  Cerca una stringa localizzata simile a DVD/BD order (plus combined episodes).
         '''</summary>
         Public Shared ReadOnly Property Grid_TVDB_OrderEpisode_3() As String
             Get
@@ -551,7 +551,7 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a DVD/BR order (combined with all the titles).
+        '''  Cerca una stringa localizzata simile a DVD/BD order (combined with all the titles).
         '''</summary>
         Public Shared ReadOnly Property Grid_TVDB_OrderEpisode_4() As String
             Get

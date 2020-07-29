@@ -389,6 +389,33 @@ Namespace Localization
         End Property
         
         '''<summary>
+        '''  Cerca una stringa localizzata simile a The seasons of the TV series are associated.
+        '''</summary>
+        Public Shared ReadOnly Property TVDB_AssociatedSeasons() As String
+            Get
+                Return ResourceManager.GetString("TVDB_AssociatedSeasons", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a To aired season (default).
+        '''</summary>
+        Public Shared ReadOnly Property TVDB_AssociatedSeasons_0() As String
+            Get
+                Return ResourceManager.GetString("TVDB_AssociatedSeasons_0", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a To the DVD/BD.
+        '''</summary>
+        Public Shared ReadOnly Property TVDB_AssociatedSeasons_1() As String
+            Get
+                Return ResourceManager.GetString("TVDB_AssociatedSeasons_1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Cerca una stringa localizzata simile a The services of The TVDB require a working internet connection.
         '''</summary>
         Public Shared ReadOnly Property TVDB_DescInfo() As String
@@ -403,6 +430,15 @@ Namespace Localization
         Public Shared ReadOnly Property TVDB_Language_Desc() As String
             Get
                 Return ResourceManager.GetString("TVDB_Language_Desc", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a When the episode title is missing in your chosen language, use the English language.
+        '''</summary>
+        Public Shared ReadOnly Property TVDB_Language_FallbackEnglish() As String
+            Get
+                Return ResourceManager.GetString("TVDB_Language_FallbackEnglish", resourceCulture)
             End Get
         End Property
         
@@ -425,56 +461,11 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a Cache management.
+        '''  Cerca una stringa localizzata simile a Reload languages.
         '''</summary>
-        Public Shared ReadOnly Property TVDB_ManageCache() As String
+        Public Shared ReadOnly Property TVDB_ReloadLanguages() As String
             Get
-                Return ResourceManager.GetString("TVDB_ManageCache", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Cerca una stringa localizzata simile a Automatic.
-        '''</summary>
-        Public Shared ReadOnly Property TVDB_ManageCache_Auto() As String
-            Get
-                Return ResourceManager.GetString("TVDB_ManageCache_Auto", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Cerca una stringa localizzata simile a Clear cache.
-        '''</summary>
-        Public Shared ReadOnly Property TVDB_ManageCache_ClearCache() As String
-            Get
-                Return ResourceManager.GetString("TVDB_ManageCache_ClearCache", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Cerca una stringa localizzata simile a Limit is set to.
-        '''</summary>
-        Public Shared ReadOnly Property TVDB_ManageCache_Limit_Desc() As String
-            Get
-                Return ResourceManager.GetString("TVDB_ManageCache_Limit_Desc", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Cerca una stringa localizzata simile a Determine the limit manually.
-        '''</summary>
-        Public Shared ReadOnly Property TVDB_ManageCache_ManualLimit() As String
-            Get
-                Return ResourceManager.GetString("TVDB_ManageCache_ManualLimit", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Cerca una stringa localizzata simile a Occupied space.
-        '''</summary>
-        Public Shared ReadOnly Property TVDB_ManageCache_SpaceOccuped_Desc() As String
-            Get
-                Return ResourceManager.GetString("TVDB_ManageCache_SpaceOccuped_Desc", resourceCulture)
+                Return ResourceManager.GetString("TVDB_ReloadLanguages", resourceCulture)
             End Get
         End Property
         

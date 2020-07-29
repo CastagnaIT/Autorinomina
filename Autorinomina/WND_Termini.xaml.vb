@@ -35,7 +35,6 @@ Public Class WND_Termini
         Else
             Me.Title = Localization.Resource_WND_Main.MI_TerminiInBlackList
             LB_Descrizione.Content = Localization.Resource_WND_Termini.BlackList_desc
-
         End If
 
         Select Case XMLSettings_Read("CategoriaSelezionata")
@@ -50,7 +49,13 @@ Public Class WND_Termini
             Case "CATEGORIA_generica"
                 CType(SP_Categorie.Children(4), Primitives.ToggleButton).IsChecked = True
         End Select
+    End Sub
 
+    Private Sub WND_Termini_ContentRendered(sender As Object, e As EventArgs) Handles Me.ContentRendered
+        'Content Rendered permette di visualizzare l'animazione del badge in apertura della finestra
+        If XMLSettings_Read("CategoriaSelezionata").Equals("CATEGORIA_serietv") Then
+            If Coll_BlackList_New.Count > 0 Then Badged_BTN_Suggeriti.Badge = Coll_BlackList_New.Count & Space(1) & "suggeriti"
+        End If
     End Sub
 
     Private Sub ToggleCategoria_Checked(sender As Object, e As RoutedEventArgs)
@@ -67,15 +72,19 @@ Public Class WND_Termini
         Select Case TB.Tag.ToString
             Case "CATEGORIA_serietv"
                 DG_Termini.ItemsSource = Coll_Termini_SerieTv
-
+                If Coll_BlackList_New.Count > 0 Then Badged_BTN_Suggeriti.Badge = Coll_BlackList_New.Count & Space(1) & "suggeriti"
             Case "CATEGORIA_video"
                 DG_Termini.ItemsSource = Coll_Termini_Video
+                Badged_BTN_Suggeriti.Badge = Nothing
             Case "CATEGORIA_audio"
                 DG_Termini.ItemsSource = Coll_Termini_Audio
+                Badged_BTN_Suggeriti.Badge = Nothing
             Case "CATEGORIA_immagini"
                 DG_Termini.ItemsSource = Coll_Termini_Immagini
+                Badged_BTN_Suggeriti.Badge = Nothing
             Case "CATEGORIA_generica"
                 DG_Termini.ItemsSource = Coll_Termini_Generica
+                Badged_BTN_Suggeriti.Badge = Nothing
         End Select
 
         TS_OrdineTermini.IsChecked = Boolean.Parse(XMLSettings_Read(WND_Type & "_" & CategoriaSelezionata & "_ordineAuto"))
@@ -87,12 +96,24 @@ Public Class WND_Termini
     End Sub
 
     Private Sub BTN_InserisciTermine_Click(sender As Object, e As RoutedEventArgs) Handles BTN_InserisciTermine.Click
-        Dim WND As New DLG_AggiungiTermine(WND_Type, DG_Termini.ItemsSource, False)
+        Dim CountIniziale_CollBlackListNew As Integer = Coll_BlackList_New.Count
+        Dim CountIniziale_CollTermini As Integer = CType(DG_Termini.ItemsSource, CollItemsTermini).Count
+
+
+        Dim WND As New DLG_AggiungiTermine(WND_Type, DG_Termini.ItemsSource, CategoriaSelezionata)
         WND.Owner = Me
-        If WND.ShowDialog() Then
+        WND.ShowDialog()
+
+        If CType(DG_Termini.ItemsSource, CollItemsTermini).Count <> CountIniziale_CollTermini Then
             If XMLSettings_Read(WND_Type & "_" & CategoriaSelezionata & "_ordineAuto").Equals("True") Then
                 Riordina(DG_Termini.ItemsSource)
             End If
+        End If
+
+        If CountIniziale_CollBlackListNew <> Coll_BlackList_New.Count Then
+            Badged_BTN_Suggeriti.Badge = Coll_BlackList_New.Count & Space(1) & "suggeriti"
+        ElseIf Coll_BlackList_New.Count = 0 Then
+            Badged_BTN_Suggeriti.Badge = ""
         End If
     End Sub
 
@@ -111,7 +132,7 @@ Public Class WND_Termini
         End If
     End Sub
 
-    Private Sub Riordina(ByRef CollTermini As CollItemsTermini)
+    Public Sub Riordina(ByRef CollTermini As CollItemsTermini)
         Dim ListaRiordinata As New CollItemsTermini
         Dim TempColl As New CollItemsTermini
         Dim Temp_ParoleSpostateSimiliAggiunte As New ArrayList
@@ -129,7 +150,7 @@ Public Class WND_Termini
 
                 'ricerco parole simili da aggiungere
                 Dim ElencoSimili = From s In Lista_Case
-                                   Where Regex.IsMatch(s.Termine, "(^)" & Regex.Escape(item.Termine) & "|" & Regex.Escape(item.Termine) & "($)", RegexOptions.Compiled)
+                                   Where Regex.IsMatch(s.Termine, "(^)" & Regex.Escape(item.Termine) & "|" & Regex.Escape(item.Termine) & "($)", RegexOptions.None)
 
                 'riordino in crescente le parole simili
                 ElencoSimili = ElencoSimili.OrderBy(Function(s) (s.Termine))
@@ -178,7 +199,7 @@ Public Class WND_Termini
 
                 'ricerco parole simili da aggiungere
                 Dim ElencoSimili = From s In Lista_Case
-                                   Where Regex.IsMatch(s.Termine, "(^)" & Regex.Escape(item.Termine) & "|" & Regex.Escape(item.Termine) & "($)", RegexOptions.Compiled + RegexOptions.IgnoreCase)
+                                   Where Regex.IsMatch(s.Termine, "(^)" & Regex.Escape(item.Termine) & "|" & Regex.Escape(item.Termine) & "($)", RegexOptions.IgnoreCase)
 
                 'riordino in crescente le parole simili
                 ElencoSimili = ElencoSimili.OrderBy(Function(a) a.Termine.ToLower,
@@ -192,14 +213,12 @@ Public Class WND_Termini
                         If (TempColl.Where(Function(w) (w.Termine.Equals(item_simile.Termine, StringComparison.OrdinalIgnoreCase))).Count = 0) Then
                             TempColl.Add(item_simile)
                             Temp_ParoleSpostateSimiliAggiunte.Add(item_simile.Termine.ToLower)
-                            Debug.Print("aggiunta: " & item_simile.Termine.ToLower)
                         Else
                             If Temp_ParoleSpostateSimiliAggiunte.Contains(item_simile.Termine.ToLower) Then
                                 'se non è una parola spostata o simile già aggiunta
                                 TempColl.Remove(item_simile)
                                 TempColl.Add(item_simile)
                                 Temp_ParoleSpostateSimiliAggiunte.Add(item_simile.Termine.ToLower)
-                                Debug.Print("spostata: " & item_simile.Termine.ToLower)
                             End If
                         End If
                     End If
@@ -343,4 +362,5 @@ Public Class WND_Termini
     Private Sub BTN_Annulla_Click(sender As Object, e As RoutedEventArgs) Handles BTN_Annulla.Click
         Close()
     End Sub
+
 End Class

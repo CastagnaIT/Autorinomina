@@ -345,4 +345,16 @@
   <data name="DLG_Presets_Title_Load" xml:space="preserve">
     <value>Load preset</value>
   </data>
+  <data name="DLG_AddText_Title" xml:space="preserve">
+    <value>Add text</value>
+  </data>
+  <data name="DLG_AddText_Desc" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="DLG_TVDB_Column_FirstAired" xml:space="preserve">
+    <value>Originally aired</value>
+  </data>
+  <data name="DLG_TVDB_Column_Network" xml:space="preserve">
+    <value>Network</value>
+  </data>
 </root>

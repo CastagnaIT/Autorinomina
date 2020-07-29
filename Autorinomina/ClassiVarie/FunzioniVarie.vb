@@ -149,9 +149,9 @@ Module FunzioniVarie
 
     Function ValidateChar_Replace(ByVal Stringa As String, Optional ByVal EscludiAncheParentesi As Boolean = False) As String
         If EscludiAncheParentesi Then
-            Return Regex.Replace(Stringa, "\[|\]|\(|\)|\\|\/|\:|\*|\?|\""|\<|\>|\|", ".")
+            Return Regex.Replace(Stringa, "\[|\]|\(|\)|\\|\/|\:|\*|\?|\""|\<|\>|\|", "")
         Else
-            Return Regex.Replace(Stringa, "\\|\/|\:|\*|\?|\""|\<|\>|\|", ".")
+            Return Regex.Replace(Stringa, "\\|\/|\:|\*|\?|\""|\<|\>|\|", "")
         End If
     End Function
 
@@ -218,20 +218,6 @@ Module FunzioniVarie
 
         Return lngDirSize
     End Function
-
-    Public Sub CancellaCacheTVDB()
-        Dim Files As String() = System.IO.Directory.GetFiles(IO.Path.Combine(DataPath, "cache"), "*.*", IO.SearchOption.AllDirectories)
-        For Each File As String In Files
-            If IO.Path.GetFileName(File.ToLower) <> "languages.xml" Then
-                IO.File.Delete(File)
-            End If
-        Next
-
-        Dim SottoCartelle As String() = System.IO.Directory.GetDirectories(IO.Path.Combine(DataPath, "cache"))
-        For Each Cartella As String In SottoCartelle
-            System.IO.Directory.Delete(Cartella)
-        Next
-    End Sub
 
     Public Function FormatBYTE(ByVal b As Double, Optional NoDecimali As Boolean = False) As String
         Dim bSize(8) As String

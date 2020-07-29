@@ -1,28 +1,17 @@
-'' Copyright (c) MediaArea.net SARL. All Rights Reserved.
-''
-'' Use of this source code is governed by a BSD-style license that can
-'' be found in the License.html file in the root of the source tree.
-''
-
-''+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-''
-'' Microsoft Visual Basic wrapper for MediaInfo Library
-'' See MediaInfo.h for help
-''
-'' To make it working, you must put MediaInfo.Dll
-'' in the executable folder
-''
-''+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+' Copyright (c) MediaArea.net SARL. All Rights Reserved.
+'
+' Use of this source code is governed by a BSD-style license that can
+' be found in the License.html file in the root of the source tree.
+'
+' aggiornato dal progetto "MSCS2010"
 Imports System.Runtime.InteropServices
 
 Public Enum StreamKind As UInteger
     General
     Video
-    Visual = Video 'Deprecated
     Audio
     Text
-    Chapters
+    Other
     Image
     Menu
     Max
@@ -42,7 +31,7 @@ End Enum
 
 Public Enum InfoOptions As UInteger
     ShowInInform
-    Reserved
+    Support
     ShowInSupported
     TypeOfValue
     Max

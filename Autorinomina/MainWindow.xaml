@@ -23,6 +23,9 @@
     </Controls:MetroWindow.IconTemplate>
     <Controls:MetroWindow.Resources>
 
+
+        <CollectionViewSource x:Key="CVS_NewTermini" />
+
         <!-- ListView Struttura item  colors-->
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="LV_ColoreSelezionato">
             <GradientStop Color="#FF48B1FF" Offset="0.385" />
@@ -57,7 +60,7 @@
         </Style>
 
         <!--DataGrid row ContextMenu-->
-        <ContextMenu  x:Key="RowMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}" UseLayoutRounding="True">
+        <ContextMenu  x:Key="RowMenu" UseLayoutRounding="True">
             <MenuItem Header="{x:Static lang:Resource_WND_Main.MI_RinominaSelezionati}" Click="BTN_RinominaSelezione_Click" />
             <MenuItem Header="{x:Static lang:Resource_WND_Main.MI_RipristinaSelezionati}" Click="BTN_RipristinaSelezione_Click" />
             <Separator/>
@@ -114,7 +117,7 @@
             <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_5}" Click="MI_MM_Click"/>
             <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_6}" Click="MI_MM_Click"/>
         </ContextMenu>
-       
+
     </Controls:MetroWindow.Resources>
 
 
@@ -468,7 +471,7 @@
                 </ListView.ItemsPanel>
             </ListView>
         </Grid>
-        
+
         <Grid Grid.Row="2" Background="White" Margin="0,107,0,63">
             <DataGrid x:Name="DG_Files" RowStyle="{StaticResource DefaultRowStyleWithCM}" AutoGenerateColumns="False" AllowDrop="True" GridLinesVisibility="None" CanUserDeleteRows="False" CanUserAddRows="False" ClipboardCopyMode="None" BorderThickness="0,2" >
                 <DataGrid.Columns>
@@ -549,5 +552,11 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+
+        <Controls:Badged Badge="0" x:Name="Badged_BlackListTips" Margin="20,0,0,20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="2" Height="19" BadgePlacementMode="Right" BadgeBackground="#FF69C253" >
+            <TextBlock Name="TB_BlackListTips" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Margin="0,0,14,0" FontStyle="Italic">
+                <Hyperlink Click="HY_BlackListTips_Click">Suggerimenti black-list</Hyperlink>
+            </TextBlock>
+        </Controls:Badged>
     </Grid>
 </Controls:MetroWindow>

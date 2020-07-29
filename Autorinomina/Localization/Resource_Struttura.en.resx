@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -142,10 +142,10 @@
     <value>Aspect ratio</value>
   </data>
   <data name="MI_CodecAudio" xml:space="preserve">
-    <value>Audio codec</value>
+    <value>Audio format</value>
   </data>
   <data name="MI_CodecAudioLingua" xml:space="preserve">
-    <value>Audio codec with language</value>
+    <value>Audio format with language</value>
   </data>
   <data name="STD_InfoAudio" xml:space="preserve">
     <value>Audio information</value>
@@ -514,7 +514,7 @@
     <value>Video</value>
   </data>
   <data name="MI_CodecVideo" xml:space="preserve">
-    <value>Video codec</value>
+    <value>Video format</value>
   </data>
   <data name="EXIF_WhiteBalance" xml:space="preserve">
     <value>white balance</value>
@@ -527,5 +527,8 @@
   </data>
   <data name="AR_Anno" xml:space="preserve">
     <value>Year</value>
+  </data>
+  <data name="MI_EncodedLibraryName" xml:space="preserve">
+    <value>Encoded video library</value>
   </data>
 </root>

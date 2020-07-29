@@ -228,24 +228,6 @@
   <data name="TVDB_SearchNoResults_UseFilter" xml:space="preserve">
     <value>Use the filter</value>
   </data>
-  <data name="TVDB_ManageCache" xml:space="preserve">
-    <value>Cache management</value>
-  </data>
-  <data name="TVDB_ManageCache_Auto" xml:space="preserve">
-    <value>Automatic</value>
-  </data>
-  <data name="TVDB_ManageCache_ManualLimit" xml:space="preserve">
-    <value>Determine the limit manually</value>
-  </data>
-  <data name="TVDB_ManageCache_ClearCache" xml:space="preserve">
-    <value>Clear cache</value>
-  </data>
-  <data name="TVDB_ManageCache_Limit_Desc" xml:space="preserve">
-    <value>Limit is set to</value>
-  </data>
-  <data name="TVDB_ManageCache_SpaceOccuped_Desc" xml:space="preserve">
-    <value>Occupied space</value>
-  </data>
   <data name="Msg_TVDB_ClearCache" xml:space="preserve">
     <value>Empty the cache?</value>
   </data>
@@ -281,5 +263,20 @@
   </data>
   <data name="Audio_ID3Missing" xml:space="preserve">
     <value>Do not rename when there is no ID3 Tag</value>
+  </data>
+  <data name="TVDB_Language_FallbackEnglish" xml:space="preserve">
+    <value>When the episode title is missing in your chosen language, use the English language</value>
+  </data>
+  <data name="TVDB_ReloadLanguages" xml:space="preserve">
+    <value>Reload languages</value>
+  </data>
+  <data name="TVDB_AssociatedSeasons" xml:space="preserve">
+    <value>The seasons of the TV series are associated</value>
+  </data>
+  <data name="TVDB_AssociatedSeasons_0" xml:space="preserve">
+    <value>To aired season (default)</value>
+  </data>
+  <data name="TVDB_AssociatedSeasons_1" xml:space="preserve">
+    <value>To the DVD/BD</value>
   </data>
 </root>

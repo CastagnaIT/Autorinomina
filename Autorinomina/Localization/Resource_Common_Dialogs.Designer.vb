@@ -65,6 +65,24 @@ Namespace Localization
         End Property
         
         '''<summary>
+        '''  Cerca una stringa localizzata simile a Text.
+        '''</summary>
+        Public Shared ReadOnly Property DLG_AddText_Desc() As String
+            Get
+                Return ResourceManager.GetString("DLG_AddText_Desc", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Add text.
+        '''</summary>
+        Public Shared ReadOnly Property DLG_AddText_Title() As String
+            Get
+                Return ResourceManager.GetString("DLG_AddText_Title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Cerca una stringa localizzata simile a Select the folders containing the files to be renamed.
         '''</summary>
         Public Shared ReadOnly Property DLG_FavoriteFolder_Desc() As String
@@ -650,11 +668,29 @@ Namespace Localization
         End Property
         
         '''<summary>
+        '''  Cerca una stringa localizzata simile a Originally aired.
+        '''</summary>
+        Public Shared ReadOnly Property DLG_TVDB_Column_FirstAired() As String
+            Get
+                Return ResourceManager.GetString("DLG_TVDB_Column_FirstAired", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Cerca una stringa localizzata simile a Language.
         '''</summary>
         Public Shared ReadOnly Property DLG_TVDB_Column_Language() As String
             Get
                 Return ResourceManager.GetString("DLG_TVDB_Column_Language", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Network.
+        '''</summary>
+        Public Shared ReadOnly Property DLG_TVDB_Column_Network() As String
+            Get
+                Return ResourceManager.GetString("DLG_TVDB_Column_Network", resourceCulture)
             End Get
         End Property
         

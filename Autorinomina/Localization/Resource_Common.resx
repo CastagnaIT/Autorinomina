@@ -242,4 +242,13 @@
   <data name="AR_Core_Error_ID3MetadataMissing" xml:space="preserve">
     <value>Missing ID3 Tag metadata.</value>
   </data>
+  <data name="Btn_AddNew" xml:space="preserve">
+    <value>Add and create new</value>
+  </data>
+  <data name="XMLStrutture_PasteError1" xml:space="preserve">
+    <value>Unable to paste the preset, there are errors in the code.</value>
+  </data>
+  <data name="XMLStrutture_PasteError2" xml:space="preserve">
+    <value>Unable to paste the preset, wrong category.</value>
+  </data>
 </root>

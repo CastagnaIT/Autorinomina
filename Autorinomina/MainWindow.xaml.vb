@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Globalization
+Imports System.Text.RegularExpressions
+Imports System.Threading
 Imports Microsoft.Win32
 
 Class MainWindow
@@ -9,6 +11,7 @@ Class MainWindow
     WithEvents Timer_AutoCattura As New Windows.Threading.DispatcherTimer
     WithEvents Timer_DelayLivePreview As New Windows.Threading.DispatcherTimer
     WithEvents BW_CheckNewSWVersion As New BackgroundWorker
+    Dim Thread_RunLivePreview As New Thread(AddressOf Sub_Thread_RunLivePreview)
     Dim RowMenu As ContextMenu
     Dim CM_MM As ContextMenu
     Dim BloccoOperazioni As Boolean = False
@@ -199,13 +202,23 @@ Class MainWindow
 
         If Coll_Files.Count > 0 AndAlso BloccoOperazioni = False Then
             Try
-                Dim AR_Preview As New AR_Core_RunPreview(Me)
-                AR_Preview.StartPreview(DG_Files.Items, DG_Files.SelectedItems, True)
+                If Thread_RunLivePreview.IsAlive Then Thread_RunLivePreview.Abort()
+                Thread_RunLivePreview = New Thread(AddressOf Sub_Thread_RunLivePreview)
+                Thread_RunLivePreview.Start({DG_Files.Items, DG_Files.SelectedItems})
             Catch ex As Exception
-                Debug.Print(ex.Message)
+                If Thread_RunLivePreview.IsAlive Then Thread_RunLivePreview.Abort()
             End Try
         End If
         Timer_DelayLivePreview.Stop()
+    End Sub
+
+    Private Sub Sub_Thread_RunLivePreview(ByVal param As Object)
+        Try
+            Dim AR_Preview As New AR_Core_RunPreview(Me)
+            AR_Preview.StartPreview(CType(param(0), ItemCollection), CType(param(1), IList), True)
+        Catch ex As Exception
+            Debug.Print(ex.Message)
+        End Try
     End Sub
 
     Private Sub MainWindow_ContentRendered(sender As Object, e As EventArgs) Handles Me.ContentRendered
@@ -232,16 +245,6 @@ Class MainWindow
 
         XMLSettings_WriteFile()
         XMLStrutture_Save("Default")
-
-
-        Try
-            Dim DimensioneCache As Long = GetFolderSize(IO.Path.Combine(DataPath, "cache"), True)
-            If DimensioneCache > Long.Parse(XMLSettings_Read("TVDB_CacheSize")) Then
-                CancellaCacheTVDB()
-            End If
-        Catch ex As Exception
-            Debug.Print(ex.Message)
-        End Try
     End Sub
 
     Private Sub CreaMenuCategoria()
@@ -352,7 +355,7 @@ Class MainWindow
 
                 If AL_UserData(x).Equals("STD_InfoMultimediali") Then
                     UserData = New String() {"MI_Durata", "MI_Lingue", "MI_LingueSottotitoli", "MI_TotaleCapitoli", "#MI_Separator_Codifica", "MI_RisoluzioneFilmato",
-                        "MI_AspectRatio", "MI_FrameRate", "MI_CodecVideo", "MI_CodecAudio", "MI_CodecAudioLingua"}
+                        "MI_AspectRatio", "MI_FrameRate", "MI_CodecVideo", "MI_EncodedLibraryName", "MI_CodecAudio", "MI_CodecAudioLingua"}
                 End If
 
                 If AL_UserData(x).Equals("STD_InfoAudio") Then
@@ -364,8 +367,8 @@ Class MainWindow
                                          "MI_AudioTagDataRilascio", "MI_AudioTagDataRegistrazione", "MI_AudioTagPubliscer"}
                 End If
 
-                If AL_UserData(x).Equals("STD_TheTvdb") Then
-                    UserData = New String() {"TVDB_TitoloSerieTv", "TVDB_TitoloEpisodio", "TVDB_DataPrimaTv", "TVDB_Creator", "TVDB_Director", "TVDB_Genere", "TVDB_Network", "TVDB_NumeroEpisodi", "TVDB_NumeroStagioni"}
+                If AL_UserData(x).Equals("STD_TheTvdb") Then '"TVDB_NumeroStagioni" rimosso deprecato con TVDB API v2, mantengo impostazioni se in futuro viene reimplementato
+                    UserData = New String() {"TVDB_TitoloSerieTv", "TVDB_TitoloEpisodio", "TVDB_DataPrimaTv", "TVDB_Creator", "TVDB_Director", "TVDB_Genere", "TVDB_Network", "TVDB_NumeroEpisodi"}
                 End If
 
                 If AL_UserData(x).Equals("STD_InfoImmagine") Then
@@ -446,22 +449,30 @@ Class MainWindow
 
         Select Case MI.Tag.ToString
             Case "STD_Testo"
-                Dim WND As New DLG_Aggiungi_TXT(Nothing)
-                WND.Owner = Me
-                WND.ShowDialog()
-                If WND.DialogResult = True Then
-                    If WND.Testo = "" Then Return
+                Dim CreaNuovo As Boolean = True
 
-                    ContenutoDati = "<STD_Testo><Testo><![CDATA[" & WND.Testo & "]]></Testo></STD_Testo>"
-                Else
-                    Return
-                End If
+                While CreaNuovo
+
+                    Dim WND As New DLG_Aggiungi_TXT(Nothing)
+                    WND.Owner = Me
+                    WND.ShowDialog()
+                    If WND.DialogResult = True Then
+                        If WND.Testo = "" Then Return
+
+                        ContenutoDati = "<STD_Testo><Testo><![CDATA[" & WND.Testo & "]]></Testo></STD_Testo>"
+                        AggiungiDatoStrutturaCollection(MI.Tag.ToString, ContenutoDati, False)
+                        UpdateLivePreview()
+
+                        CreaNuovo = WND.CreaNuovo
+                    Else
+                        Return
+                    End If
+                End While
 
             Case Else
+                AggiungiDatoStrutturaCollection(MI.Tag.ToString, ContenutoDati, False)
+                UpdateLivePreview()
         End Select
-
-        AggiungiDatoStrutturaCollection(MI.Tag.ToString, ContenutoDati, False)
-        UpdateLivePreview()
     End Sub
 
     Private Sub AggiornaMenuCategorie()
@@ -672,10 +683,9 @@ Class MainWindow
     End Sub
 
     Private Sub BTN_Anteprima_Click(sender As Object, e As RoutedEventArgs) Handles BTN_Anteprima.Click
-        If Timer_DelayLivePreview.IsEnabled Then
-            MsgBox(Localization.Resource_WND_Main.Msg_LivePreviewOccuped, MsgBoxStyle.Information, Localization.Resource_WND_Main.Btn_Anteprima)
-            Return
-        End If
+        'distruggo la livepreview se si sta generando
+        If Thread_RunLivePreview.IsAlive Then Thread_RunLivePreview.Abort()
+
         If Coll_Files.Count = 0 Then
             MsgBox(Localization.Resource_WND_Main.FileListEmpty, MsgBoxStyle.Information, Localization.Resource_WND_Main.Btn_Anteprima)
             Return
@@ -771,6 +781,11 @@ Class MainWindow
         End Try
 
         DG_Files.Items.Refresh() 'Update UI after items edited by code
+
+        If Coll_BlackList_New.Count > 0 Then
+            Badged_BlackListTips.Visibility = Visibility.Visible
+            Badged_BlackListTips.Badge = Coll_BlackList_New.Count 'TODO
+        End If
     End Sub
 
     Private Sub BTN_Rinomina_Click(sender As Object, e As RoutedEventArgs) Handles BTN_Rinomina.Click
@@ -1082,6 +1097,8 @@ Class MainWindow
             DG_Files.Background = VB
 
             BloccoOperazioni = False
+
+            Badged_BlackListTips.Visibility = Visibility.Collapsed
         Else
             MI_Menu_RimuoviSelezionati.IsEnabled = True
             MI_Menu_RimuoviTutto.IsEnabled = True
@@ -1673,5 +1690,10 @@ Class MainWindow
 
     Private Sub DG_TextBox_NomeFileRinominato_PreviewTextInput(sender As Object, e As TextCompositionEventArgs)
         e.Handled = ValidateNoSpecialChar(e.Text, False)
+    End Sub
+
+    Private Sub HY_BlackListTips_Click(sender As Object, e As RoutedEventArgs)
+        Badged_BlackListTips.Visibility = Visibility.Collapsed
+        MI_TerminiBlackList_Click(sender, e)
     End Sub
 End Class

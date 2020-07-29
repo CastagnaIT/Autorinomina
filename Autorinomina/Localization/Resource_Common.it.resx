@@ -142,13 +142,13 @@
     <value>Benvenuto in Autorinomina!\nSegui la guida rapida per imparare a rinominare in soli 3 passi.\n\nClicca per iniziare (Esc per uscire)</value>
   </data>
   <data name="Guide_Step2" xml:space="preserve">
-    <value>1° Passo\nSeleziona la categoria corrispondente al tipo di files da rinominare.\nAd esempio "Categoria immagini" per rinominare le tue foto.\n\nClicca per proseguire...</value>
+    <value>1° Passo\nSeleziona la categoria corrispondente al tipo di file da rinominare.\nAd esempio "Categoria immagini" per rinominare le tue foto.\n\nClicca per proseguire...</value>
   </data>
   <data name="Guide_Step3" xml:space="preserve">
-    <value>2° Passo\nTrascina qui i tuoi files da rinominare.\n\nClicca per proseguire…</value>
+    <value>2° Passo\nTrascina qui i tuoi file da rinominare.\n\nClicca per proseguire…</value>
   </data>
   <data name="Guide_Step4" xml:space="preserve">
-    <value>3° Passo\nPersonalizza il testo dei tuoi files.\nUtilizza il tasto "+" per aggiungere campi informazioni.\n\nClicca per proseguire...</value>
+    <value>3° Passo\nPersonalizza il testo dei tuoi file.\nUtilizza il tasto "+" per aggiungere campi informazioni.\n\nClicca per proseguire...</value>
   </data>
   <data name="Guide_Step5" xml:space="preserve">
     <value>Complimenti! ora sei pronto per rinominare!\nPer una guida dettagliata visita il sito web.\n\nClicca per chiudere.</value>
@@ -239,5 +239,14 @@
   </data>
   <data name="AR_Core_Error_ID3MetadataMissing" xml:space="preserve">
     <value>Metadata ID3 Tag mancante.</value>
+  </data>
+  <data name="Btn_AddNew" xml:space="preserve">
+    <value>Aggiungi e crea nuovo</value>
+  </data>
+  <data name="XMLStrutture_PasteError1" xml:space="preserve">
+    <value>Impossibile incollare il preset, ci sono errori nel codice.</value>
+  </data>
+  <data name="XMLStrutture_PasteError2" xml:space="preserve">
+    <value>Impossibile incollare il preset, categoria sbagliata.</value>
   </data>
 </root>

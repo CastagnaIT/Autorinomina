@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -205,6 +205,9 @@
     <value>Video extensions</value>
   </data>
   <data name="Extensions_WarningDesc" xml:space="preserve">
-    <value>Warning! Changing extensions recognized by the software may lead to unexpected behavior and errors. Therefore i am not responsible for any damage caused by improper use of this function.</value>
+    <value>Warning! Changing the extensions recognized by the software may cause unexpected behavior. The user is therefore aware that the improper use of this function may cause damage.</value>
+  </data>
+  <data name="OtherOptions_PreviewHintsNewBlackListWords" xml:space="preserve">
+    <value>Suggest new words to add in the black-list</value>
   </data>
 </root>

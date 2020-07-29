@@ -22,7 +22,7 @@ Namespace Localization
     '''<summary>
     '''  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Public Class Resource_WND_About
@@ -65,7 +65,7 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a Copyright © 2009-2017 Stefano Gottardo. All rights reserved..
+        '''  Cerca una stringa localizzata simile a Copyright © 2009-2018 Stefano Gottardo. All rights reserved..
         '''</summary>
         Public Shared ReadOnly Property Copyright() As String
             Get

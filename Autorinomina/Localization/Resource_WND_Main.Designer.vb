@@ -722,15 +722,6 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a Wait until the live preview is completed.
-        '''</summary>
-        Public Shared ReadOnly Property Msg_LivePreviewOccuped() As String
-            Get
-                Return ResourceManager.GetString("Msg_LivePreviewOccuped", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Cerca una stringa localizzata simile a A new version {0} of Autorinomina is available. Do you want to open the web page of downloads?.
         '''</summary>
         Public Shared ReadOnly Property Msg_NewVersion() As String

@@ -29,15 +29,15 @@
                         </GroupBox.Header>
                         <Grid>
                             <Label Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita}" HorizontalAlignment="Left" Margin="0,-1,0,0" VerticalAlignment="Top"/>
-                            <ComboBox x:Name="CB_SerieTv_ModalitaFiltro" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="210" IsReadOnly="True">
-                                <ListBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_Auto}"/>
-                                <ListBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_OnlyOnError}"/>
-                                <ListBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_CanChoose}"/>
+                            <ComboBox x:Name="CB_SerieTv_ModalitaFiltro" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="210">
+                                <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_Auto}"/>
+                                <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_OnlyOnError}"/>
+                                <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_CanChoose}"/>
                             </ComboBox>
                             <Label Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Error}" HorizontalAlignment="Left" Margin="0,61,0,0" VerticalAlignment="Top"/>
-                            <ComboBox x:Name="CB_SerieTv_ErroreFiltro" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="210" IsReadOnly="True">
-                                <ListBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Error_ManualFix}"/>
-                                <ListBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Error_NoRename}"/>
+                            <ComboBox x:Name="CB_SerieTv_ErroreFiltro" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="210">
+                                <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Error_ManualFix}"/>
+                                <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Error_NoRename}"/>
                             </ComboBox>
                             <CheckBox x:Name="CB_SerieTv_EliminaParentesiEP" Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_RemoveBracketEpisode}" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="343"/>
                             <CheckBox x:Name="CB_SerieTv_EliminaParentesiSerie" Content="{x:Static lang:Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_RemoveBracketSeriesTitle}" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="343"/>
@@ -166,12 +166,16 @@
                         </GroupBox.Header>
                         <Grid>
                             <Label x:Name="LB_TVDB_Lingua_Principale" Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_Language_Main}" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"  Width="215" IsEnabled="False" />
-                            <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,36,0,0" x:Name="CB_TVDB_Lingua_Principale" VerticalAlignment="Top" Width="205" DisplayMemberPath="name" SelectedValuePath="id" IsEnabled="False" />
+                            <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,36,0,0" x:Name="CB_TVDB_Lingua_Principale" VerticalAlignment="Top" Width="205" DisplayMemberPath="NomeLingua" SelectedValuePath="Abbr" IsEnabled="False" />
                             <Label x:Name="LB_TVDB_Lingua_Secondaria" Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_Language_Secondary}" HorizontalAlignment="Left" Margin="0,67,0,0"  VerticalAlignment="Top" Width="215" IsEnabled="False" />
-                            <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,98,0,0" x:Name="CB_TVDB_Lingua_Secondaria" VerticalAlignment="Top" Width="205" DisplayMemberPath="name" SelectedValuePath="id" IsEnabled="False" />
+                            <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,98,0,0" x:Name="CB_TVDB_Lingua_Secondaria" VerticalAlignment="Top" Width="205" DisplayMemberPath="NomeLingua" SelectedValuePath="Abbr" IsEnabled="False" />
+                            <CheckBox x:Name="CB_TVDB_Lingua_Fallback" Margin="10,135,0,0" VerticalAlignment="Top">
+                                <TextBlock Text="{x:Static lang:Resource_OpzioniAvanzate.TVDB_Language_FallbackEnglish}" TextWrapping="Wrap" />
+                            </CheckBox>
+                            <TextBlock Name="TB_TVDB_RicaricaLingue" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"><Hyperlink Click="HY_RicaricaLingue_Click" ><Run Text="{x:Static lang:Resource_OpzioniAvanzate.TVDB_ReloadLanguages}"/></Hyperlink></TextBlock>
                         </Grid>
                     </GroupBox>
-                    <GroupBox HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="238" Width="290">
+                    <GroupBox HorizontalAlignment="Center" Margin="307,10,10,0" VerticalAlignment="Top" Height="238" Width="587">
                         <GroupBox.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image HorizontalAlignment="Left"   Width="16" Source="Immagini/Opzioni_Generale2_16x16.png"/>
@@ -184,28 +188,17 @@
                                 <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_SearchMethod_CanChoose}"/>
                                 <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_SearchMethod_Auto}"/>
                             </ComboBox>
-                            <TextBlock Foreground="DarkBlue" Margin="0,68,0,0" Name="TextBlock20" Text="{x:Static lang:Resource_OpzioniAvanzate.TVDB_SearchMethod_Info}" VerticalAlignment="Top" Height="37" TextWrapping="Wrap" TextAlignment="Center" />
+                            <TextBlock Foreground="DarkBlue" Margin="0,68,345,0" Name="TextBlock20" Text="{x:Static lang:Resource_OpzioniAvanzate.TVDB_SearchMethod_Info}" VerticalAlignment="Top" Height="37" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Right" Width="230" />
                             <Label Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_SearchNoResults}" HorizontalAlignment="Left" Margin="0,117,0,0" VerticalAlignment="Top"  Width="268" />
                             <ComboBox x:Name="CB_TVDB_NessunRisultato" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="209">
                                 <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_SearchNoResults_UseFilter}"/>
                                 <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.Audio_NoTagNumber_NoRename}"/>
                             </ComboBox>
-                        </Grid>
-                    </GroupBox>
-                    <GroupBox HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Height="238" Width="290">
-                        <GroupBox.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image HorizontalAlignment="Left"   Width="16" Source="Immagini/Opzioni_Generale2_16x16.png"/>
-                                <Label Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_ManageCache}" Padding="0" Margin="10,0,0,0"/>
-                            </StackPanel>
-                        </GroupBox.Header>
-                        <Grid>
-                            <CheckBox x:Name="CB_TVDB_GestioneCacheAutomatica" Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_ManageCache_Auto}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <Slider x:Name="SL_LimiteManualeCache" Margin="10,88,10,0" VerticalAlignment="Top" Maximum="104857600" Minimum="20971520"/>
-                            <Label x:Name="LB_Text_GestioneManuale" Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_ManageCache_ManualLimit}" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
-                            <Label x:Name="LB_CacheLimite" Content="Limite impostato a 0 MB" HorizontalAlignment="Left" Margin="0,123,0,0" VerticalAlignment="Top"/>
-                            <Label x:Name="LB_CacheAttuale" Content="Spazio occupato" HorizontalAlignment="Left" Margin="0,149,0,0" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"><Hyperlink Click="HY_TVDB_SvuotaCache_Click" ><Run Text="{x:Static lang:Resource_OpzioniAvanzate.TVDB_ManageCache_ClearCache}"/></Hyperlink></TextBlock>
+                            <Label Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_AssociatedSeasons}" HorizontalAlignment="Left" Margin="289,0,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="CB_TVDB_AssociazioneStagioni" HorizontalAlignment="Left" Margin="306,31,0,0" VerticalAlignment="Top" Width="209">
+                                <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_AssociatedSeasons_0}"/>
+                                <ComboBoxItem Content="{x:Static lang:Resource_OpzioniAvanzate.TVDB_AssociatedSeasons_1}"/>
+                            </ComboBox>
                         </Grid>
                     </GroupBox>
                     <Image HorizontalAlignment="Left" Height="75" Margin="10,263,0,0" VerticalAlignment="Top" Width="123" Source="Immagini/TheTVDB_logo.png"/>

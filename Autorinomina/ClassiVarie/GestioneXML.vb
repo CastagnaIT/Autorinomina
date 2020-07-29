@@ -1,7 +1,7 @@
 ﻿Module GestioneXML
     Private XMLDoc_Settings As XDocument
     Private XMLDoc_Strutture As XDocument
-    Private XMLDoc_Language As XDocument
+
     Public Event UpdateLivePreviewEvent As EventHandler 'ugly hack to make live preview, i don't know a solution to check obscoll items changed
 
 #Region "Setting.xml"
@@ -25,11 +25,28 @@
     End Sub
 
     Public Function XMLSettings_Read(ByVal Chiave As String) As String
-        Return XMLDoc_Settings.<Impostazioni>.First.Element(Chiave).Value
+        Dim Elemento As XElement = XMLDoc_Settings.<Impostazioni>.FirstOrDefault.Element(Chiave)
+
+        If Elemento Is Nothing Then
+            Return FallbackDefaultXMLSettings.Item(Chiave)
+        Else
+            Return Elemento.Value
+        End If
     End Function
 
     Public Sub XMLSettings_Save(ByVal Chiave As String, ByRef Value As String)
-        XMLDoc_Settings.<Impostazioni>.First.Element(Chiave).Value = Value
+        Dim Elemento As XElement = XMLDoc_Settings.<Impostazioni>.FirstOrDefault.Element(Chiave)
+
+        If Elemento Is Nothing Then
+            Dim NuovoElement As New XElement(Chiave)
+            NuovoElement.Value = Value
+            XMLDoc_Settings.Descendants("Impostazioni").Last.Add(NuovoElement)
+
+        Else
+            Elemento.Value = Value
+        End If
+
+        'XMLDoc_Settings.<Impostazioni>.First.Element(Chiave).Value = Value
     End Sub
 
 #End Region
@@ -67,7 +84,7 @@
         Try
             ElementToParse = XElement.Parse(_ClipBoardXML.Trim)
         Catch ex As Exception
-            Throw New Exception("Impossibile incollare il preset, ci sono errori nel codice.")
+            Throw New Exception(Autorinomina.Localization.Resource_Common.XMLStrutture_PasteError1)
         End Try
 
         If ElementToParse IsNot Nothing Then
@@ -75,10 +92,10 @@
             'TODO: verificare stringhe tipodati
 
             If Not ElementToParse.Name.ToString.Equals(XMLSettings_Read("CategoriaSelezionata")) Then
-                Throw New Exception("Impossibile incollare il preset, categoria sbagliata.")
+                Throw New Exception(Autorinomina.Localization.Resource_Common.XMLStrutture_PasteError2)
             End If
             If Not ElementToParse.Attribute("nome").Value.Equals("ClipBoard") Then
-                Throw New Exception("Impossibile incollare, ci sono errori nel codice.")
+                Throw New Exception(Autorinomina.Localization.Resource_Common.XMLStrutture_PasteError1)
             End If
 
             Coll_Struttura.Clear()
@@ -182,7 +199,7 @@
             If valore Is Nothing Then
                 Return IIf(OverrideFallBack Is Nothing, FallbackDefaultDataStruttura.Item(NomeDato), OverrideFallBack)
             Else
-                Debug.Print("LeggiStringOpzioni: Nomedato: " & NomeDato & " |Nuovo valore: '" & valore & "'")
+                'Debug.Print("LeggiStringOpzioni: Nomedato: " & NomeDato & " |Nuovo valore: '" & valore & "'")
 
                 Return valore
             End If

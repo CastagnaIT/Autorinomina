@@ -13,6 +13,7 @@ Public Class AR_Core
         ASPECTRATIO
         FRAMERATE
         CODECVIDEO
+        ENCODEDLIBRARYNAME
         DURATA
         CODECAUDIO
         CODECAUDIOLINGUA
@@ -106,7 +107,7 @@ Public Class AR_Core
                 '            End If
                 '            End If
 
-                ResultMatches = Regex.Matches(Testo, Regex.Escape(termine.Termine), RegexOptions.Compiled)
+                ResultMatches = Regex.Matches(Testo, Regex.Escape(termine.Termine), RegexOptions.None)
             Else
                 ' If SerieTvVariantMatch Then
                 ' If Regex.IsMatch(termine.Termine, "^\s{1}", RegexOptions.Compiled) Then
@@ -121,7 +122,7 @@ Public Class AR_Core
                 '            End If
                 '            End If
 
-                ResultMatches = Regex.Matches(Testo, Regex.Escape(termine.Termine), RegexOptions.Compiled + RegexOptions.IgnoreCase)
+                ResultMatches = Regex.Matches(Testo, Regex.Escape(termine.Termine), RegexOptions.IgnoreCase)
             End If
 
             For n As Integer = ResultMatches.Count - 1 To 0 Step -1
@@ -133,29 +134,28 @@ Public Class AR_Core
     End Function
 
     Protected Function RimozioneTerminiBlackList(Testo As String, ByRef CollTermini As CollItemsTermini, Optional LasciaSpazi As Boolean = False) As String
-        Dim TrePuntiConsecutivi As Boolean = False
-        TrePuntiConsecutivi = Regex.IsMatch(Testo, "\.{3}", RegexOptions.Compiled + RegexOptions.IgnoreCase)
+        Dim TrePuntiConsecutivi As Boolean = Regex.IsMatch(Testo, "\.{3}", RegexOptions.IgnoreCase)
 
         For Each termine In CollTermini
 
-            Dim ResultMatches As MatchCollection
-            Dim RegexPattern As String = "([^a-z|A-Z|^0-9]|^|\||\G)" & termine.Termine.Replace(" ", ".") & "([^a-z|A-Z|^0-9]|$|\|)"
+            Dim RegexPattern As String = "([^a-z|A-Z|^0-9]|^|\||\G)" & Regex.Escape(termine.Termine).Replace("\ ", ".") & "([^a-z|A-Z|^0-9]|$|\|)"
+            Dim RegexOptions As RegexOptions = RegexOptions.None ' RegexOptions.Compiled rimosso perchè triplica il tempo di esecuzione
 
-            If termine.CaseSensitive.Equals("True") Then
-                ResultMatches = Regex.Matches(Testo, RegexPattern, RegexOptions.Compiled)
-            Else
-                ResultMatches = Regex.Matches(Testo, RegexPattern, RegexOptions.Compiled + RegexOptions.IgnoreCase)
+            If CBool(termine.CaseSensitive) = False Then RegexOptions += RegexOptions.IgnoreCase
+
+            If Regex.IsMatch(Testo, RegexPattern, RegexOptions) Then
+                Dim ResultMatches As MatchCollection = Regex.Matches(Testo, RegexPattern, RegexOptions)
+
+                For mIndex As Integer = ResultMatches.Count - 1 To 0 Step -1
+                    Testo = Testo.Remove(ResultMatches(mIndex).Index, ResultMatches(mIndex).Length)
+                    Testo = Testo.Insert(ResultMatches(mIndex).Index, "|") 'aggiungere questo corregge il riconoscimento per i termini sucessivi
+                    'esempio:
+                    ' Breaking.Bad.5x06.Buonuscita.ITA.BDRip.x264-NovaRip
+                    ' Breaking.Bad.5x06.Buonuscita.ITA.BDRip|    <<<<< rimosso ITA e sostituito con |
+                    ' Breaking.Bad.5x06.Buonuscita|BDRip|    <<<<< senza | risulterebbe: Breaking.Bad.5x06.BuonuscitaBDRip    >>>>> e la parola BDRip non sarebbe rimossa perchè adiacente al testo
+                    ' Breaking.Bad.5x06.Buonuscita|
+                Next
             End If
-
-            For mIndex As Integer = ResultMatches.Count - 1 To 0 Step -1
-                Testo = Testo.Remove(ResultMatches(mIndex).Index, ResultMatches(mIndex).Length)
-                Testo = Testo.Insert(ResultMatches(mIndex).Index, "|") 'aggiungere questo corregge il riconoscimento per i termini sucessivi
-                'esempio:
-                ' Breaking.Bad.5x06.Buonuscita.ITA.BDRip.x264-NovaRip
-                ' Breaking.Bad.5x06.Buonuscita.ITA.BDRip|
-                ' Breaking.Bad.5x06.Buonuscita|BDRip|    <<<<< senza risulterebbe: Breaking.Bad.5x06.BuonuscitaBDRip    >>>>> e la parola BDRip non sarebbe rimossa perchè adiacente al testo
-                ' Breaking.Bad.5x06.Buonuscita|
-            Next
         Next
 
         If LasciaSpazi Then
@@ -167,13 +167,13 @@ Public Class AR_Core
         'rimozione parentesi vuote
         Dim ResultMatchesP As MatchCollection
         Dim RegexPatternP As String = "\[\]"
-        ResultMatchesP = Regex.Matches(Testo, RegexPatternP, RegexOptions.Compiled)
+        ResultMatchesP = Regex.Matches(Testo, RegexPatternP, RegexOptions.None)
         For Each match As Match In ResultMatchesP
             Testo = Testo.Remove(match.Index, match.Length)
         Next
 
         RegexPatternP = "\(\)"
-        ResultMatchesP = Regex.Matches(Testo, RegexPatternP, RegexOptions.Compiled)
+        ResultMatchesP = Regex.Matches(Testo, RegexPatternP, RegexOptions.None)
         For Each match As Match In ResultMatchesP
             Testo = Testo.Remove(match.Index, match.Length)
         Next
@@ -398,7 +398,7 @@ Public Class AR_Core
                 Return NumeroPos1.ToString("D2") & NumeroPos2.ToString("D" & PaddingZeros) & IIf(Not NumeroPos2Concat = 0, NumeroPos2Concat.ToString("D" & PaddingZeros), "")
 
             Case Else
-                Throw New Exception("Number style format not supported.")
+                Throw New Exception("Style number '" & Stile & "' not recognized.")
         End Select
     End Function
 
@@ -456,7 +456,7 @@ Public Class AR_Core
             Temp = MI.Get_(StreamKind.Video, 0, "FrameRate/String")
             If Not String.IsNullOrEmpty(Temp) Then
                 Try
-                    Temp = Format(CDbl(Temp.Replace(".", ",").Replace("fps", "")), "0.###")
+                    Temp = Format(CDbl(Temp.Replace(".", ",").ToLower.Replace("fps", "")), "0.###")
                 Catch ex As Exception
                 End Try
 
@@ -464,9 +464,15 @@ Public Class AR_Core
             End If
 
             'Codec video
-            Temp = MI.Get_(StreamKind.Video, 0, "CodecID/Hint")
+            Temp = MI.Get_(StreamKind.Video, 0, "Format") 'vecchia versione dll utilizzava "CodecID/Hint"
             If Not String.IsNullOrEmpty(Temp) Then
                 Val(FINFO_VIDEO.CODECVIDEO) = Temp
+            End If
+
+            'Libreria di codifica
+            Temp = MI.Get_(StreamKind.Video, 0, "Encoded_Library_Name")
+            If Not String.IsNullOrEmpty(Temp) Then
+                Val(FINFO_VIDEO.ENCODEDLIBRARYNAME) = Temp
             End If
 
             'Durata (in ms)
@@ -488,7 +494,7 @@ Public Class AR_Core
                 Next
 
                 If Temp2.Length > 0 Then
-                    Val(FINFO_VIDEO.CODECAUDIO) = Temp2
+                    Val(FINFO_VIDEO.CODECAUDIO) = Temp2.Substring(0, Temp2.Length - 1)
                 End If
             End If
 
@@ -509,7 +515,7 @@ Public Class AR_Core
                 Next
 
                 If Not String.IsNullOrEmpty(Temp3) Then
-                    Val(FINFO_VIDEO.CODECAUDIOLINGUA) = Temp3.Substring(0, Temp3.Length - 2)
+                    Val(FINFO_VIDEO.CODECAUDIOLINGUA) = Temp3.Substring(0, Temp3.Length - 1)
                 End If
             End If
 
@@ -524,7 +530,7 @@ Public Class AR_Core
                 Next
 
                 If Not String.IsNullOrEmpty(Temp2) Then
-                    Val(FINFO_VIDEO.LINGUE) = Temp2.Substring(0, Temp2.Length - 2)
+                    Val(FINFO_VIDEO.LINGUE) = Temp2.Substring(0, Temp2.Length - 1)
                 End If
             End If
 
@@ -539,7 +545,7 @@ Public Class AR_Core
                 Next
 
                 If Not String.IsNullOrEmpty(Temp2) Then
-                    Val(FINFO_VIDEO.LINGUE) = Temp2.Substring(0, Temp2.Length - 2)
+                    Val(FINFO_VIDEO.LINGUE) = Temp2.Substring(0, Temp2.Length - 1)
                 End If
             End If
 
@@ -682,7 +688,7 @@ Public Class AR_Core
 
         For Each Pattern As String In RegexPatterns
 
-            Dim ResultMatches As MatchCollection = Regex.Matches(Testo, Pattern, RegexOptions.Compiled + RegexOptions.IgnoreCase)
+            Dim ResultMatches As MatchCollection = Regex.Matches(Testo, Pattern, RegexOptions.IgnoreCase)
             For n As Integer = ResultMatches.Count - 1 To 0 Step -1
                 Testo = Testo.Remove(ResultMatches(n).Index, ResultMatches(n).Length)
                 Testo = Testo.Insert(ResultMatches(n).Index, Space(1))
@@ -735,7 +741,7 @@ Public Class AR_Core
 
             Case 2 'Capitalizza Mix
                 Testo = Testo.ToLower
-                Dim ResultMatches As MatchCollection = Regex.Matches(Testo, "\b\S{4,}\b", RegexOptions.Compiled + RegexOptions.IgnoreCase)
+                Dim ResultMatches As MatchCollection = Regex.Matches(Testo, "\b\S{4,}\b", RegexOptions.IgnoreCase)
                 For Each match As Match In ResultMatches
                     'prima rimuovo la parola da modificare
                     Testo = Testo.Remove(match.Index, match.Length)
@@ -747,7 +753,7 @@ Public Class AR_Core
             Case 3, 4 'Solo prima lettera maiuscola dell'intera stringa (4 = prima lettera maiuscola anche dopo ogni separatore scelto)
                 If SeparatorePresente Then
                     Testo = Testo.ToLower
-                    Dim ResultMatches As MatchCollection = Regex.Matches(Testo, "\b\S*\b", RegexOptions.Compiled + RegexOptions.IgnoreCase)
+                    Dim ResultMatches As MatchCollection = Regex.Matches(Testo, "\b\S*\b", RegexOptions.IgnoreCase)
                     If ResultMatches.Count >= 1 Then
                         'prima rimuovo la parola da modificare
                         Testo = Testo.Remove(ResultMatches(0).Index, ResultMatches(0).Length)

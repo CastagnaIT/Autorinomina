@@ -1,13 +1,21 @@
 ﻿Imports System.Text.RegularExpressions
+Imports TvDbSharper
+Imports TvDbSharper.BaseSchemas
+Imports TvDbSharper.Clients.Episodes.Json
+Imports TvDbSharper.Clients.Search.Json
+Imports TvDbSharper.Clients.Series.Json
 
-Public  Class AR_Core_SerieTv
+Public Class AR_Core_SerieTv
     Inherits AR_Core
 
     Dim Coll_TerminiBlackList As New CollItemsTermini
     Dim Coll_TerminiSostituzioni As New CollItemsTermini
-    Dim tvDB As TvdbLib.TvdbHandler
+    ' Dim tvDB As TvdbLib.TvdbHandler
+    Dim tvDB As New TvDbClient()
 
     Dim TVDB_Dizionario_Trovati As New Dictionary(Of String, String())
+    ' Dim TVDB_Cache As New Dictionary(Of String, BasicEpisode())
+    Public TVDB_Cache As New CollItemsTVDBCache
 
     Dim Filtro_Tipo As String = "#"
     Dim Filtro_ApplyOnAll As Boolean = False
@@ -30,8 +38,8 @@ Public  Class AR_Core_SerieTv
 
         Coll_TerminiBlackList.AddRange(XmlSerialization.ReadFromXmlFile(Of ItemTermine)(DataPath & "\" & "BlackList_CATEGORIA_serietv.xml", "BlackList"))
         Coll_TerminiSostituzioni.AddRange(XmlSerialization.ReadFromXmlFile(Of ItemTermine)(DataPath & "\" & "Sostituzioni_CATEGORIA_serietv.xml", "Sostituzioni"))
-        Debug.Print("load")
-        If (InfoRichiesteStruttura.Contains("TVDB_")) Then tvDB = New TvdbLib.TvdbHandler(New TvdbLib.Cache.XmlCacheProvider(IO.Path.Combine(DataPath, "cache")), TVDB_APIKEY)
+
+        If (InfoRichiesteStruttura.Contains("TVDB_")) Then tvDB.Authentication.AuthenticateAsync(TVDB_APIKEY).Wait()
     End Sub
 
     Private Delegate Function Delegate_GeneralFunc(ByVal ParameterToPass As String) As String()
@@ -65,7 +73,7 @@ Public  Class AR_Core_SerieTv
         Dim Estensione As String = IO.Path.GetExtension(PathFile)
 
         'Scelta del filtro
-        Dim config_SceltaFiltro As String = IIf(LivePreview, 0, XMLSettings_Read("CATEGORIA_serietv_config_SceltaFiltro"))
+        Dim config_SceltaFiltro As String = IIf(LivePreview, "0", XMLSettings_Read("CATEGORIA_serietv_config_SceltaFiltro"))
         If Filtro_ApplyOnAll OrElse Not InfoRichiesteStruttura.Contains("AR_") Then config_SceltaFiltro = "0"
 
         Select Case config_SceltaFiltro
@@ -146,7 +154,9 @@ Public  Class AR_Core_SerieTv
             Dim ordineEpisodi As Integer = 0
             If Not IT Is Nothing Then ordineEpisodi = LeggiStringOpzioni("OrdineEpisodi", IT.Opzioni)
 
-            Info_TVDB = Get_TVDB_Info(TvDB_DatiSelezionati.Value(0), TvDB_DatiSelezionati.Value(1), Episodio, Stagione, InfoFiltrate(2), ordineEpisodi)
+            Dim LeggiDettagliEpisodi As Boolean = Coll_Struttura.FirstOrDefault(Function(i) i.TipoDato = "TVDB_Creator" OrElse i.TipoDato = "TVDB_Director") IsNot Nothing
+
+            Info_TVDB = Get_TVDB_Info(TvDB_DatiSelezionati.Value(0), TvDB_DatiSelezionati.Value(1), Episodio, Stagione, InfoFiltrate(2), ordineEpisodi, LeggiDettagliEpisodi)
 
             If Info_TVDB Is Nothing AndAlso XMLSettings_Read("TVDB_Risultati").Equals("False") Then
                 'nel caso non ci siano risultati su TheTVDB non rinominare
@@ -278,6 +288,10 @@ Public  Class AR_Core_SerieTv
                     NuovoContenuto = Info_MI(FINFO_VIDEO.CODECVIDEO)
                     IgnoraConversioneMM = True
 
+                Case "MI_EncodedLibraryName"
+                    NuovoContenuto = Info_MI(FINFO_VIDEO.ENCODEDLIBRARYNAME)
+                    IgnoraConversioneMM = True
+
                 Case "MI_CodecAudio"
                     NuovoContenuto = Info_MI(FINFO_VIDEO.CODECAUDIO)
                     IgnoraConversioneMM = True
@@ -393,9 +407,17 @@ Public  Class AR_Core_SerieTv
 
 
 
-    Private Function Get_TVDB_Info(ID_SerieTv As String, linguaAbbrev As String, numeroEpisodio As Integer, numeroStagione As Integer, nomeSerieTv As String, ordineEpisodi As Integer) As String()
-        Dim ListaLingue As List(Of TvdbLib.Data.TvdbLanguage) = tvDB.Languages
-        tvDB.InitCache()
+    Private Function Get_TVDB_Info(ID_SerieTv As String, linguaAbbrev As String, numeroEpisodio As Integer, numeroStagione As Integer, nomeSerieTv As String, ordineEpisodi As Integer, LeggiDettagliEpisodi As Boolean) As String()
+        'definisco lingue per la ricerca
+
+        Dim RichiestaElencoLingue As Task(Of TvDbResponse(Of Clients.Languages.Json.Language())) = tvDB.Languages.GetAllAsync()
+        RichiestaElencoLingue.Wait()
+        Dim ElencoLingue As TvDbResponse(Of Clients.Languages.Json.Language()) = RichiestaElencoLingue.Result
+
+        Dim LinguaPrimaria As Clients.Languages.Json.Language = ElencoLingue.Data.FirstOrDefault(Function(i) i.Abbreviation = XMLSettings_Read("TVDB_LinguaPrimaria"))
+        Dim LinguaSecondaria As Clients.Languages.Json.Language = ElencoLingue.Data.FirstOrDefault(Function(i) i.Abbreviation = XMLSettings_Read("TVDB_LinguaSecondaria"))
+
+
 
         If ID_SerieTv.Equals("-1") Then
             Try
@@ -407,42 +429,45 @@ Public  Class AR_Core_SerieTv
                     Dim nomeSerieTvPulita As String = Regex.Replace(nomeSerieTv, "\s{2,}", Space(1)) 'elimino più spazi vuoti consecutivi
                     nomeSerieTvPulita = Regex.Replace(nomeSerieTvPulita, "[^a-zA-Z\s\d]", "") 'elimino caratteri speciali
 
-                    Dim LinguaPrimaria As TvdbLib.Data.TvdbLanguage = ListaLingue.Find(Function(x) x.Abbriviation = XMLSettings_Read("TVDB_LinguaPrimaria"))
-                    Dim LinguaSecondaria As TvdbLib.Data.TvdbLanguage = ListaLingue.Find(Function(x) x.Abbriviation = XMLSettings_Read("TVDB_LinguaSecondaria"))
 
                     '>> ricerca con lingua primaria
-
-                    Dim Risultati As List(Of TvdbLib.Data.TvdbSearchResult) = tvDB.SearchSeries(nomeSerieTvPulita, LinguaPrimaria)
+                    tvDB.AcceptedLanguage = LinguaPrimaria.Abbreviation
+                    Dim Cerca_Lang_Primaria As Task(Of TvDbResponse(Of SeriesSearchResult())) = tvDB.Search.SearchSeriesByNameAsync(nomeSerieTvPulita)
+                    Cerca_Lang_Primaria.Wait()
+                    Dim ListaSerieLngPrimaria As TvDbResponse(Of SeriesSearchResult()) = Cerca_Lang_Primaria.Result
                     Dim ricercaConclusa As Boolean = False
 
-                    For Each series As TvdbLib.Data.TvdbSearchResult In Risultati
+                    For Each SerieItem In ListaSerieLngPrimaria.Data
                         For Each parola As String In nomeSerieTvPulita.Split(Space(1))
                             If parola.Length <= 3 Then Continue For
-                            If series.SeriesName.Contains(parola) Then
-                                ID_SerieTv = series.Id
-                                linguaAbbrev = LinguaPrimaria.Abbriviation
+                            If SerieItem.SeriesName.Contains(parola) Then
+                                ID_SerieTv = SerieItem.Id
+                                linguaAbbrev = LinguaPrimaria.Abbreviation
                                 ricercaConclusa = True
                             End If
                         Next
                         If ricercaConclusa Then Exit For
                     Next
 
+
                     '>> ricerca con lingua secondaria
                     If Not ricercaConclusa Then
-                        Risultati = tvDB.SearchSeries(nomeSerieTvPulita, LinguaSecondaria)
+                        tvDB.AcceptedLanguage = LinguaSecondaria.Abbreviation
+                        Dim Cerca_Lang_Secondaria As Task(Of TvDbResponse(Of SeriesSearchResult())) = tvDB.Search.SearchSeriesByNameAsync(nomeSerieTvPulita)
+                        Cerca_Lang_Secondaria.Wait()
+                        Dim ListaSerieLngSecondaria As TvDbResponse(Of SeriesSearchResult()) = Cerca_Lang_Secondaria.Result
 
-                        For Each series As TvdbLib.Data.TvdbSearchResult In Risultati
+                        For Each SerieItem In ListaSerieLngSecondaria.Data
                             For Each parola As String In nomeSerieTvPulita.Split(Space(1))
                                 If parola.Length <= 3 Then Continue For
-                                If series.SeriesName.Contains(parola) Then
-                                    ID_SerieTv = series.Id
-                                    linguaAbbrev = LinguaSecondaria.Abbriviation
+                                If SerieItem.SeriesName.Contains(parola) Then
+                                    ID_SerieTv = SerieItem.Id
+                                    linguaAbbrev = LinguaSecondaria.Abbreviation
                                     ricercaConclusa = True
                                 End If
                             Next
                             If ricercaConclusa Then Exit For
                         Next
-
                     End If
 
                     If ID_SerieTv.Equals("-1") Then
@@ -462,125 +487,176 @@ Public  Class AR_Core_SerieTv
         Dim titoloEpisodio As String = ""
         Dim titoloSerieTv As String = ""
         Dim dataPrimaTv As String = ""
+        Dim ListEpisodi As BasicEpisode() = Nothing
+        Dim Serie As Series = Nothing
+
+        tvDB.AcceptedLanguage = linguaAbbrev
 
         Try
-            Dim LinguaScelta As TvdbLib.Data.TvdbLanguage = ListaLingue.Find(Function(x) x.Abbriviation = linguaAbbrev)
-            Dim Serie As TvdbLib.Data.TvdbSeries = tvDB.GetSeries(ID_SerieTv, LinguaScelta, True, False, True, True)
 
-            Dim ListEpisodi As List(Of TvdbLib.Data.TvdbEpisode) = Serie.GetEpisodes(numeroStagione)
+            'controllo se già aggiunta nella cache
+            Dim CACHED_EPISODE As ItemTVDBCache = TVDB_Cache.FirstOrDefault(Function(i) i.ID_SerieTv = ID_SerieTv AndAlso i.NStagione = numeroStagione)
+            If CACHED_EPISODE Is Nothing Then
+                'cerco info serie
+                Dim cercaSerie As Task(Of TvDbResponse(Of Series)) = tvDB.Series.GetAsync(ID_SerieTv, SeriesFilter.FirstAired + SeriesFilter.Genre + SeriesFilter.Network + SeriesFilter.SeriesName)
+                cercaSerie.Wait()
+                Serie = cercaSerie.Result.Data
 
-            Select Case ordineEpisodi
-                Case 1 'ordine dvd (episodi con l'ordine originale del dvd)
+                'cerco info episodi
+                Dim EQ As New EpisodeQuery
+                Select Case Integer.Parse(XMLSettings_Read("TVDB_AssociazioneStagioni"))
+                    Case 0
+                        EQ.AiredSeason = numeroStagione
+                    Case 1
+                        EQ.DvdSeason = numeroStagione
+                End Select
 
-                    If ListEpisodi(0).DvdEpisodeNumber = Nothing Then Throw New ARCoreException(Localization.Resource_Common.AR_Core_Error_TVDB_InexistentDVDnumerazion)
+                Dim tasks = New List(Of Task(Of TvDbResponse(Of BasicEpisode())))()
+                Dim Risposta_Pag1 = tvDB.Series.GetEpisodesAsync(ID_SerieTv, 1, EQ)
+                Risposta_Pag1.Wait()
 
-                    ListEpisodi = ListEpisodi.OrderBy(Function(a) a.DvdEpisodeNumber,
-                                     Comparer(Of Double).Create(Function(key1, key2)
-                                                                    Dim Ep1N As Double = 0
-                                                                    Dim Ep2N As Double = 0
+                'attenzione con json la ricerca degli episodi avviene per pagine da 100 risultati, quindi è necessario richiamare ogni pagina
+                If Risposta_Pag1.Result.Links.Last > 1 Then
+                    For i As Integer = 2 To Risposta_Pag1.Result.Links.Last
+                        tasks.Add(tvDB.Series.GetEpisodesAsync(ID_SerieTv, i, EQ))
+                    Next
 
-                                                                    If Not key1 = Nothing Then
-                                                                        Ep1N = key1
-                                                                        Ep2N = key2
-                                                                    End If
+                    Dim Risposta_AltrePag = Task.WhenAll(tasks)
+                    Risposta_AltrePag.Wait()
+                    Risposta_Pag1.Result.Data.Concat(Risposta_AltrePag.Result.SelectMany(Function(x) x.Data))
+                End If
 
-                                                                    If Ep1N = Ep2N Then Return 0
-                                                                    Return IIf(Ep1N < Ep2N, -1, 1)
-                                                                End Function)).ToList
 
-                Case 2, 3
-                    '2 ordine dvd combinato (episodi con l'ordine originale del dvd, ma con eventuali puntate unificate. ES: il primo episodio contiene le prime 3 puntate)
-                    '3 ordine dvd combinato con titoli (stesso del caso 2, ma qui vengono concatenate nel nome dell'episodio tutti i titoli delle 3 puntate)
 
-                    If ListEpisodi(0).DvdEpisodeNumber = Nothing Then Throw New ARCoreException(Localization.Resource_Common.AR_Core_Error_TVDB_InexistentDVDnumerazion)
+                ListEpisodi = Risposta_Pag1.Result.Data
 
-                    ListEpisodi = ListEpisodi.OrderBy(Function(a) a.DvdEpisodeNumber,
-                                   Comparer(Of Double).Create(Function(key1, key2)
-                                                                  Dim Ep1N As Double = 0
-                                                                  Dim Ep2N As Double = 0
+                Select Case ordineEpisodi
+                    Case 1 'ordine dvd (episodi con l'ordine originale del dvd)
 
-                                                                  If Not key1 = Nothing Then
-                                                                      Ep1N = key1
-                                                                      Ep2N = key2
-                                                                  End If
+                        If ListEpisodi(0).DvdEpisodeNumber Is Nothing Then Throw New ARCoreException(Localization.Resource_Common.AR_Core_Error_TVDB_InexistentDVDnumerazion)
 
-                                                                  If Ep1N = Ep2N Then Return 0
-                                                                  Return IIf(Ep1N < Ep2N, -1, 1)
-                                                              End Function)).ToList
+                        ListEpisodi = ListEpisodi.OrderBy(Function(a) a.DvdEpisodeNumber,
+                                     Comparer(Of Decimal).Create(Function(key1, key2)
+                                                                     Dim Ep1N As Decimal = 0
+                                                                     Dim Ep2N As Decimal = 0
 
-                    Dim tempLE As New List(Of TvdbLib.Data.TvdbEpisode)
-                    Dim tempNepisodio As Integer = 0
-                    Dim tempNCombinati As Integer = 0
-                    Dim tempTitoliEpisodi As String = ""
+                                                                     If Not key1 = Nothing Then
+                                                                         Ep1N = key1
+                                                                         Ep2N = key2
+                                                                     End If
 
-                    For x As Integer = 0 To ListEpisodi.Count - 1
-                        Dim episode As TvdbLib.Data.TvdbEpisode = ListEpisodi(x)
-                        Dim Nepisodio As Integer = Integer.Parse(Regex.Split(episode.DvdEpisodeNumber.ToString, "\.")(0))
+                                                                     If Ep1N = Ep2N Then Return 0
+                                                                     Return IIf(Ep1N < Ep2N, -1, 1)
+                                                                 End Function)).ToArray
 
-                        If Not tempNepisodio = Nepisodio Then
-                            If tempLE.Count > 1 AndAlso tempNCombinati > 1 Then
-                                If ordineEpisodi = 2 Then
-                                    tempLE(tempLE.Count - 1).EpisodeName = tempLE(tempLE.Count - 1).EpisodeName & " (" & tempNCombinati & Space(1) & Localization.Resource_Common.AR_Core_Episodes & ")"
-                                Else
-                                    tempLE(tempLE.Count - 1).EpisodeName = tempTitoliEpisodi
-                                End If
+                    Case 2, 3
+                        '2 ordine dvd combinato (episodi con l'ordine originale del dvd, ma con eventuali puntate unificate. ES: il primo episodio contiene le prime 3 puntate)
+                        '3 ordine dvd combinato con titoli (stesso del caso 2, ma qui vengono concatenate nel nome dell'episodio tutti i titoli delle 3 puntate)
 
-                                tempLE.Add(episode)
+                        If ListEpisodi(0).DvdEpisodeNumber Is Nothing Then Throw New ARCoreException(Localization.Resource_Common.AR_Core_Error_TVDB_InexistentDVDnumerazion)
 
-                                tempTitoliEpisodi = episode.EpisodeName
-                                tempNCombinati = 1
-                            Else
+                        ListEpisodi = ListEpisodi.OrderBy(Function(a) a.DvdEpisodeNumber,
+                                   Comparer(Of Decimal).Create(Function(key1, key2)
+                                                                   Dim Ep1N As Decimal = 0
+                                                                   Dim Ep2N As Decimal = 0
 
-                                tempTitoliEpisodi &= ", " & episode.EpisodeName
-                                tempNCombinati += 1
+                                                                   If Not key1 = Nothing Then
+                                                                       Ep1N = key1
+                                                                       Ep2N = key2
+                                                                   End If
 
-                                If tempLE.Count - 1 = x AndAlso tempNCombinati > 1 Then
+                                                                   If Ep1N = Ep2N Then Return 0
+                                                                   Return IIf(Ep1N < Ep2N, -1, 1)
+                                                               End Function)).ToArray
+
+                        Dim tempLE As New List(Of BasicEpisode)
+                        Dim tempNepisodio As Integer = 0
+                        Dim tempNCombinati As Integer = 0
+                        Dim tempTitoliEpisodi As String = ""
+
+                        For x As Integer = 0 To ListEpisodi.Count - 1
+                            Dim episode As BasicEpisode = ListEpisodi(x)
+                            Dim Nepisodio As Integer = Integer.Parse(Regex.Split(episode.DvdEpisodeNumber.ToString, "\.")(0))
+
+                            If Not tempNepisodio = Nepisodio Then
+                                If tempLE.Count > 1 AndAlso tempNCombinati > 1 Then
                                     If ordineEpisodi = 2 Then
                                         tempLE(tempLE.Count - 1).EpisodeName = tempLE(tempLE.Count - 1).EpisodeName & " (" & tempNCombinati & Space(1) & Localization.Resource_Common.AR_Core_Episodes & ")"
                                     Else
                                         tempLE(tempLE.Count - 1).EpisodeName = tempTitoliEpisodi
                                     End If
+
+                                    tempLE.Add(episode)
+
+                                    tempTitoliEpisodi = episode.EpisodeName
+                                    tempNCombinati = 1
+                                Else
+
+                                    tempTitoliEpisodi &= ", " & episode.EpisodeName
+                                    tempNCombinati += 1
+
+                                    If tempLE.Count - 1 = x AndAlso tempNCombinati > 1 Then
+                                        If ordineEpisodi = 2 Then
+                                            tempLE(tempLE.Count - 1).EpisodeName = tempLE(tempLE.Count - 1).EpisodeName & " (" & tempNCombinati & Space(1) & Localization.Resource_Common.AR_Core_Episodes & ")"
+                                        Else
+                                            tempLE(tempLE.Count - 1).EpisodeName = tempTitoliEpisodi
+                                        End If
+                                    End If
                                 End If
                             End If
-                        End If
 
-                        tempNepisodio = Nepisodio
-                    Next
+                            tempNepisodio = Nepisodio
+                        Next
 
-                    ListEpisodi = tempLE
+                        ListEpisodi = tempLE.ToArray
 
-                Case Else 'ordine di default di the tvdb
+                    Case Else 'ordine di default di the tvdb
 
-                    ListEpisodi = ListEpisodi.OrderBy(Function(a) a.EpisodeNumber,
+                        ListEpisodi = ListEpisodi.OrderBy(Function(a) a.AiredEpisodeNumber,
                                   Comparer(Of Integer).Create(Function(key1, key2)
                                                                   If key1 = key2 Then Return 0
                                                                   Return IIf(key1 < key2, -1, 1)
-                                                              End Function)).ToList
-            End Select
+                                                              End Function)).ToArray
+                End Select
+
+
+                TVDB_Cache.Add(New ItemTVDBCache(ID_SerieTv, numeroStagione, ListEpisodi, Serie))
+
+            Else
+
+                ListEpisodi = CACHED_EPISODE.Episodi
+                Serie = CACHED_EPISODE.Serie
+            End If
+
+
 
             Dim Val(FINFO_TVDB.Count - 1) As String
 
             If Not ListEpisodi Is Nothing AndAlso ListEpisodi.Count >= numeroEpisodio Then
-                Dim episode As TvdbLib.Data.TvdbEpisode = ListEpisodi(numeroEpisodio - 1)
+                Dim episode As BasicEpisode = ListEpisodi(numeroEpisodio - 1)
 
-                Val(FINFO_TVDB.TITOLOEPISODIO) = episode.EpisodeName
                 Val(FINFO_TVDB.TITOLOSERIETV) = Serie.SeriesName
+                Val(FINFO_TVDB.TITOLOEPISODIO) = episode.EpisodeName
+
+                'Nel caso di titolo dell'episodio mancante nella lingua scelta eseguo un fallback to english (come faceva TVDB APIv1)
+                If String.IsNullOrEmpty(episode.EpisodeName) Then
+                    If XMLSettings_Read("TVDB_LinguaFallBack").Equals("True") Then
+                        Debug.Print("FALLBACK episodio: " & numeroEpisodio)
+
+                        tvDB.AcceptedLanguage = "en"
+
+                        Dim cercaEpisodio As Task(Of TvDbResponse(Of EpisodeRecord)) = tvDB.Episodes.GetAsync(episode.Id)
+                        cercaEpisodio.Wait()
+                        Val(FINFO_TVDB.TITOLOEPISODIO) = cercaEpisodio.Result.Data.EpisodeName
+
+                        tvDB.AcceptedLanguage = linguaAbbrev
+                    End If
+                End If
+
                 Val(FINFO_TVDB.DATAPRIMATV) = episode.FirstAired
 
-                Dim CreatorString As String = ""
-                For Each name In episode.Writer
-                    CreatorString &= name & ", "
-                Next
-                If CreatorString.Length > 1 Then Val(FINFO_TVDB.CREATOR) = CreatorString.Remove(CreatorString.Length - 2, 2)
-
-                Dim DirectorString As String = ""
-                For Each name In episode.Directors
-                    DirectorString &= name & ", "
-                Next
-                If DirectorString.Length > 1 Then Val(FINFO_TVDB.DIRECTOR) = DirectorString.Remove(DirectorString.Length - 2, 2)
-
                 Val(FINFO_TVDB.NUMEROEPISODI) = ListEpisodi.Count
-                Val(FINFO_TVDB.NUMEROSTAGIONI) = Serie.NumSeasons
+                Val(FINFO_TVDB.NUMEROSTAGIONI) = "" 'Serie.NumSeasons 'DEPRECATO
 
                 Dim GenereString As String = ""
                 For Each name In Serie.Genre
@@ -589,18 +665,38 @@ Public  Class AR_Core_SerieTv
                 If GenereString.Length > 1 Then Val(FINFO_TVDB.GENERE) = GenereString.Remove(GenereString.Length - 2, 2)
 
                 Val(FINFO_TVDB.NETWORK) = Serie.Network
+
+
+                If LeggiDettagliEpisodi Then
+                    Dim DettagliEpisodio As EpisodeRecord = Nothing
+
+                    Dim cercaEpisodio As Task(Of TvDbResponse(Of EpisodeRecord)) = tvDB.Episodes.GetAsync(episode.Id)
+                    cercaEpisodio.Wait()
+                    DettagliEpisodio = cercaEpisodio.Result.Data
+
+
+                    Dim CreatorString As String = ""
+                    For Each name In DettagliEpisodio.Writers
+                        CreatorString &= name & ", "
+                    Next
+
+                    If CreatorString.Length > 1 Then Val(FINFO_TVDB.CREATOR) = CreatorString.Remove(CreatorString.Length - 2, 2)
+
+                    Dim DirectorString As String = ""
+                    For Each name In DettagliEpisodio.Directors
+                        DirectorString &= name & ", "
+                    Next
+                    If DirectorString.Length > 1 Then Val(FINFO_TVDB.DIRECTOR) = DirectorString.Remove(DirectorString.Length - 2, 2)
+                End If
+
             End If
 
             Return Val
 
         Catch ex As Exception
             Throw New Exception(Autorinomina.Localization.Resource_Common.AR_Core_Error_TVDB_Error, ex.InnerException)
-        Finally
-            tvDB.CloseCache()
         End Try
     End Function
-
-
 
     Private Function Filtro_SerieTv(NomeFile As String, CarattereSplit As String) As String()
         Dim Risultato_TestoContenuto As String = "" 'titolo episodio definitivo
@@ -663,52 +759,7 @@ Public  Class AR_Core_SerieTv
         End If
 
         If CarattereSplit.Equals("#") Then
-            Dim ContenutoRipulito As String = NomeFile_Filtrato
-
-            'elimino eventuali (...) oppure [...] e ... per un riconoscimento piu preciso del carattere da usare nello split
-            ContenutoRipulito = Regex.Replace(ContenutoRipulito, "\(.*?\)", "")
-            ContenutoRipulito = Regex.Replace(ContenutoRipulito, "\[.*?\]", "")
-            ContenutoRipulito = Regex.Replace(ContenutoRipulito, "\.{3}", "")
-
-            'determino la quantità  di caratteri speciali presenti
-            Dim QtaCharSpec() As Integer = {0, 0, 0}
-            QtaCharSpec(0) = Regex.Split(ContenutoRipulito, "\.").Length
-            QtaCharSpec(1) = Regex.Split(ContenutoRipulito, "_").Length
-            QtaCharSpec(2) = Regex.Split(ContenutoRipulito, "\-").Length
-
-            Dim IndexCharSpec As Integer = GetIndexOfBiggestArrayItem(QtaCharSpec)
-            If QtaCharSpec(IndexCharSpec) > 2 Then
-                Select Case IndexCharSpec
-                    Case 0
-                        CarattereSplit = "."
-                        'fix per il tipo:    ReGenesis-2x10-IL.Selvaggio.e.l'innocente-[D.Tv_ita]-by.L@MI@.avi
-                        If QtaCharSpec(0) >= QtaCharSpec(2) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace("-", ".")
-
-                    Case 1
-                        CarattereSplit = "_"
-                        If (QtaCharSpec(1) >= QtaCharSpec(0)) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace(".", "_")
-                        If (QtaCharSpec(1) >= QtaCharSpec(2)) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace("-", "_")
-
-                    Case 2
-                        CarattereSplit = "-"
-                        If (QtaCharSpec(2) >= QtaCharSpec(0)) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace(".", "-")
-                        If (QtaCharSpec(2) >= QtaCharSpec(1)) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace("_", "-")
-                End Select
-
-
-            Else
-                If QtaCharSpec(0) = 2 Then
-                    'FIX per questo tipo: "Supernatural.4x02.Sei lì, Dio, sono io, Dean Winchester.FFT.sat.ITA.avi"
-                    'contengono 2 punti che causano errore
-
-                    CarattereSplit = "."
-                    NomeFile_Filtrato = NomeFile_Filtrato.Replace(" ", ".")
-                Else
-                    CarattereSplit = Space(1)
-                End If
-            End If
-
-            If QtaCharSpec(1) > 2 AndAlso Not CarattereSplit = "_" Then NomeFile_Filtrato = NomeFile_Filtrato.Replace("_", ".")
+            ControlliSplit(NomeFile_Filtrato, CarattereSplit)
         End If
 
         'Rimozione ()[] anche con contenuti inclusi dal titolo dell'episodio
@@ -853,6 +904,179 @@ Public  Class AR_Core_SerieTv
         Dim ValidaRisultato As Boolean = ((Risultato_TestoContenuto.Length > 1) OrElse (Risultato_TitoloSerie.Length > 1)) AndAlso (Risultato_Numerazione.Length > 0)
 
         Return {Risultato_Numerazione, Risultato_TestoContenuto, Risultato_TitoloSerie, Risultato_Data, ValidaRisultato.ToString}
+    End Function
+
+
+    Private Sub ControlliSplit(ByRef NomeFile_Filtrato, ByRef CarattereSplit)
+        Dim ContenutoRipulito As String = NomeFile_Filtrato
+
+        'elimino eventuali (...) oppure [...] e ... per un riconoscimento piu preciso del carattere da usare nello split
+        ContenutoRipulito = Regex.Replace(ContenutoRipulito, "\(.*?\)", "")
+        ContenutoRipulito = Regex.Replace(ContenutoRipulito, "\[.*?\]", "")
+        ContenutoRipulito = Regex.Replace(ContenutoRipulito, "\.{3}", "")
+
+        'determino la quantità  di caratteri speciali presenti
+        Dim QtaCharSpec() As Integer = {0, 0, 0}
+        QtaCharSpec(0) = Regex.Split(ContenutoRipulito, "\.").Length
+        QtaCharSpec(1) = Regex.Split(ContenutoRipulito, "_").Length
+        QtaCharSpec(2) = Regex.Split(ContenutoRipulito, "\-").Length
+
+        Dim IndexCharSpec As Integer = GetIndexOfBiggestArrayItem(QtaCharSpec)
+        If QtaCharSpec(IndexCharSpec) > 2 Then
+            Select Case IndexCharSpec
+                Case 0
+                    CarattereSplit = "."
+                    'fix per il tipo:    ReGenesis-2x10-IL.Selvaggio.e.l'innocente-[D.Tv_ita]-by.L@MI@.avi
+                    If QtaCharSpec(0) >= QtaCharSpec(2) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace("-", ".")
+
+                Case 1
+                    CarattereSplit = "_"
+                    If (QtaCharSpec(1) >= QtaCharSpec(0)) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace(".", "_")
+                    If (QtaCharSpec(1) >= QtaCharSpec(2)) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace("-", "_")
+
+                Case 2
+                    CarattereSplit = "-"
+                    If (QtaCharSpec(2) >= QtaCharSpec(0)) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace(".", "-")
+                    If (QtaCharSpec(2) >= QtaCharSpec(1)) Then NomeFile_Filtrato = NomeFile_Filtrato.Replace("_", "-")
+            End Select
+
+
+        Else
+            If QtaCharSpec(0) = 2 Then
+                'FIX per questo tipo: "Supernatural.4x02.Sei lì, Dio, sono io, Dean Winchester.FFT.sat.ITA.avi"
+                'contengono 2 punti che causano errore
+
+                CarattereSplit = "."
+                NomeFile_Filtrato = NomeFile_Filtrato.Replace(" ", ".")
+            Else
+                CarattereSplit = Space(1)
+            End If
+        End If
+
+        If QtaCharSpec(1) > 2 AndAlso Not CarattereSplit = "_" Then NomeFile_Filtrato = NomeFile_Filtrato.Replace("_", ".")
+    End Sub
+
+
+    Public Sub RicercaNuoveParoleBlackList(Lista As List(Of String), SensibilitaRicerca As Integer)
+        Dim L_NuoveBlackList As New List(Of String)
+        Dim L_NuoveBlackList_Codec As New List(Of String)
+        Dim L_Testuale As New List(Of String)
+        'Dim SensibilitaRicerca As Integer = 100 '100 = più sensibile, include anche le parole presenti unicamente su un singolo file
+
+        For Each IFD As ItemFileData In Coll_Files
+            Dim NomeFile_Filtrato As String = IO.Path.GetFileNameWithoutExtension(IFD.NomeFile)
+            Dim CarattereSplit As String = ""
+
+            If PatternRegexNumerazioni.Count > 0 Then
+                For x As Integer = 0 To PatternRegexNumerazioni.Count - 1
+
+                    If Regex.IsMatch(NomeFile_Filtrato, PatternRegexNumerazioni(x), RegexOptions.IgnoreCase) Then
+                        If XMLSettings_Read("CATEGORIA_serietv_config_RecognizeLinkedEpisode").Equals("False") Then
+                            If PatternRegexNumerazioni(x).ToString.Contains("episode2") Then Continue For
+                        End If
+
+                        Dim m As Match = Regex.Match(NomeFile_Filtrato, PatternRegexNumerazioni(x), RegexOptions.IgnoreCase)
+
+                        'eseguo uno split nel caso sia presente il titolo della serietv PRIMA della numerazione
+                        'regex flag case insensitive -> fix per 0X00 al posto di 0x00
+                        Dim tmp() As String = Regex.Split(NomeFile_Filtrato, Regex.Escape(m.Value), RegexOptions.IgnoreCase)
+                        If tmp.Length > 0 Then NomeFile_Filtrato = tmp(1)
+
+                        Exit For
+                    End If
+                Next
+            End If
+
+            '([\d\w]+|^|\||\G)-([\d\w]+|$|\|) prima versione 
+            Dim mC As MatchCollection = Regex.Matches(NomeFile_Filtrato, "\b([hHxX]\W)?([\d\w]+|^|\||\G)-([\d\w]+|$|\|)(\-\w*|\+\w*)?", RegexOptions.IgnoreCase) 'Cerca stringhe di questo tipo: x264-ByVettriano
+            For Each mS As Match In mC
+                If mS.Value <> "" AndAlso Not L_NuoveBlackList_Codec.Contains(mS.Value, StringComparer.OrdinalIgnoreCase) Then
+                    L_NuoveBlackList_Codec.Add(mS.Value)
+                End If
+
+                If mS.Value <> "" Then
+                    L_Testuale.Add(mS.Value)
+                End If
+            Next
+
+
+
+            ControlliSplit(NomeFile_Filtrato, CarattereSplit)
+
+            L_Testuale.AddRange(Regex.Split(NomeFile_Filtrato, Regex.Escape(CarattereSplit)))
+        Next
+
+
+        'creo nuovo elenco con nuove parole black list includendo le sole parole più ripetute
+        For Each ParteTesto As String In L_Testuale
+
+            If Validazione(ParteTesto) Then
+
+                Dim linqResult = L_Testuale.FindAll(Function(Testo As String)
+                                                        Return Testo.ToLower.Equals(ParteTesto.ToLower)
+                                                    End Function).Count
+
+                'Dim QtaFileByPerc As Integer = (Coll_Files.Count * SensibilitaRicerca) / 100
+                Dim PercentualeCorrente = 100 - (linqResult / Coll_Files.Count) * 100
+
+                '  If linqResult <= QtaFileByPerc Then
+                If PercentualeCorrente <= SensibilitaRicerca Then
+
+                    'controllo che la parola non sia un parziale di qualcuna contenuta in L_NuoveBlackList_Codec
+                    If Not ParolaContenuta(ParteTesto, L_NuoveBlackList_Codec) Then
+                        If Not L_NuoveBlackList.Contains(ParteTesto) Then L_NuoveBlackList.Add(ParteTesto)
+                    End If
+                End If
+            End If
+        Next
+
+
+        'elimino termini gia esistenti nella blacklist
+        For Index As Integer = L_NuoveBlackList.Count - 1 To 0 Step -1
+            Dim internalIndex As Integer = Index
+
+            If (Coll_TerminiBlackList.Where(Function(item) item.Termine.Equals(L_NuoveBlackList(internalIndex), StringComparison.OrdinalIgnoreCase)).Count > 0) Then
+                L_NuoveBlackList.RemoveAt(internalIndex)
+            End If
+        Next
+
+        L_NuoveBlackList.Sort()
+
+        Lista.Clear()
+        Lista.AddRange(L_NuoveBlackList)
+    End Sub
+
+    Private Function Validazione(ParteTesto As String) As Boolean
+
+        If ParteTesto.Length <= 1 Then Return False
+        If Regex.IsMatch(ParteTesto, "\d+") Then Return True
+        If CountUpperCaseLetters(ParteTesto) >= 2 Then Return True
+        If Regex.IsMatch(ParteTesto, "\b([hHxX]\W)?([\d\w]+|^|\||\G)-([\d\w]+|$|\|)(\-\w*|\+\w*)?", RegexOptions.IgnoreCase) Then Return True
+
+        Return False
+    End Function
+
+    Private Function CountUpperCaseLetters(str As String) As Integer
+        Dim ucount As Integer = 0
+
+        For Each c As Char In str
+            Dim charCode As Integer = AscW(c)
+
+            If charCode >= 65 AndAlso charCode < 91 Then
+                ucount += 1
+            End If
+        Next
+
+        Return ucount
+    End Function
+
+    Private Function ParolaContenuta(CercaParola As String, Elenco As List(Of String)) As Boolean
+        For Each Parola As String In Elenco
+            If Parola.Contains(CercaParola) AndAlso Not Parola.ToLower.Equals(CercaParola.ToLower) Then
+                Return True
+            End If
+        Next
+        Return False
     End Function
 
 End Class

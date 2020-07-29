@@ -372,9 +372,6 @@
   <data name="MI_VisualizzaStato" xml:space="preserve">
     <value>View status</value>
   </data>
-  <data name="Msg_LivePreviewOccuped" xml:space="preserve">
-    <value>Wait until the live preview is completed</value>
-  </data>
   <data name="MI_TerminiInBlackList" xml:space="preserve">
     <value>Words in Black-list</value>
   </data>

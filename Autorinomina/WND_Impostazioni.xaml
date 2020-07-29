@@ -13,7 +13,7 @@
                       BorderBrush="{DynamicResource AccentColorBrush}"
                       GlowBrush="{DynamicResource AccentColorBrush}"
         WindowTransitionsEnabled="False"
-        Title="{x:Static lang:Resource_WND_Main.MI_Impostazioni}" Height="510.999" Width="657.455" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowMaxRestoreButton="False">
+        Title="{x:Static lang:Resource_WND_Main.MI_Impostazioni}" Height="541.999" Width="657.455" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowMaxRestoreButton="False">
     <Grid>
         <TabControl Margin="0,10,0,44">
             <TabItem Header="{x:Static lang:Resource_WND_Impostazioni.Tab_OtherOptions}" Controls:ControlsHelper.HeaderFontSize="18">
@@ -33,7 +33,7 @@
                             <CheckBox x:Name="CB_Generica_EscludiDB" Content="{x:Static lang:Resource_WND_Impostazioni.FilesVerification_ExcludeDBFiles}" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Margin="10,197,10,0" VerticalAlignment="Top" Height="182">
+                    <GroupBox Margin="10,197,10,0" VerticalAlignment="Top" Height="216">
                         <GroupBox.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image HorizontalAlignment="Left"   Width="16" Source="Immagini/Opzioni_Generale2_16x16.png"/>
@@ -41,19 +41,22 @@
                             </StackPanel>
                         </GroupBox.Header>
                         <Grid>
-                            <CheckBox x:Name="CB_AlwaysOnTop" Content="{x:Static lang:Resource_WND_Impostazioni.OtherOptions_PermanentAlwaysOnTop}" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="CB_AlwaysOnTop" Content="{x:Static lang:Resource_WND_Impostazioni.OtherOptions_PermanentAlwaysOnTop}" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
                             <CheckBox x:Name="CB_CheckNewVersion" Content="{x:Static lang:Resource_WND_Impostazioni.OtherOptions_NotifyUpdates}" HorizontalAlignment="Left" Margin="10,0,0,15" VerticalAlignment="Bottom"/>
                             <Controls:NumericUpDown x:Name="NUD_CheckNewVersion_Days" IsEnabled="{Binding IsChecked, ElementName=CB_CheckNewVersion}" Minimum="3" Interval="1" HorizontalAlignment="Left" Height="23" Margin="310,0,0,10" VerticalAlignment="Bottom" Width="81"/>
                             <Label Content="{x:Static lang:Resource_WND_Impostazioni.OtherOptions_NotifyUpdates_Days}" HorizontalAlignment="Left" Margin="396,0,0,10" VerticalAlignment="Bottom"/>
-                            <CheckBox x:Name="CB_DisableExtensionWarning" Content="{x:Static lang:Resource_WND_Impostazioni.OtherOptions_DisableExtensionWarning}" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="CB_DisableExtensionWarning" Content="{x:Static lang:Resource_WND_Impostazioni.OtherOptions_DisableExtensionWarning}" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
                             <CheckBox x:Name="CB_PreviewCheckLocalFile" Content="{x:Static lang:Resource_WND_Impostazioni.OtherOptions_PreviewCheckLocalFile}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="CB_PreviewHintsNewBlackListWords" Content="{x:Static lang:Resource_WND_Impostazioni.OtherOptions_PreviewHintsNewBlackListWords}" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
+                            <Slider x:Name="SL_PreviewHintsNewBlackListWords_Sensibility" IsEnabled="{Binding IsChecked, ElementName=CB_PreviewHintsNewBlackListWords}" Margin="0,45,19,0" VerticalAlignment="Top" Minimum="5" SmallChange="5" AutoToolTipPlacement="TopLeft" HorizontalAlignment="Right" Width="151" LargeChange="5" IsSnapToTickEnabled="True" TickFrequency="5"/>
+                            <Label IsEnabled="{Binding IsChecked, ElementName=CB_PreviewHintsNewBlackListWords}" Content="Sensibilità:" HorizontalAlignment="Right" Margin="0,39,174,0" VerticalAlignment="Top"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="{x:Static lang:Resource_WND_Impostazioni.Tab_ExternalSoftware}" Controls:ControlsHelper.HeaderFontSize="18">
                 <Grid>
-                    <GroupBox Margin="10,10,10,0" VerticalAlignment="Top" Height="369">
+                    <GroupBox Margin="10,10,10,0" VerticalAlignment="Top" Height="403">
                         <GroupBox.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image HorizontalAlignment="Left"   Width="16" Source="Immagini/Opzioni_Generale2_16x16.png"/>
@@ -63,16 +66,16 @@
                         <Grid>
                             <CheckBox Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_Enable}" HorizontalAlignment="Left" Margin="10,10,0,0" x:Name="CB_PrgEsterno_Attivato" VerticalAlignment="Top" />
                             <Grid IsEnabled="{Binding IsChecked, ElementName=CB_PrgEsterno_Attivato}" Margin="0,37,0,0" Name="Grid3">
-                                <Label Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_ExePath}" HorizontalAlignment="Left" Margin="10,122,0,0" Name="Label15" VerticalAlignment="Top" />
-                                <TextBox Height="23" HorizontalAlignment="Left" Margin="27,153,0,0" x:Name="TB_PrgEsterno_Percorso" VerticalAlignment="Top" Width="402" />
-                                <Label Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_CommandLine}" Height="28" HorizontalAlignment="Left" Margin="10,194,0,0" Name="Label16" VerticalAlignment="Top" />
-                                <TextBox Height="23" HorizontalAlignment="Left" Margin="27,248,0,0" x:Name="TB_PrgEsterno_ArgomentiLineaComando" VerticalAlignment="Top" Width="387" />
-                                <CheckBox Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_Minimized}" HorizontalAlignment="Left" Margin="27,36,0,0" x:Name="CB_PrgEsterno_EseguiRidotto" VerticalAlignment="Top" />
-                                <TextBlock Foreground="Gray" HorizontalAlignment="Left" Margin="27,227,0,0" Name="TextBlock10" Text="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_CommandLine_desc}" VerticalAlignment="Top" Width="537" />
-                                <Button Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_ChangePath}" Height="22" HorizontalAlignment="Left" Margin="446,153,0,0" x:Name="BTN_PrgEsterno_CambiaPercorso" VerticalAlignment="Top" Width="132" Padding="0" />
-                                <Label Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_RunDesc}" HorizontalAlignment="Left" Name="Label21" VerticalAlignment="Top" Margin="10,3,0,0" />
-                                <Label Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_RunOnCategory}" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="CB_PrgEsterno_Categoria" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top" Width="209">
+                                <Label Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_ExePath}" HorizontalAlignment="Left" Margin="10,147,0,0" Name="Label15" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="27,178,0,0" x:Name="TB_PrgEsterno_Percorso" VerticalAlignment="Top" Width="402" />
+                                <Label Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_CommandLine}" Height="28" HorizontalAlignment="Left" Margin="10,219,0,0" Name="Label16" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="27,273,0,0" x:Name="TB_PrgEsterno_ArgomentiLineaComando" VerticalAlignment="Top" Width="387" />
+                                <CheckBox Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_Minimized}" HorizontalAlignment="Left" Margin="27,44,0,0" x:Name="CB_PrgEsterno_EseguiRidotto" VerticalAlignment="Top" />
+                                <TextBlock Foreground="Gray" HorizontalAlignment="Left" Margin="27,252,0,0" Name="TextBlock10" Text="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_CommandLine_desc}" VerticalAlignment="Top" Width="537" />
+                                <Button Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_ChangePath}" Height="22" HorizontalAlignment="Left" Margin="446,178,0,0" x:Name="BTN_PrgEsterno_CambiaPercorso" VerticalAlignment="Top" Width="132" Padding="0" />
+                                <Label Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_RunDesc}" HorizontalAlignment="Left" Name="Label21" VerticalAlignment="Top" Margin="10,11,0,0" />
+                                <Label Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_RunOnCategory}" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="CB_PrgEsterno_Categoria" HorizontalAlignment="Left" Margin="27,109,0,0" VerticalAlignment="Top" Width="209">
                                     <ComboBoxItem Content="{x:Static lang:Resource_Common.Text_All}" Tag=""/>
                                     <ComboBoxItem Content="{x:Static lang:Resource_Struttura.CATEGORIA_serietv}" Tag="CATEGORIA_serietv"/>
                                     <ComboBoxItem Content="{x:Static lang:Resource_Struttura.CATEGORIA_video}" Tag="CATEGORIA_video"/>

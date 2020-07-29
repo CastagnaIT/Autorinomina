@@ -9,7 +9,7 @@
 
             If IO.Directory.Exists(IO.Path.Combine(DataPath, "cache")) = False Then IO.Directory.CreateDirectory(IO.Path.Combine(DataPath, "cache"))
             Debug.Print(DataPath)
-            CaricaValoriFallbackStruttura()
+            CaricaValoriFallback()
             XMLSettings_LoadFile()
             XMLStrutture_LoadFile()
 

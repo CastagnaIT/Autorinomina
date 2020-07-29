@@ -14,14 +14,34 @@
                             <Border BorderBrush="Red" BorderThickness="1">
                                 <AdornedElementPlaceholder Name="adorner" />
                             </Border>
-                            <Image ToolTip="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}" Margin="2,0,0,0" Source="/AutoRinomina;component/Immagini/validator_warning_24x24.png" Width="20" Height="20" />
+                            <Image ToolTip="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors)/ErrorContent}" Margin="2,0,0,0" Source="/AutoRinomina;component/Immagini/validator_warning_24x24.png" Width="20" Height="20" />
                         </StackPanel>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors).CurrentItem.ErrorContent}"/>
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)/ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="StileErrValidatorCB" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Border BorderBrush="Red" BorderThickness="1">
+                                <AdornedElementPlaceholder Name="adorner" />
+                            </Border>
+                            <Image ToolTip="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors)/ErrorContent}" Margin="2,0,0,0" Source="/AutoRinomina;component/Immagini/validator_warning_24x24.png" Width="20" Height="20" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)/ErrorContent}"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -35,18 +55,23 @@
             <RowDefinition Height="89" />
         </Grid.RowDefinitions>
         <Label Content="{x:Static lang:Resource_Common_Dialogs.DLG_InsertTermine_Name}" HorizontalAlignment="Left" Margin="12,36,0,0" Name="LB_Termine" VerticalAlignment="Top" Height="26" Width="106" />
-        <TextBox Height="26" HorizontalAlignment="Left" Margin="154,36,0,0" Name="TB_Termine" Style="{StaticResource StileErrValidator}"  VerticalAlignment="Top" Width="265" TabIndex="0" MaxLength="260" >
+        <!--<TextBox Height="26" HorizontalAlignment="Left" Margin="154,36,0,0" Name="TB_Termine" Style="{StaticResource StileErrValidator}"  VerticalAlignment="Top" Width="265" TabIndex="0" MaxLength="260" >
             <TextBox.Text>
                 <Binding RelativeSource="{x:Static RelativeSource.Self}" Path="Tag" NotifyOnValidationError="True" UpdateSourceTrigger="Explicit" />
             </TextBox.Text>
-        </TextBox>
+        </TextBox>-->
+        <ComboBox TextBoxBase.TextChanged="CB_Termine_TextChanged" x:Name="CB_Termine" Style="{StaticResource StileErrValidatorCB}" HorizontalAlignment="Left" Margin="154,36,0,0" VerticalAlignment="Top" Width="265" IsEditable="True" IsSynchronizedWithCurrentItem="False" Height="26">
+            <ComboBox.Text>
+                <Binding RelativeSource="{x:Static RelativeSource.Self}" Path="Tag" NotifyOnValidationError="True" UpdateSourceTrigger="Explicit" />
+            </ComboBox.Text>
+        </ComboBox>
         <Label Content="{x:Static lang:Resource_Common_Dialogs.DLG_InsertTermine_DistinctionCase}" Grid.Row="2" HorizontalAlignment="Left" Margin="12,7,0,0" Name="Label2" VerticalAlignment="Top" Height="26" Width="221" />
         <RadioButton Content="{x:Static lang:Resource_Common_Dialogs.DLG_InsertTermine_DistinctionCase_Enabled}" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="238,10,0,0" Name="RB_Case_Sensitivo" VerticalAlignment="Top" Width="92" TabIndex="2"  />
         <RadioButton Content="{x:Static lang:Resource_Common_Dialogs.DLG_InsertTermine_DistinctionCase_Disabled}" Height="23" HorizontalAlignment="Left" Margin="335,10,0,0" Name="RB_Case_NonSensitivo" VerticalAlignment="Top" Width="115" Grid.Row="2" TabIndex="3"  />
         <Label Content="{x:Static lang:Resource_Common_Dialogs.DLG_InsertTermine_ReplaceWith}" HorizontalAlignment="Left" Margin="12,6,0,0" Name="LB_Sostituisci" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="85" />
         <TextBox Height="26" HorizontalAlignment="Left" Margin="154,7,0,0" Name="TB_TermineSostituto" VerticalAlignment="Top" Width="265" Grid.Row="1" TabIndex="1" MaxLength="260" />
         <Button Content="{x:Static lang:Resource_Common.Btn_Add}" Grid.Row="2" Height="25" HorizontalAlignment="Right" Margin="0,0,169,10" Name="BTN_Aggiungi" VerticalAlignment="Bottom" Width="121" IsDefault="True" TabIndex="4" Padding="0" />
-        <Button Content="+" Height="25" HorizontalAlignment="Right" Margin="0,0,138,10" Name="BTN_AggiungiNuovo" VerticalAlignment="Bottom" Width="31" Grid.Row="2" ToolTip="Aggiungi e nuovo" TabIndex="5" Padding="0" />
+        <Button Content="+" Height="25" HorizontalAlignment="Right" Margin="0,0,138,10" Name="BTN_AggiungiNuovo" VerticalAlignment="Bottom" Width="31" Grid.Row="2" ToolTip="Aggiungi e nuovo" TabIndex="5" Padding="0" IsEnabled="False" />
         <Button Content="{x:Static lang:Resource_Common.Btn_Cancel}" Height="25" HorizontalAlignment="Right" Margin="0,0,10,10" Name="BTN_Annulla" VerticalAlignment="Bottom" Width="121" Grid.Row="2" IsCancel="True" TabIndex="6" Padding="0" />
         <Label Name="LB_Hint" Content="Hint" HorizontalContentAlignment="Center" Margin="0,6,0,0" VerticalAlignment="Top" Foreground="Gray" FontSize="11" Height="25"/>
     </Grid>

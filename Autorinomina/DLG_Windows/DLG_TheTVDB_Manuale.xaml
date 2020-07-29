@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Autorinomina"
     xmlns:lang="clr-namespace:Autorinomina.Localization"
-    Title="{x:Static lang:Resource_Common_Dialogs.DLG_TVDB_Title}" Height="462" Width="647" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    Title="{x:Static lang:Resource_Common_Dialogs.DLG_TVDB_Title}" Height="513.222" Width="878" WindowStartupLocation="CenterScreen" MinHeight="460" MinWidth="647">
     <Window.Resources>
         <CollectionViewSource x:Key="CVS_Risultati" />
     </Window.Resources>
@@ -23,8 +23,14 @@
                     <GridViewColumn Width="440" DisplayMemberBinding="{Binding NomeSerieTv}" >
                         <GridViewColumnHeader Content="{x:Static lang:Resource_Common_Dialogs.DLG_TVDB_Column_TitleSeries}"/>
                     </GridViewColumn>
-                    <GridViewColumn Width="135" DisplayMemberBinding="{Binding Lingua}" >
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Lingua}" >
                         <GridViewColumnHeader Content="{x:Static lang:Resource_Common_Dialogs.DLG_TVDB_Column_Language}" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="135" DisplayMemberBinding="{Binding FirstAired}" >
+                        <GridViewColumnHeader Content="{x:Static lang:Resource_Common_Dialogs.DLG_TVDB_Column_FirstAired}" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Network}" >
+                        <GridViewColumnHeader Content="{x:Static lang:Resource_Common_Dialogs.DLG_TVDB_Column_Network}" />
                     </GridViewColumn>
                 </GridView>
             </ListView.View>

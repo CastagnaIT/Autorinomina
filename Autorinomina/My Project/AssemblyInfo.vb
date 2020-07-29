@@ -15,7 +15,7 @@ Imports System.Windows
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Stefano Gottardo")>
 <Assembly: AssemblyProduct("Autorinomina")>
-<Assembly: AssemblyCopyright("Copyright © Stefano Gottardo 2009-2017")>
+<Assembly: AssemblyCopyright("Copyright © Stefano Gottardo 2009-2018")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: ComVisible(false)>
 
@@ -55,5 +55,5 @@ Imports System.Windows
 ' usando l'asterisco '*' come illustrato di seguito:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("5.0.2.0")>
-<Assembly: AssemblyFileVersion("5.0.2.0")>
+<Assembly: AssemblyVersion("5.0.5.0")>
+<Assembly: AssemblyFileVersion("5.0.5.0")>

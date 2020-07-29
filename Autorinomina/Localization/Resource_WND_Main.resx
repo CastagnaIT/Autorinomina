@@ -355,9 +355,6 @@
   <data name="Toggle_AttivaDisattivaLivePreview" xml:space="preserve">
     <value>Live preview</value>
   </data>
-  <data name="Msg_LivePreviewOccuped" xml:space="preserve">
-    <value>Wait until the live preview is completed</value>
-  </data>
   <data name="Msg_AppBusy" xml:space="preserve">
     <value>Complete the current operation or clear the list of files added.</value>
   </data>

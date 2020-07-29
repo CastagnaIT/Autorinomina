@@ -169,13 +169,13 @@
     <value>Aggiungi...</value>
   </data>
   <data name="MI_AggiungiUnaCartellaDiFiles" xml:space="preserve">
-    <value>Aggiungi una cartella di files</value>
+    <value>Aggiungi una cartella di file</value>
   </data>
   <data name="MI_AggiungiDeiFiles" xml:space="preserve">
-    <value>Aggiungi dei files</value>
+    <value>Aggiungi dei file</value>
   </data>
   <data name="MI_AggiungiFilesDaCartellaPreferita" xml:space="preserve">
-    <value>Aggiungi files da cartella preferita</value>
+    <value>Aggiungi file da cartella preferita</value>
   </data>
   <data name="Toggle_AttivaDisattivaSostituzioni" xml:space="preserve">
     <value>Attiva/disattiva sostituzioni</value>
@@ -202,10 +202,10 @@
     <value>Deseleziona tutto</value>
   </data>
   <data name="MI_IncludiFilesDelleSottocartelle" xml:space="preserve">
-    <value>Includi files delle sottocartelle</value>
+    <value>Includi file delle sottocartelle</value>
   </data>
   <data name="MI_CatturaFilesCartelleDiFiles" xml:space="preserve">
-    <value>Cattura files/cartelle di files</value>
+    <value>Cattura file/cartelle di file</value>
   </data>
   <data name="MI_CatturaPreset" xml:space="preserve">
     <value>Cattura preset</value>
@@ -319,13 +319,13 @@
     <value>Visualizza stato</value>
   </data>
   <data name="CategoryUserChange" xml:space="preserve">
-    <value>Cambiando categoria i files nell'elenco saranno rimossi.\nVuoi Continuare?</value>
+    <value>Cambiando categoria i file nell'elenco saranno rimossi.\nVuoi Continuare?</value>
   </data>
   <data name="PresetPasteOk" xml:space="preserve">
     <value>Preset incollato correttamente</value>
   </data>
   <data name="FileListEmpty" xml:space="preserve">
-    <value>L'elenco dei files è vuoto</value>
+    <value>L'elenco dei file è vuoto</value>
   </data>
   <data name="Attivato" xml:space="preserve">
     <value>Attivato</value>
@@ -334,16 +334,16 @@
     <value>Disattivato</value>
   </data>
   <data name="Desc_AggiungiCartella" xml:space="preserve">
-    <value>Seleziona la cartella contenente i files da aggiungere</value>
+    <value>Seleziona la cartella contenente i file da aggiungere</value>
   </data>
   <data name="Msg_RimuovereSelezionati" xml:space="preserve">
-    <value>Rimuovere dall'elenco i files selezionati?</value>
+    <value>Rimuovere dall'elenco i file selezionati?</value>
   </data>
   <data name="Msg_RimuovereTutti" xml:space="preserve">
-    <value>Rimuovere tutti i files dall'elenco?</value>
+    <value>Rimuovere tutti i file dall'elenco?</value>
   </data>
   <data name="Desc_ElencoVuoto" xml:space="preserve">
-    <value>Aggiungi dei files o cartelle trascinandoli quì oppure utilizzando il menu.</value>
+    <value>Aggiungi dei file o cartelle trascinandoli quì oppure utilizzando il menu.</value>
   </data>
   <data name="Msg_NoNewVersion" xml:space="preserve">
     <value>Stai già utilizzando la versione più recente</value>
@@ -353,9 +353,6 @@
   </data>
   <data name="Toggle_AttivaDisattivaLivePreview" xml:space="preserve">
     <value>Anteprima istantanea</value>
-  </data>
-  <data name="Msg_LivePreviewOccuped" xml:space="preserve">
-    <value>Attendere che l'anteprima instantanea sia completata</value>
   </data>
   <data name="Msg_AppBusy" xml:space="preserve">
     <value>Completare l'operazione in corso oppure cancellare l'elenco dei file aggiunti.</value>

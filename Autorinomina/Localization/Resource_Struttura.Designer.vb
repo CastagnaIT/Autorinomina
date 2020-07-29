@@ -22,7 +22,7 @@ Namespace Localization
     '''<summary>
     '''  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Public Class Resource_Struttura
@@ -956,7 +956,7 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a Audio codec.
+        '''  Cerca una stringa localizzata simile a Audio format.
         '''</summary>
         Public Shared ReadOnly Property MI_CodecAudio() As String
             Get
@@ -965,7 +965,7 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a Audio codec with language.
+        '''  Cerca una stringa localizzata simile a Audio format with language.
         '''</summary>
         Public Shared ReadOnly Property MI_CodecAudioLingua() As String
             Get
@@ -974,7 +974,7 @@ Namespace Localization
         End Property
         
         '''<summary>
-        '''  Cerca una stringa localizzata simile a Video codec.
+        '''  Cerca una stringa localizzata simile a Video format.
         '''</summary>
         Public Shared ReadOnly Property MI_CodecVideo() As String
             Get
@@ -988,6 +988,15 @@ Namespace Localization
         Public Shared ReadOnly Property MI_Durata() As String
             Get
                 Return ResourceManager.GetString("MI_Durata", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Encoded video library.
+        '''</summary>
+        Public Shared ReadOnly Property MI_EncodedLibraryName() As String
+            Get
+                Return ResourceManager.GetString("MI_EncodedLibraryName", resourceCulture)
             End Get
         End Property
         

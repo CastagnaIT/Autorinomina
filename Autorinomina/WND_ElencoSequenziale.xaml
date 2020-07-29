@@ -18,10 +18,10 @@
 
         <Border BorderThickness="0" Height="48" Margin="0,41,0,0" VerticalAlignment="Top" Background="#FFAED1FB">
             <StackPanel x:Name="SP_Categorie" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="BTN_Apri"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.OpenFile}" Margin="2,0,8,0" Tag="CATEGORIA_serietv" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" MinWidth="110" TabIndex="0" Padding="0"/>
-                <Button x:Name="BTN_IncollaWiki"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.PasteFromWiki}" Margin="2,0" Tag="CATEGORIA_video" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" TabIndex="1" Padding="0"/>
+                <Button x:Name="BTN_Apri"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.OpenFile}" Margin="2,0,8,0" Tag="CATEGORIA_serietv" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" MinWidth="110" TabIndex="0" Padding="6,0"/>
+                <Button x:Name="BTN_IncollaWiki"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.PasteFromWiki}" Margin="2,0" Tag="CATEGORIA_video" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" TabIndex="1" Padding="6,0"/>
                 <Button x:Name="BTN_IncollaWiki_Help"  Content="?" Margin="2,0" Width="30" Tag="CATEGORIA_audio" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" TabIndex="2" Padding="0"/>
-                <Button x:Name="BTN_Pulisci"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.Clear}" Margin="8,0,2,0" Tag="CATEGORIA_immagini" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" MinWidth="100" TabIndex="3" Padding="0"/>
+                <Button x:Name="BTN_Pulisci"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.Clear}" Margin="8,0,2,0" Tag="CATEGORIA_immagini" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" MinWidth="100" TabIndex="3" Padding="6,0"/>
             </StackPanel>
         </Border>
         <TextBlock Margin="0,89,0,0" TextWrapping="Wrap" Text="{x:Static lang:Resource_WND_ElencoSequenziale.Guida}" VerticalAlignment="Top" Height="67" Padding="10"/>

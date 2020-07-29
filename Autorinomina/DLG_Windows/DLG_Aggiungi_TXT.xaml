@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Autorinomina"
         mc:Ignorable="d"
-        Title="Aggiungi testo" Height="128" Width="395" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False">
+        xmlns:lang="clr-namespace:Autorinomina.Localization"
+        Title="{x:Static lang:Resource_Common_Dialogs.DLG_AddText_Title}" Height="128" Width="395" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid>
-        <Label Content="Testo" Height="28" HorizontalAlignment="Left" Margin="9,9,0,0" Name="Label1" VerticalAlignment="Top" />
+        <Label Content="{x:Static lang:Resource_Common_Dialogs.DLG_AddText_Desc}" Height="28" HorizontalAlignment="Left" Margin="9,9,0,0" Name="Label1" VerticalAlignment="Top" />
         <TextBox Height="23" Margin="66,11,10,0" Name="TB_Testo" VerticalAlignment="Top" TabIndex="0" MaxLength="260" />
-        <Button Content="Aggiungi" Height="25" HorizontalAlignment="Right" Margin="0,0,169,10" Name="BTN_Aggiungi" VerticalAlignment="Bottom" Width="121" IsDefault="True" TabIndex="1" Padding="0" />
-        <Button Content="Annulla" Height="25" HorizontalAlignment="Right" Margin="0,0,10,10" Name="BTN_Annulla" VerticalAlignment="Bottom" Width="121" IsCancel="True" TabIndex="3" Padding="0" />
-        <Button Content="+" Height="25" HorizontalAlignment="Right" Margin="0,0,138,10" Name="BTN_AggiungiNuovo" TabIndex="2" ToolTip="Aggiungi e nuovo" VerticalAlignment="Bottom" Width="31" Padding="0" />
+        <Button Content="{x:Static lang:Resource_Common.Btn_Add}" Height="25" HorizontalAlignment="Right" Margin="0,0,169,10" Name="BTN_Aggiungi" VerticalAlignment="Bottom" Width="121" IsDefault="True" TabIndex="1" Padding="0" />
+        <Button Content="{x:Static lang:Resource_Common.Btn_Cancel}" Height="25" HorizontalAlignment="Right" Margin="0,0,10,10" Name="BTN_Annulla" VerticalAlignment="Bottom" Width="121" IsCancel="True" TabIndex="3" Padding="0" />
+        <Button Content="+" Height="25" HorizontalAlignment="Right" Margin="0,0,138,10" Name="BTN_AggiungiNuovo" TabIndex="2" ToolTip="{x:Static lang:Resource_Common.Btn_AddNew}" VerticalAlignment="Bottom" Width="31" Padding="0" />
     </Grid>
 </Window>

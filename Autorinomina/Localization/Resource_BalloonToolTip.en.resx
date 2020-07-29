@@ -259,13 +259,13 @@
     <value>Default order</value>
   </data>
   <data name="Grid_TVDB_OrderEpisode_2" xml:space="preserve">
-    <value>DVD/BR order</value>
+    <value>DVD/BD order</value>
   </data>
   <data name="Grid_TVDB_OrderEpisode_3" xml:space="preserve">
-    <value>DVD/BR order (plus combined episodes)</value>
+    <value>DVD/BD order (plus combined episodes)</value>
   </data>
   <data name="Grid_TVDB_OrderEpisode_4" xml:space="preserve">
-    <value>DVD/BR order (combined with all the titles)</value>
+    <value>DVD/BD order (combined with all the titles)</value>
   </data>
   <data name="Grid_Extensions_EnableOptions" xml:space="preserve">
     <value>Enable options</value>

@@ -259,13 +259,13 @@
     <value>Ordine di default</value>
   </data>
   <data name="Grid_TVDB_OrderEpisode_2" xml:space="preserve">
-    <value>Ordine DVD/BR</value>
+    <value>Ordine DVD/BD</value>
   </data>
   <data name="Grid_TVDB_OrderEpisode_3" xml:space="preserve">
-    <value>Ordine DVD/BR (più episodi combinati)</value>
+    <value>Ordine DVD/BD (più episodi combinati)</value>
   </data>
   <data name="Grid_TVDB_OrderEpisode_4" xml:space="preserve">
-    <value>Ordine DVD/BR (combinati con tutti i titoli)</value>
+    <value>Ordine DVD/BD (combinati con tutti i titoli)</value>
   </data>
   <data name="Grid_Extensions_EnableOptions" xml:space="preserve">
     <value>Abilita opzioni</value>
@@ -322,7 +322,7 @@
     <value>Modifica estensioni</value>
   </data>
   <data name="Grid_Extensions_Warning" xml:space="preserve">
-    <value>Attenzione! Modificare l'estensione dei files è una procedura che potrebbe rendere inutilizzabili i file.\nUtilizzarla solo se si è consapevoli dei rischi.</value>
+    <value>Attenzione! Modificare l'estensione dei file è una procedura che potrebbe rendere inutilizzabili i file.\nUtilizzarla solo se si è consapevoli dei rischi.</value>
   </data>
   <data name="Error_FormatNotSupported" xml:space="preserve">
     <value>Formato non supportato</value>

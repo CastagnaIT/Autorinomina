@@ -64,6 +64,11 @@ Public Class AR_Core_RunPreview
             TotCountColl = IIf(_Coll_Files_Selected.Count > 3, 3, _Coll_Files_Selected.Count - 1) 'LIMITO IL LIVE PREVIEW A 3 FILES
         Else
             TotCountColl = _Coll_Files.Count - 1
+
+            Coll_BlackList_New.Clear()
+            If CategoriaSelezionata.Equals("CATEGORIA_serietv") Then
+                If XMLSettings_Read("PreviewHintsNewBlackListWords").Equals("True") Then CType(AR_Core, AR_Core_SerieTv).RicercaNuoveParoleBlackList(Coll_BlackList_New, XMLSettings_Read("PreviewHintsNewBlackListWords_Sensibility"))
+            End If
         End If
 
         For n As Integer = 0 To TotCountColl
@@ -87,8 +92,10 @@ Public Class AR_Core_RunPreview
             IFD.Stato = FileDataInfoStato.NULLO 'reset a causa della livepreview
 
             Try
+                'Dim SW As Stopwatch = Stopwatch.StartNew
                 result = AR_Core.RunCore(IO.Path.Combine(IFD.Percorso, IFD.NomeFile), N_Index, _LivePreview, nTotale.ToString.Length)
-
+                'SW.Stop()
+                'Debug.Print(SW.ElapsedMilliseconds)
             Catch uie As UserInterruptedException
                 'interruzione da parte dell'utente
                 IFD.StatoInfo = Localization.Resource_Common.StateFileInfo_UserInterrupt

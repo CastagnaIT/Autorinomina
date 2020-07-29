@@ -137,6 +137,15 @@ Namespace Localization
         End Property
         
         '''<summary>
+        '''  Cerca una stringa localizzata simile a Add and create new.
+        '''</summary>
+        Public Shared ReadOnly Property Btn_AddNew() As String
+            Get
+                Return ResourceManager.GetString("Btn_AddNew", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Cerca una stringa localizzata simile a Apply.
         '''</summary>
         Public Shared ReadOnly Property Btn_Apply() As String
@@ -430,6 +439,24 @@ Namespace Localization
         Public Shared ReadOnly Property Text_All() As String
             Get
                 Return ResourceManager.GetString("Text_All", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Unable to paste the preset, there are errors in the code..
+        '''</summary>
+        Public Shared ReadOnly Property XMLStrutture_PasteError1() As String
+            Get
+                Return ResourceManager.GetString("XMLStrutture_PasteError1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Unable to paste the preset, wrong category..
+        '''</summary>
+        Public Shared ReadOnly Property XMLStrutture_PasteError2() As String
+            Get
+                Return ResourceManager.GetString("XMLStrutture_PasteError2", resourceCulture)
             End Get
         End Property
     End Class

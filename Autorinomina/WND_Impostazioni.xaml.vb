@@ -9,6 +9,8 @@
         CB_AlwaysOnTop.IsChecked = Boolean.Parse(XMLSettings_Read("MainWindow_AlwaysOnTop_Keep"))
         CB_CheckNewVersion.IsChecked = Boolean.Parse(XMLSettings_Read("MainWindow_CheckNewVersion"))
         CB_PreviewCheckLocalFile.IsChecked = Boolean.Parse(XMLSettings_Read("PreviewCheckLocalFile"))
+        CB_PreviewHintsNewBlackListWords.IsChecked = Boolean.Parse(XMLSettings_Read("PreviewHintsNewBlackListWords"))
+        SL_PreviewHintsNewBlackListWords_Sensibility.Value = Integer.Parse(XMLSettings_Read("PreviewHintsNewBlackListWords_Sensibility"))
         NUD_CheckNewVersion_Days.Value = Double.Parse(XMLSettings_Read("MainWindow_CheckNewVersion_Days"))
 
         'Programma esterno
@@ -39,6 +41,8 @@
         XMLSettings_Save("VerificaFiles_AutoCapture_Files_OnTop", CB_CatturaAppunti_Files_OnTop.IsChecked.ToString)
         XMLSettings_Save("MainWindow_AlwaysOnTop_Keep", CB_AlwaysOnTop.IsChecked.ToString)
         XMLSettings_Save("PreviewCheckLocalFile", CB_PreviewCheckLocalFile.IsChecked.ToString)
+        XMLSettings_Save("PreviewHintsNewBlackListWords", CB_PreviewHintsNewBlackListWords.IsChecked.ToString)
+        XMLSettings_Save("PreviewHintsNewBlackListWords_Sensibility", SL_PreviewHintsNewBlackListWords_Sensibility.Value.ToString)
         XMLSettings_Save("MainWindow_CheckNewVersion", CB_CheckNewVersion.IsChecked.ToString)
         XMLSettings_Save("MainWindow_CheckNewVersion_Days", NUD_CheckNewVersion_Days.Value.ToString)
 

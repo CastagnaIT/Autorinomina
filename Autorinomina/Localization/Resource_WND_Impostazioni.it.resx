@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FilesVerification" xml:space="preserve">
-    <value>Verifica dei files</value>
+    <value>Verifica dei file</value>
   </data>
   <data name="FilesVerification_IncludeHiddenFiles" xml:space="preserve">
     <value>Includi files e cartelle nascoste</value>
@@ -178,7 +178,7 @@
     <value>Estensioni</value>
   </data>
   <data name="Extensions_WarningDesc" xml:space="preserve">
-    <value>Attenzione! La modifica delle estensioni riconosciute dal software potrebbe causare comportamenti inaspettati ed errori. Pertanto non sono responsabile di eventuali danni provocati dall'uso improprio di questa funzione.</value>
+    <value>Attenzione! Modificando le estensioni riconosciute dal software si potrebbero verificare comportamenti inaspettati. L'utente è quindi consapevole di causare possibili danni dall'uso improprio di questa funzione.</value>
   </data>
   <data name="Extensions_Video" xml:space="preserve">
     <value>Estensioni video</value>
@@ -206,5 +206,8 @@
   </data>
   <data name="ExternalSoftware_CommandLine_desc" xml:space="preserve">
     <value>Il carattere '@' verrà sostituito con il percorso completo del file</value>
+  </data>
+  <data name="OtherOptions_PreviewHintsNewBlackListWords" xml:space="preserve">
+    <value>Suggerisci nuovi termini da aggiungere nella black-list</value>
   </data>
 </root>

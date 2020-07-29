@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,7 +121,7 @@
     <value>Acknowledgments:</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>Copyright © 2009-2017 Stefano Gottardo. All rights reserved.</value>
+    <value>Copyright © 2009-2018 Stefano Gottardo. All rights reserved.</value>
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>Home page</value>

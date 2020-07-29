@@ -7,11 +7,16 @@
 
     Public Coll_Struttura As New CollItemsStruttura
 
+    Public Coll_BlackList_New As New List(Of String)
+
     Public Const TVDB_APIKEY As String = "188970691D51D336"
 
 
     Public FallbackDefaultDataStruttura As New Dictionary(Of String, String)
-    Public Sub CaricaValoriFallbackStruttura()
+    Public FallbackDefaultXMLSettings As New Dictionary(Of String, String)
+
+    Public Sub CaricaValoriFallback()
+        'FALLBACK VALORI STRUTTURA
         FallbackDefaultDataStruttura.Add("Testo", "")
         FallbackDefaultDataStruttura.Add("SeparatoreCarattere", "-")
         FallbackDefaultDataStruttura.Add("SeparatoreSpaziatura", "True")
@@ -36,6 +41,14 @@
         FallbackDefaultDataStruttura.Add("SizeStyle", Autorinomina.Localization.Resource_BalloonToolTip.Grid_StyleSize_Format_Ex1)
         FallbackDefaultDataStruttura.Add("Pattern", "")
         FallbackDefaultDataStruttura.Add("RemoveInsteadInsert", "False")
+
+        'FALLBACK VALORI SETTINGS XML
+        '(PER CHIAVI INSERITE SU NUOVE VERSIONI DI AR, MANTIENE COMPATIBILITA' SUGLI UPGRADE DEGLI UTENTI PERCHE' IL SETTINGS.XML NON VIENE AGGIORNATO)
+        FallbackDefaultXMLSettings.Add("TVDB_LinguaFallBack", "True")
+        FallbackDefaultXMLSettings.Add("TVDB_AssociazioneStagioni", "0")
+        FallbackDefaultXMLSettings.Add("PreviewHintsNewBlackListWords", "True")
+        FallbackDefaultXMLSettings.Add("PreviewHintsNewBlackListWords_Sensibility", "90")
+
     End Sub
 
 
