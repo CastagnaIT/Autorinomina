@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Menu_File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Menu_Modifica" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="Nome_CATEGORIA_serietv" xml:space="preserve">
+    <value>Categoria Serie Tv</value>
+  </data>
+  <data name="Nome_CATEGORIA_video" xml:space="preserve">
+    <value>Categoria Video</value>
+  </data>
+  <data name="Nome_CATEGORIA_audio" xml:space="preserve">
+    <value>Categoria Audio</value>
+  </data>
+  <data name="Nome_CATEGORIA_generica" xml:space="preserve">
+    <value>Categoria Generica</value>
+  </data>
+  <data name="Nome_CATEGORIA_immagini" xml:space="preserve">
+    <value>Categoria Immagini</value>
+  </data>
+  <data name="MaiuscoleMinuscole_0" xml:space="preserve">
+    <value>Non convertire</value>
+  </data>
+  <data name="MaiuscoleMinuscole_1" xml:space="preserve">
+    <value>Capitalizza parole</value>
+  </data>
+  <data name="MaiuscoleMinuscole_2" xml:space="preserve">
+    <value>Capitalizza parole (solo lunghe)</value>
+  </data>
+  <data name="MaiuscoleMinuscole_3" xml:space="preserve">
+    <value>Capitalizza frase (resto minuscolo)</value>
+  </data>
+  <data name="MaiuscoleMinuscole_4" xml:space="preserve">
+    <value>Capitalizza frase, anche dopo ogni separatore</value>
+  </data>
+  <data name="MaiuscoleMinuscole_5" xml:space="preserve">
+    <value>Tutto minuscolo</value>
+  </data>
+  <data name="MaiuscoleMinuscole_6" xml:space="preserve">
+    <value>Tutto MAIUSCOLO</value>
+  </data>
+  <data name="NewSWVersion_TitleBar" xml:space="preserve">
+    <value>C'è una nuova versione!</value>
+  </data>
+  <data name="MI_CambiaCategoria" xml:space="preserve">
+    <value>Cambia categoria</value>
+  </data>
+  <data name="MI_Aggiungi" xml:space="preserve">
+    <value>Aggiungi...</value>
+  </data>
+  <data name="MI_AggiungiUnaCartellaDiFiles" xml:space="preserve">
+    <value>Aggiungi una cartella di files</value>
+  </data>
+  <data name="MI_AggiungiDeiFiles" xml:space="preserve">
+    <value>Aggiungi dei files</value>
+  </data>
+  <data name="MI_AggiungiFilesDaCartellaPreferita" xml:space="preserve">
+    <value>Aggiungi files da cartella preferita</value>
+  </data>
+  <data name="Toggle_AttivaDisattivaSostituzioni" xml:space="preserve">
+    <value>Attiva/disattiva sostituzioni</value>
+  </data>
+  <data name="Btn_Menu_ConvertiMaiuscoleMinuscole" xml:space="preserve">
+    <value>Converti maiuscole/minuscole</value>
+  </data>
+  <data name="MI_RimuoviSelezionati" xml:space="preserve">
+    <value>Rimuovi selezionati</value>
+  </data>
+  <data name="MI_RimuoviTutto" xml:space="preserve">
+    <value>Rimuovi tutto</value>
+  </data>
+  <data name="MI_SpostaInSu" xml:space="preserve">
+    <value>Sposta in su</value>
+  </data>
+  <data name="MI_SpostaInGiu" xml:space="preserve">
+    <value>Sposta in giu</value>
+  </data>
+  <data name="MI_SelezionaTutto" xml:space="preserve">
+    <value>Seleziona tutto</value>
+  </data>
+  <data name="MI_DeselezionaTutto" xml:space="preserve">
+    <value>Deseleziona tutto</value>
+  </data>
+  <data name="MI_IncludiFilesDelleSottocartelle" xml:space="preserve">
+    <value>Includi files delle sottocartelle</value>
+  </data>
+  <data name="MI_CatturaFilesCartelleDiFiles" xml:space="preserve">
+    <value>Cattura files/cartelle di files</value>
+  </data>
+  <data name="MI_CatturaPreset" xml:space="preserve">
+    <value>Cattura preset</value>
+  </data>
+  <data name="MI_Impostazioni" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="MI_MostraBarraDegliStrumenti" xml:space="preserve">
+    <value>Mostra barra degli strumenti</value>
+  </data>
+  <data name="MI_MostraColonne" xml:space="preserve">
+    <value>Mostra/Nascondi colonne</value>
+  </data>
+  <data name="MI_SempreInPrimoPiano" xml:space="preserve">
+    <value>Sempre in primo piano</value>
+  </data>
+  <data name="MI_CambiaLingua" xml:space="preserve">
+    <value>Cambia lingua</value>
+  </data>
+  <data name="MI_TerminiInBlackList" xml:space="preserve">
+    <value>Termini in Black-list</value>
+  </data>
+  <data name="MI_SostituzioneTermini" xml:space="preserve">
+    <value>Sostituzione termini</value>
+  </data>
+  <data name="MI_OpzioniAvanzate" xml:space="preserve">
+    <value>Opzioni avanzate</value>
+  </data>
+  <data name="MI_GuidaRapida" xml:space="preserve">
+    <value>Guida rapida</value>
+  </data>
+  <data name="MI_Donazione" xml:space="preserve">
+    <value>Fai una donazione</value>
+  </data>
+  <data name="MI_ControlloAggiornamenti" xml:space="preserve">
+    <value>Controllo aggiornamenti</value>
+  </data>
+  <data name="MI_InformazioniSuAutoRinomina" xml:space="preserve">
+    <value>Informazioni su Autorinomina</value>
+  </data>
+  <data name="Column_Stato" xml:space="preserve">
+    <value>Stato</value>
+  </data>
+  <data name="Column_NomeFile" xml:space="preserve">
+    <value>Nome file corrente</value>
+  </data>
+  <data name="Column_NomeFileRinominato" xml:space="preserve">
+    <value>Nome file nuovo</value>
+  </data>
+  <data name="Column_NomeCartella" xml:space="preserve">
+    <value>Cartella</value>
+  </data>
+  <data name="Column_DataCreazione" xml:space="preserve">
+    <value>Data creazione</value>
+  </data>
+  <data name="Column_DataUltimaModifica" xml:space="preserve">
+    <value>Ultima modifica</value>
+  </data>
+  <data name="Column_Tipo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Column_Dimensione" xml:space="preserve">
+    <value>Dimensione</value>
+  </data>
+  <data name="DescriptionGuideStructure" xml:space="preserve">
+    <value>DEFINISCI LE INFORMAZIONI DI BASE PER I NOMI DEI FILE</value>
+  </data>
+  <data name="Btn_Selezione" xml:space="preserve">
+    <value>SELEZIONE</value>
+  </data>
+  <data name="Btn_RipristinaTutto" xml:space="preserve">
+    <value>RIPRISTINA TUTTO</value>
+  </data>
+  <data name="Btn_Anteprima" xml:space="preserve">
+    <value>ANTEPRIMA</value>
+  </data>
+  <data name="Btn_RinominaTutto" xml:space="preserve">
+    <value>RINOMINA TUTTO</value>
+  </data>
+  <data name="Btn_PRESETS" xml:space="preserve">
+    <value>PRESETS</value>
+  </data>
+  <data name="MI_CaricaPreset" xml:space="preserve">
+    <value>Carica Preset</value>
+  </data>
+  <data name="MI_SalvaPreset" xml:space="preserve">
+    <value>Salva Preset</value>
+  </data>
+  <data name="MI_CopiaPreset" xml:space="preserve">
+    <value>Copia Preset</value>
+  </data>
+  <data name="MI_IncollaPreset" xml:space="preserve">
+    <value>Incolla Preset</value>
+  </data>
+  <data name="Column_Percorso" xml:space="preserve">
+    <value>Indirizzo</value>
+  </data>
+  <data name="MI_RinominaSelezionati" xml:space="preserve">
+    <value>Rinomina selezionati</value>
+  </data>
+  <data name="MI_RipristinaSelezionati" xml:space="preserve">
+    <value>Ripristina selezionati</value>
+  </data>
+  <data name="MI_Apri" xml:space="preserve">
+    <value>Apri</value>
+  </data>
+  <data name="MI_Proprietà" xml:space="preserve">
+    <value>Proprietà</value>
+  </data>
+  <data name="MI_VisualizzaStato" xml:space="preserve">
+    <value>Visualizza stato</value>
+  </data>
+  <data name="CategoryUserChange" xml:space="preserve">
+    <value>Cambiando categoria i files nell'elenco saranno rimossi.\nVuoi Continuare?</value>
+  </data>
+  <data name="PresetPasteOk" xml:space="preserve">
+    <value>Preset incollato correttamente</value>
+  </data>
+  <data name="FileListEmpty" xml:space="preserve">
+    <value>L'elenco dei files è vuoto</value>
+  </data>
+  <data name="Attivato" xml:space="preserve">
+    <value>Attivato</value>
+  </data>
+  <data name="Disattivato" xml:space="preserve">
+    <value>Disattivato</value>
+  </data>
+  <data name="Desc_AggiungiCartella" xml:space="preserve">
+    <value>Seleziona la cartella contenente i files da aggiungere</value>
+  </data>
+  <data name="Msg_RimuovereSelezionati" xml:space="preserve">
+    <value>Rimuovere dall'elenco i files selezionati?</value>
+  </data>
+  <data name="Msg_RimuovereTutti" xml:space="preserve">
+    <value>Rimuovere tutti i files dall'elenco?</value>
+  </data>
+  <data name="Desc_ElencoVuoto" xml:space="preserve">
+    <value>Aggiungi dei files o cartelle trascinandoli quì oppure utilizzando il menu.</value>
+  </data>
+  <data name="Msg_NoNewVersion" xml:space="preserve">
+    <value>Stai già utilizzando la versione più recente</value>
+  </data>
+  <data name="Msg_NewVersion" xml:space="preserve">
+    <value>Una nuova versione {0} di Autorinomina è disponibile. Vuoi aprire la pagina web dei download?</value>
+  </data>
+  <data name="Toggle_AttivaDisattivaLivePreview" xml:space="preserve">
+    <value>Anteprima istantanea</value>
+  </data>
+  <data name="Msg_LivePreviewOccuped" xml:space="preserve">
+    <value>Attendere che l'anteprima instantanea sia completata</value>
+  </data>
+  <data name="Msg_AppBusy" xml:space="preserve">
+    <value>Completare l'operazione in corso oppure cancellare l'elenco dei file aggiunti.</value>
+  </data>
+  <data name="Msg_FileStructureEmpty" xml:space="preserve">
+    <value>Per generare l'anteprima aggiungere dei campi di informazioni.</value>
+  </data>
+  <data name="Msg_NoInternetConnection" xml:space="preserve">
+    <value>Per generare l'anteprima utilizzando The TVDB è necessaria una connessione ad internet attiva.</value>
+  </data>
+  <data name="MI_Exit" xml:space="preserve">
+    <value>Esci</value>
+  </data>
+  <data name="Menu_Visualizza" xml:space="preserve">
+    <value>Visualizza</value>
+  </data>
+  <data name="Menu_Categoria" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>Aiuto</value>
+  </data>
+  <data name="MI_AutoCatturaAppunti" xml:space="preserve">
+    <value>Auto-cattura appunti</value>
+  </data>
+</root>

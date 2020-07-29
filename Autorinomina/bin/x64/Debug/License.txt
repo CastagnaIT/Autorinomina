@@ -1,0 +1,72 @@
+AutoRinomina End User Licence Agreement
+(c) 2009 - 2017 Stefano Gottardo. All rights reserved.
+
+1. This End User Licence Agreement ("EULA") is a legal agreement between you 
+   (either an individual or an entity) (hereinafter "You") and copyright holder 
+   or other authorized party (collectively "Company") relating to Your 
+   installation and use of the AutoRinomina software (the "Software"). 
+
+   By installing, copying, or otherwise using the Software, You agree to be bound 
+   by the terms of this EULA. If You do not agree to the terms of this EULA, 
+   do not install, copy or use the Software. 
+
+2. Permission is granted to You to use this Software, to copy it and 
+   redistribute it freely, subject to the following restrictions:
+
+   a. The origin of the Software must not be misrepresented; You must not 
+      claim that You wrote the Software.
+   b. You may not sell, rent, loan or otherwise encumber the Software in 
+      whole or in part, standalone or as a part of integrated solutions, 
+      to any third party.   
+   c. You may not decompile, reverse engineer, disassemble or modify the Software, 
+      unless this is strictly for personal use or to debug such modifications.  
+      These modifications must not include removing licensing management module.    
+   d. This notice may not be removed or altered from redistributions.
+
+3. The Software includes open source software not owned by
+   the Company. The licence terms in this EULA do not apply to those parts.
+   Instead, the licensing terms listed below apply:
+
+
+    a. This software uses MahApps.Metro library
+         Copyright (c) 2016 MahApps
+         used under the MIT License (MIT)
+
+    b. This software uses GongSolutions.WPF.DragDrop library
+         Copyright (c) 2015-16, Jan Karger (Steven Kirk) All rights reserved.
+         used under the BSD 3-Clause License
+
+    c. This software uses MediaInfo library
+         http://mediaarea.net/MediaInfo
+         Copyright (c) 2002-2015 MediaArea.net SARL
+         used under the BSD-2-Clause license
+
+    d. This software uses FreeImage open source image library
+         http://freeimage.sourceforge.net
+         used under the (GNU GPL or FIPL), version (license version)
+
+    e. This software uses tvdblib library
+         used under the GNU GPL v3
+
+    f. The software includes images resources from Flaticon
+         http://www.flaticon.com
+         by these authors:
+         Eleonor Wang under CC BY 3.0 License
+         Taras Shypka under CC BY 3.0 License
+         Roundicons under Flaticon Basic License
+         Freepik under Flaticon Basic License
+         Google under CC BY 3.0 License
+         Madebyoliver Flaticon Basic License
+
+
+
+THE SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED 
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

@@ -1,0 +1,36 @@
+﻿<Controls:MetroWindow x:Class="WND_About"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lang="clr-namespace:Autorinomina.Localization"
+        xmlns:local="clr-namespace:Autorinomina"
+        mc:Ignorable="d"
+                      BorderThickness="1"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+        ResizeMode="NoResize"
+        Title="{x:Static lang:Resource_WND_Main.MI_InformazioniSuAutoRinomina}" Height="429.074" Width="745.957" IsMaxRestoreButtonEnabled="False" IsMinButtonEnabled="False" Background="#FFEDEDED" WindowStartupLocation="CenterScreen">
+    <Grid UseLayoutRounding="True">
+        <Border BorderThickness="0" Background="#FFCACDE4" HorizontalAlignment="Left" Width="93">
+            <Image HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="74" Source="Immagini/Logo_74x74.png" UseLayoutRounding="True" Margin="0,8,0,0"/>
+        </Border>
+        <Label Content="Autorinomina" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" FontSize="35" FontFamily="Monotype Corsiva"/>
+        <Label x:Name="LB_Version" Content="Version" HorizontalAlignment="Left" Margin="109,52,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="#FF858585" BorderThickness="0,1" Margin="109,86,14,52" SnapsToDevicePixels="True" Padding="0,5,0,0">
+            <Grid>
+                <TextBlock Margin="0,109,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5"><Hyperlink Click="HY_License_Click"><Run Text="{x:Static lang:Resource_WND_About.VisualizzaLicenza}"/></Hyperlink></TextBlock>
+                <TextBlock Margin="74,66,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"><Hyperlink Click="HY_Homepage_Click"><Run Text="http://www.autorinomina.it"/></Hyperlink></TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="{x:Static lang:Resource_WND_About.Desc_app}" VerticalAlignment="Top" Padding="5"/>
+                <Label Content="{x:Static lang:Resource_WND_About.Homepage}" HorizontalAlignment="Left" Margin="0,61,0,0" VerticalAlignment="Top"/>
+                <TextBlock Margin="69,84,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5"><Hyperlink Click="HY_Support_click">info@autorinomina.it</Hyperlink></TextBlock>
+                <Label Content="{x:Static lang:Resource_WND_About.Supporto}" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top"/>
+                <Label Content="{x:Static lang:Resource_WND_About.Ringraziamenti}" HorizontalAlignment="Left" Margin="1,172,0,0" VerticalAlignment="Top"/>
+                <TextBlock Margin="1,190,0,0" TextWrapping="Wrap" Text="Nika87&lt;Logo&gt;, Andrea&lt;Bug-fixing&gt;" VerticalAlignment="Top" Padding="5" Height="65"/>
+            </Grid>
+        </Border>
+        <Label Content="{x:Static lang:Resource_WND_About.Copyright}" HorizontalAlignment="Left" Margin="109,0,0,21" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Controls:MetroWindow> 

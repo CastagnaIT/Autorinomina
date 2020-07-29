@@ -1,0 +1,54 @@
+﻿<Window x:Class="DLG_CartellePreferite"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Autorinomina"
+    xmlns:lang="clr-namespace:Autorinomina.Localization"
+    Title="Aggiungi cartelle da" Height="322" Width="535" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.SelectAll"
+                        Executed="SelectAllExecuted" />
+    </Window.CommandBindings>
+
+    <Grid>
+        <Label Content="{x:Static lang:Resource_Common_Dialogs.DLG_FavoriteFolder_Desc}" HorizontalAlignment="Left" Margin="10,14,0,0" Name="Label1" VerticalAlignment="Top" Padding="0" Width="377" />
+        <ListBox Name="LB_Folder" Margin="10,40,10,51" SelectionMode="Multiple" TabIndex="1" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="2">
+            <ListBox.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightBlue" Opacity=".4"/>
+                <!--SelectedItem without focus
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightBlue" Opacity=".4"/>-->
+            </ListBox.Resources>
+
+            <ListBox.InputBindings>
+                <KeyBinding Command="ApplicationCommands.SelectAll"
+                                        Modifiers="Ctrl"
+                                        Key="A" />
+            </ListBox.InputBindings>
+
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="ApplicationCommands.SelectAll" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Height" Value="Auto"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="Padding" Value="0"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Cursor="Hand" MouseDown="Image_MouseDown" Height="22" Width="22" Source="/AutoRinomina;component/Immagini/Folder_Arrow_32x32.png" Margin="0,0,5,0" />
+                        <CheckBox IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" Margin="3" Content="{Binding NomeItem}" Tag="{Binding Percorso}" IsHitTestVisible="False" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="{x:Static lang:Resource_WND_Impostazioni.ExternalSoftware_ChangePath}" Height="23" HorizontalAlignment="Right" Margin="0,10,10,0" Name="BTN_Cambia" VerticalAlignment="Top" Width="127" Padding="0" TabIndex="0" />
+        <Button Content="{x:Static lang:Resource_Common.Btn_Add}" Height="29" HorizontalAlignment="Right" Margin="0,0,142,10" Name="BTN_Aggiungi" VerticalAlignment="Bottom" Width="127" IsDefault="True" TabIndex="2" Padding="0" />
+        <Button Content="{x:Static lang:Resource_Common.Btn_Cancel}" Height="29" HorizontalAlignment="Right" Margin="0,0,10,10" Name="BTN_Annulla" VerticalAlignment="Bottom" Width="127" IsCancel="True" TabIndex="3" Padding="0" />
+    </Grid>
+</Window>

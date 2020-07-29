@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="OpzioniFiltro" xml:space="preserve">
+    <value>Opzioni filtro</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_Modalita" xml:space="preserve">
+    <value>Modalità di esecuzione</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_Modalita_Auto" xml:space="preserve">
+    <value>Automatico</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_Modalita_CanChoose" xml:space="preserve">
+    <value>Consenti la scelta del filtro</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_Error" xml:space="preserve">
+    <value>Comportamento in caso di errore</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_Error_ManualFix" xml:space="preserve">
+    <value>Chiedi di correggere manualmente il nome</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_Error_NoRename" xml:space="preserve">
+    <value>Non rinominare</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_RemoveBracketEpisode" xml:space="preserve">
+    <value>Elimina parentesi '() []' dal titolo dell'episodio</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_RemoveBracketSeriesTitle" xml:space="preserve">
+    <value>Elimina parentesi '() []' dal titolo della serie tv</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_DescRegex" xml:space="preserve">
+    <value>Regex per il riconoscimento della numerazione</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_PatternAdd" xml:space="preserve">
+    <value>Aggiungi pattern</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_PatternDelete" xml:space="preserve">
+    <value>Elimina pattern</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_PatternTest" xml:space="preserve">
+    <value>Prova pattern</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_PatternClipboard" xml:space="preserve">
+    <value>Copia pattern</value>
+  </data>
+  <data name="Desc_OtherOptions" xml:space="preserve">
+    <value>Opzioni varie</value>
+  </data>
+  <data name="SerieTv_ConvertRomanNumbers" xml:space="preserve">
+    <value>Converti numeri romani in arabi</value>
+  </data>
+  <data name="SerieTv_ConvertRomanNumbers_Tooltip" xml:space="preserve">
+    <value>Esempio (Parte II) diventa (Parte 2)</value>
+  </data>
+  <data name="RemoveBracket" xml:space="preserve">
+    <value>Elimina parentesi '() []' dal nome del file</value>
+  </data>
+  <data name="Desc_ReverseSearchNumber" xml:space="preserve">
+    <value>Usa ricerca inversa per trovare la numerazione</value>
+  </data>
+  <data name="Desc_NoNumberCase" xml:space="preserve">
+    <value>Comportamento per numerazione mancante</value>
+  </data>
+  <data name="TabName_TheTvdb" xml:space="preserve">
+    <value>The TVDB</value>
+  </data>
+  <data name="TVDB_Language_Desc" xml:space="preserve">
+    <value>Lingue utilizzate nella ricerca</value>
+  </data>
+  <data name="TVDB_Language_Main" xml:space="preserve">
+    <value>Lingua principale</value>
+  </data>
+  <data name="TVDB_Language_Secondary" xml:space="preserve">
+    <value>Lingua secondaria</value>
+  </data>
+  <data name="TVDB_ResearchOptions_Desc" xml:space="preserve">
+    <value>Opzioni di ricerca</value>
+  </data>
+  <data name="TVDB_SearchMethod" xml:space="preserve">
+    <value>Modo di ricerca</value>
+  </data>
+  <data name="TVDB_SearchMethod_CanChoose" xml:space="preserve">
+    <value>Consenti la scelta</value>
+  </data>
+  <data name="TVDB_SearchMethod_Auto" xml:space="preserve">
+    <value>Automatica</value>
+  </data>
+  <data name="TVDB_SearchMethod_Info" xml:space="preserve">
+    <value>La modalità di ricerca automatica in alcuni casi potrebbe non dare esiti positivi.</value>
+  </data>
+  <data name="TVDB_SearchNoResults" xml:space="preserve">
+    <value>Comportamento nel caso di nessun risultato</value>
+  </data>
+  <data name="TVDB_SearchNoResults_UseFilter" xml:space="preserve">
+    <value>Utilizza il filtro</value>
+  </data>
+  <data name="TVDB_ManageCache" xml:space="preserve">
+    <value>Gestione della cache</value>
+  </data>
+  <data name="TVDB_ManageCache_Auto" xml:space="preserve">
+    <value>Automatica</value>
+  </data>
+  <data name="TVDB_ManageCache_ManualLimit" xml:space="preserve">
+    <value>Stabilisci il limite manualmente</value>
+  </data>
+  <data name="TVDB_ManageCache_ClearCache" xml:space="preserve">
+    <value>Svuota cache</value>
+  </data>
+  <data name="TVDB_ManageCache_Limit_Desc" xml:space="preserve">
+    <value>Limite impostato a</value>
+  </data>
+  <data name="TVDB_ManageCache_SpaceOccuped_Desc" xml:space="preserve">
+    <value>Spazio occupato</value>
+  </data>
+  <data name="Msg_TVDB_ClearCache" xml:space="preserve">
+    <value>Svuotare la cache?</value>
+  </data>
+  <data name="Msg_InsertPattern" xml:space="preserve">
+    <value>Inserire pattern regex</value>
+  </data>
+  <data name="Msg_InsertPatternNote" xml:space="preserve">
+    <value>Inserire eventuali note</value>
+  </data>
+  <data name="Msg_DeletePatternRegex" xml:space="preserve">
+    <value>Rimuovere pattern '{0}' ?</value>
+  </data>
+  <data name="Msg_PatternTest" xml:space="preserve">
+    <value>Immetti un nome del file (senza estensione)</value>
+  </data>
+  <data name="TVDB_DescInfo" xml:space="preserve">
+    <value>I servizi di The TVDB necessitano di una connessione ad internet</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_RecognizeLinkedEpisode" xml:space="preserve">
+    <value>Riconosci numerazioni di episodi collegati</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_RecognizeLinkedEpisode_Tooltip" xml:space="preserve">
+    <value>Esempio "1x01-02" se non è necessario si consiglia di disabilitare</value>
+  </data>
+  <data name="WeakFilter" xml:space="preserve">
+    <value>Utilizza un filtro meno aggressivo</value>
+  </data>
+  <data name="WeakFilter_Tooltip" xml:space="preserve">
+    <value>Mantiene il testo conforme all'originale</value>
+  </data>
+  <data name="Audio_NoTagNumber" xml:space="preserve">
+    <value>Comportamento per numerazione mancante 'Tag-numero traccia'</value>
+  </data>
+  <data name="Audio_NoTagNumber_UseFilter" xml:space="preserve">
+    <value>Prova a ricavarla dal nome del file</value>
+  </data>
+  <data name="Audio_NoTagNumber_UseSequentialNumber" xml:space="preserve">
+    <value>Utilizza la numerazione sequenziale</value>
+  </data>
+  <data name="Audio_NoTagNumber_ExcludeNumeration" xml:space="preserve">
+    <value>Non includere la numerazione</value>
+  </data>
+  <data name="Audio_NoTagNumber_NoRename" xml:space="preserve">
+    <value>Non rinominare il file</value>
+  </data>
+  <data name="Audio_TagNumber_ExcludeOtherChars" xml:space="preserve">
+    <value>Escludi ogni carattere non numerico contenuto nel 'Tag-numero traccia'</value>
+  </data>
+  <data name="SerieTv_OpzioniFiltro_Modalita_OnlyOnError" xml:space="preserve">
+    <value>Consenti la scelta solo in caso di errore</value>
+  </data>
+  <data name="Audio_ID3Missing" xml:space="preserve">
+    <value>Quando manca l'ID3 Tag non rinominare</value>
+  </data>
+</root>

@@ -1,0 +1,553 @@
+﻿<Controls:MetroWindow x:Class="MainWindow"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dd="urn:gong-wpf-dragdrop"
+        xmlns:lang="clr-namespace:Autorinomina.Localization"
+        xmlns:local="clr-namespace:Autorinomina"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        ResizeMode="CanResizeWithGrip"
+                      BorderThickness="1"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+        WindowTransitionsEnabled="False"
+        Title="Autorinomina" Height="568.667" Width="879.336" Icon="Immagini/Logo_74x74.png" Background="#FFAED1FB" WindowStartupLocation="CenterScreen" MinHeight="340" MinWidth="700">
+
+    <Controls:MetroWindow.IconTemplate>
+        <ItemContainerTemplate>
+            <Image Source="Immagini/Logo_BW.png" Width="20" Height="20" Margin="2,2,0,0"/>
+        </ItemContainerTemplate>
+    </Controls:MetroWindow.IconTemplate>
+    <Controls:MetroWindow.Resources>
+
+        <!-- ListView Struttura item  colors-->
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="LV_ColoreSelezionato">
+            <GradientStop Color="#FF48B1FF" Offset="0.385" />
+            <GradientStop Color="#FF48B1FF" Offset="0.615" />
+            <GradientStop Color="Transparent" Offset="0.418" />
+            <GradientStop Color="Transparent" Offset="0.582" />
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="LV_LineColoreSelezionato" Color="Transparent"/>
+        <SolidColorBrush x:Key="LV_LineSXColoreSelezionato" Color="Transparent"/>
+
+
+        <DataTemplate x:Key="DragAdorner">
+            <Border Background="#FFCAE3FF" Padding="4" BorderThickness="1" BorderBrush="White">
+                <Border BorderThickness="0,0,0,1" BorderBrush="Black" Margin="4,2,4,0" Padding="6,0">
+                    <TextBlock Foreground="{Binding ColoreTesto}" Text="{Binding Testo}" Height="22" VerticalAlignment="Stretch" />
+                </Border>
+            </Border>
+        </DataTemplate>
+
+
+        <Style x:Key="MICustomSeparator" TargetType="MenuItem">
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border Background="#FFBBCAFF" >
+                            <TextBlock Text="{Binding Path=Header, RelativeSource={RelativeSource AncestorType={x:Type MenuItem}}}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--DataGrid row ContextMenu-->
+        <ContextMenu  x:Key="RowMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}" UseLayoutRounding="True">
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MI_RinominaSelezionati}" Click="BTN_RinominaSelezione_Click" />
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MI_RipristinaSelezionati}" Click="BTN_RipristinaSelezione_Click" />
+            <Separator/>
+            <MenuItem Click="MI_Menu_SelezionaTutto_Click" Header="{x:Static lang:Resource_WND_Main.MI_SelezionaTutto}" InputGestureText="Ctrl+A" />
+            <MenuItem Click="MI_Menu_DeselezionaTutto_Click" Header="{x:Static lang:Resource_WND_Main.MI_DeselezionaTutto}" InputGestureText="Ctrl+Z"/>
+            <Separator/>
+            <MenuItem Click="MI_Menu_RimuoviSelezionati_Click" Header="{x:Static lang:Resource_WND_Main.MI_RimuoviSelezionati}" InputGestureText="Canc">
+                <MenuItem.Icon>
+                    <Image Width="16" Height="16" Source="Immagini/Toolbar/minus.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Click="MI_Menu_RimuoviTutto_Click" Header="{x:Static lang:Resource_WND_Main.MI_RimuoviTutto}" InputGestureText="Backspace">
+                <MenuItem.Icon>
+                    <Image Width="16" Height="16" Source="Immagini/Toolbar/delete.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator/>
+            <MenuItem Click="MI_Menu_ApriFile" Header="{x:Static lang:Resource_WND_Main.MI_Apri}" />
+            <MenuItem Click="MI_Menu_ProprietaFile" Header="{x:Static lang:Resource_WND_Main.MI_Proprietà}" />
+            <Separator/>
+            <MenuItem Click="MI_Menu_VisualizzaStatoFile" Header="{x:Static lang:Resource_WND_Main.MI_VisualizzaStato}" />
+        </ContextMenu>
+
+        <Style x:Key="DefaultRowStyleWithCM" BasedOn="{StaticResource MetroDataGridRow}" TargetType="{x:Type DataGridRow}">
+            <Setter Property="ContextMenu" Value="{StaticResource RowMenu}" />
+        </Style>
+
+        <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource MetroDataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+        <local:Converter_InfoStatoToImage x:Key="ConverterInfoStatoToImage" />
+
+        <Style x:Key="MetroBarFlatButtonStyle" BasedOn="{StaticResource MetroFlatButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFDDEDF7" />
+        </Style>
+        <Style x:Key="MetroBarFlatButtonStyle_ToggleBtn" BasedOn="{StaticResource MetroFlatToggleButton}" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Background" Value="#FFDDEDF7" />
+        </Style>
+
+
+        <ContextMenu x:Key="CM_MM_Menu">
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_0}" Click="MI_MM_Click"/>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_1}" Click="MI_MM_Click"/>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_2}" Click="MI_MM_Click"/>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_3}" Click="MI_MM_Click"/>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_4}" Click="MI_MM_Click"/>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_5}" Click="MI_MM_Click"/>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_6}" Click="MI_MM_Click"/>
+        </ContextMenu>
+       
+    </Controls:MetroWindow.Resources>
+
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="BTN_NewVersion" Click="BTN_NewVersion_Click" Content="{x:Static lang:Resource_WND_Main.NewSWVersion_TitleBar}" Visibility="Collapsed" FontWeight="Bold" FontStyle="Italic" IsTabStop="False"/>
+            <Button x:Name="BTN_WindowCmd_AlwaysOnTop" Tag="False" UseLayoutRounding="True" IsTabStop="False">
+                <Image Source="Immagini/Knob_16x16.png" Height="13" VerticalAlignment="Center" RenderTransformOrigin=".5,.5" ToolTip="{x:Static lang:Resource_WND_Main.MI_SempreInPrimoPiano}">
+                    <Image.RenderTransform>
+                        <RotateTransform CenterX="0.5" CenterY="0.5" />
+                    </Image.RenderTransform>
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Tag}" Value="False">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Angle" From="0" To="90" Duration="0:0:0.1" RepeatBehavior="1x" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Angle" From="90" To="0" Duration="0:0:0.1" RepeatBehavior="1x" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid x:Name="Grid_Principale">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Menu VerticalAlignment="Top" Height="30" UseLayoutRounding="True">
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.Menu_File}">
+                <MenuItem x:Name="MI_Menu_CambiaCategoria" Header="{x:Static lang:Resource_WND_Main.MI_CambiaCategoria}">
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_serietv}" Tag="CATEGORIA_serietv" Click="MI_Menu_CambiaCategoria_Click">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Immagini/Categorie/CATEGORIA_serietv.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_video}" Tag="CATEGORIA_video" Click="MI_Menu_CambiaCategoria_Click">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Immagini/Categorie/CATEGORIA_video.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_audio}" Tag="CATEGORIA_audio" Click="MI_Menu_CambiaCategoria_Click">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Immagini/Categorie/CATEGORIA_audio.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_immagini}" Tag="CATEGORIA_immagini" Click="MI_Menu_CambiaCategoria_Click">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Immagini/Categorie/CATEGORIA_immagini.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_generica}" Tag="CATEGORIA_generica" Click="MI_Menu_CambiaCategoria_Click">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Immagini/Categorie/CATEGORIA_generica.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_Aggiungi" Header="{x:Static lang:Resource_WND_Main.MI_Aggiungi}">
+                    <MenuItem x:Name="MI_Menu_AggiungiFiles" Header="{x:Static lang:Resource_WND_Main.MI_AggiungiDeiFiles}" InputGestureText="Ctrl+F">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Immagini/Toolbar/File_aggiungi.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="MI_Menu_AggiungiCartelle" Header="{x:Static lang:Resource_WND_Main.MI_AggiungiUnaCartellaDiFiles}" InputGestureText="Ctrl+D">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Immagini/Toolbar/Folder_aggiungi.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem x:Name="MI_Menu_AggiungiPreferite" Header="{x:Static lang:Resource_WND_Main.MI_AggiungiFilesDaCartellaPreferita}" InputGestureText="Ctrl+P">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Immagini/Toolbar/Folder_custom_aggiungi.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_RimuoviSelezionati" Header="{x:Static lang:Resource_WND_Main.MI_RimuoviSelezionati}" InputGestureText="Canc">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Immagini/Toolbar/minus.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MI_Menu_RimuoviTutto" Header="{x:Static lang:Resource_WND_Main.MI_RimuoviTutto}" InputGestureText="Backspace">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Immagini/Toolbar/delete.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_Esci" Header="{x:Static lang:Resource_WND_Main.MI_Exit}" InputGestureText="Ctrl+Q"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.Menu_Modifica}">
+                <MenuItem x:Name="MI_Menu_SpostaSu" Header="{x:Static lang:Resource_WND_Main.MI_SpostaInSu}" InputGestureText="-">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Immagini/Toolbar/up-arrow.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MI_Menu_SpostaGiu" Header="{x:Static lang:Resource_WND_Main.MI_SpostaInGiu}" InputGestureText="+">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Immagini/Toolbar/down-arrow.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_SelezionaTutto" Header="{x:Static lang:Resource_WND_Main.MI_SelezionaTutto}" InputGestureText="Ctrl+A" />
+                <MenuItem x:Name="MI_Menu_DeselezionaTutto" Header="{x:Static lang:Resource_WND_Main.MI_DeselezionaTutto}" InputGestureText="Ctrl+Z" />
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_IncludiSottocartelle" Header="{x:Static lang:Resource_WND_Main.MI_IncludiFilesDelleSottocartelle}" IsCheckable="True"/>
+                <MenuItem Header="{x:Static lang:Resource_WND_Main.MI_AutoCatturaAppunti}">
+                    <MenuItem x:Name="MI_Menu_CatturaFiles"  Header="{x:Static lang:Resource_WND_Main.MI_CatturaFilesCartelleDiFiles}" IsCheckable="True" InputGestureText="F3"/>
+                    <MenuItem x:Name="MI_Menu_CatturaPreset"  Header="{x:Static lang:Resource_WND_Main.MI_CatturaPreset}" IsCheckable="True" InputGestureText="F4"/>
+                </MenuItem>
+                <MenuItem x:Name="MI_Menu_LivePreview"  Header="{x:Static lang:Resource_WND_Main.Toggle_AttivaDisattivaLivePreview}" IsCheckable="True"/>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_Impostazioni"  Header="{x:Static lang:Resource_WND_Main.MI_Impostazioni}" InputGestureText="F9"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.Menu_Visualizza}">
+                <MenuItem x:Name="MI_Menu_MostraBarra"  Header="{x:Static lang:Resource_WND_Main.MI_MostraBarraDegliStrumenti}" IsCheckable="True"/>
+                <MenuItem x:Name="MI_Menu_MostraColonne" Header="{x:Static lang:Resource_WND_Main.MI_MostraColonne}"/>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_AlwaysOnTop"  Header="{x:Static lang:Resource_WND_Main.MI_SempreInPrimoPiano}" IsCheckable="True"/>
+                <Separator/>
+                <MenuItem x:Name="MI_CambiaLingua" Header="{x:Static lang:Resource_WND_Main.MI_CambiaLingua}"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.Menu_Categoria}">
+                <MenuItem x:Name="MI_Menu_TerminiBlackList" Header="{x:Static lang:Resource_WND_Main.MI_TerminiInBlackList}" InputGestureText="F5">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Immagini/iconeMenuWND/BlackList.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MI_Menu_SostituzioneTermini" Header="{x:Static lang:Resource_WND_Main.MI_SostituzioneTermini}" InputGestureText="F6">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Immagini/iconeMenuWND/Sostituisci.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MI_Menu_SostituzioneTermini_Checkbox" Header="{Binding ElementName=TB_Menu_Sostituisci, Path=ToolTip}" IsChecked="{Binding ElementName=TB_Menu_Sostituisci, Path=IsChecked}" IsCheckable="True" />
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_ElencoSequenziale" Header="{x:Static lang:Resource_WND_ElencoSequenziale.Titolo}" InputGestureText="F7">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Immagini/iconeMenuWND/ElencoSequenziale_16x16.png" UseLayoutRounding="True"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_MaiuscoleMinuscole" Header="{x:Static lang:Resource_WND_Main.Btn_Menu_ConvertiMaiuscoleMinuscole}" >
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Immagini/MMConversion/MM_CaseConversion.png" />
+                    </MenuItem.Icon>
+
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_0}" IsCheckable="True" Click="MI_MM_Click" />
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_1}" IsCheckable="True" Click="MI_MM_Click" />
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_2}" IsCheckable="True" Click="MI_MM_Click" />
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_3}" IsCheckable="True" Click="MI_MM_Click" />
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_4}" IsCheckable="True" Click="MI_MM_Click" />
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_5}" IsCheckable="True" Click="MI_MM_Click" />
+                    <MenuItem Header="{x:Static lang:Resource_WND_Main.MaiuscoleMinuscole_6}" IsCheckable="True" Click="MI_MM_Click" />
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_OpzioniAvanzate"  Header="{x:Static lang:Resource_WND_Main.MI_OpzioniAvanzate}" InputGestureText="F8"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static lang:Resource_WND_Main.Menu_Help}">
+                <MenuItem x:Name="MI_Menu_GuidaRapida"  Header="{x:Static lang:Resource_WND_Main.MI_GuidaRapida}" InputGestureText="F1"/>
+                <MenuItem x:Name="MI_Menu_Donazione"  Header="{x:Static lang:Resource_WND_Main.MI_Donazione}"/>
+                <Separator/>
+                <MenuItem x:Name="MI_Menu_Aggiornamenti" Header="{x:Static lang:Resource_WND_Main.MI_ControlloAggiornamenti}"/>
+                <Separator/>
+                <MenuItem x:Name="MI_InformazioniSu" Header="{x:Static lang:Resource_WND_Main.MI_InformazioniSuAutoRinomina}"/>
+            </MenuItem>
+        </Menu>
+
+        <Border x:Name="BR_BarraStrumenti" BorderThickness="0" Height="50" VerticalAlignment="Top" Grid.Row="1" UseLayoutRounding="True">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,3,0,3" Width="813">
+                    <StackPanel.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </StackPanel.Resources>
+                    <ComboBox x:Name="CB_Menu_Categoria" Background="#FFDDEDF7" HorizontalAlignment="Left" Width="203" Height="40" VerticalAlignment="Center" Margin="0,0,20,0" BorderBrush="#FFDDEDF7">
+                        <StackPanel Orientation="Horizontal" Tag="CATEGORIA_serietv">
+                            <Image Height="20" Source="Immagini/Categorie/CATEGORIA_serietv.png" Margin="0,0,8,0" />
+                            <TextBlock Text="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_serietv}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Tag="CATEGORIA_video">
+                            <Image Height="20" Source="Immagini/Categorie/CATEGORIA_video.png" Margin="0,0,8,0" />
+                            <TextBlock Text="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_video}" VerticalAlignment="Center"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Tag="CATEGORIA_audio">
+                            <Image Height="20" Source="Immagini/Categorie/CATEGORIA_audio.png" Margin="0,0,8,0" />
+                            <TextBlock Text="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_audio}" VerticalAlignment="Center"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Tag="CATEGORIA_immagini">
+                            <Image Height="20" Source="Immagini/Categorie/CATEGORIA_immagini.png" Margin="0,0,8,0" />
+                            <TextBlock Text="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_immagini}" VerticalAlignment="Center"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Tag="CATEGORIA_generica">
+                            <Image Height="20" Source="Immagini/Categorie/CATEGORIA_generica.png" Margin="0,0,8,0" />
+                            <TextBlock Text="{x:Static lang:Resource_WND_Main.Nome_CATEGORIA_generica}" VerticalAlignment="Center"  />
+                        </StackPanel>
+                    </ComboBox>
+                    <Separator />
+                    <Button x:Name="BTN_Menu_AggiungiCartella" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_Main.MI_AggiungiUnaCartellaDiFiles}" Margin="2" Padding="8" Height="40" Width="40">
+                        <Image Source="/AutoRinomina;component/Immagini/Toolbar/Folder_aggiungi.png" Height="24" Width="22"/>
+                    </Button>
+                    <Button x:Name="BTN_Menu_AggiungiFiles" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_Main.MI_AggiungiDeiFiles}" Margin="2" Padding="8" Height="40" Width="40">
+                        <Image Source="/AutoRinomina;component/Immagini/Toolbar/File_aggiungi.png" Height="24" Width="22"/>
+                    </Button>
+                    <Button x:Name="BTN_Menu_AggiungiPreferiti" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_Main.MI_AggiungiFilesDaCartellaPreferita}" Margin="2" Padding="8" Height="40" Width="40">
+                        <Image Source="/AutoRinomina;component/Immagini/Toolbar/Folder_custom_aggiungi.png" Height="24" Width="22"/>
+                    </Button>
+                    <Separator />
+                    <Button x:Name="BTN_Menu_ElencoSequenziale" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_ElencoSequenziale.Titolo}" Margin="8,2,2,2" Padding="8" Height="40" Width="40">
+                        <Image Source="Immagini/Toolbar/ElencoSequenziale_32x32.png" Height="24" Width="22"/>
+                    </Button>
+                    <ToggleButton x:Name="TB_Menu_Sostituisci" Style="{StaticResource MetroBarFlatButtonStyle_ToggleBtn}" ToolTip="{x:Static lang:Resource_WND_Main.Toggle_AttivaDisattivaSostituzioni}" Margin="2" Padding="8" Height="40" Width="40">
+                        <Image Source="Immagini/Toolbar/Sostituzioni.png" Height="24" Width="22"/>
+                    </ToggleButton>
+                    <Button x:Name="BTN_Menu_MaiuscoleMinuscole" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_Main.Btn_Menu_ConvertiMaiuscoleMinuscole}" Margin="2" Padding="8" Height="40" Width="56">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Immagini/MMConversion/MM_CaseConversion.png" Height="24" Width="24"/>
+                            <Path x:Name="BtnArrow"
+                                      Width="8"
+                                      Height="4"
+                                      HorizontalAlignment="Center"
+                                      Fill="{DynamicResource GrayBrush1}"
+                                      Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z "
+                                      IsHitTestVisible="false"
+                                      Stretch="Uniform" Margin="8,0,0,0" />
+                        </StackPanel>
+                    </Button>
+                    <Separator />
+                    <Button x:Name="BTN_Menu_SpostaSu" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_Main.MI_SpostaInSu}" Margin="8,2,2,2" Padding="8" Height="40" Width="40" IsEnabled="{Binding ElementName=MI_Menu_SpostaSu, Path=IsEnabled}">
+                        <Image Source="/AutoRinomina;component/Immagini/Toolbar/up-arrow.png" Height="24" Width="22"/>
+                    </Button>
+                    <Button x:Name="BTN_Menu_SpostaGiu" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_Main.MI_SpostaInGiu}" Margin="2" Padding="8" Height="40" Width="40" IsEnabled="{Binding ElementName=MI_Menu_SpostaGiu, Path=IsEnabled}">
+                        <Image Source="/AutoRinomina;component/Immagini/Toolbar/down-arrow.png" Height="24" Width="22"/>
+                    </Button>
+                    <Button x:Name="BTN_Menu_Elimina" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_Main.MI_RimuoviSelezionati}" Margin="8,2,2,2" Padding="8" Height="40" Width="40" IsEnabled="{Binding ElementName=MI_Menu_RimuoviSelezionati, Path=IsEnabled}">
+                        <Image Source="/AutoRinomina;component/Immagini/Toolbar/minus.png" Height="24" Width="22"/>
+                    </Button>
+                    <Button x:Name="BTN_Menu_EliminaTutto" Style="{StaticResource MetroBarFlatButtonStyle}" ToolTip="{x:Static lang:Resource_WND_Main.MI_RimuoviTutto}" Margin="2" Padding="8" Height="40" Width="40" IsEnabled="{Binding ElementName=MI_Menu_RimuoviTutto, Path=IsEnabled}">
+                        <Image Source="/AutoRinomina;component/Immagini/Toolbar/delete.png" Height="24" Width="22"/>
+                    </Button>
+                    <ToggleButton x:Name="TB_Menu_LivePreview" Style="{StaticResource MetroBarFlatButtonStyle_ToggleBtn}" ToolTip="{x:Static lang:Resource_WND_Main.Toggle_AttivaDisattivaLivePreview}" IsChecked="{Binding IsChecked, ElementName=MI_Menu_LivePreview, Mode=TwoWay}" Margin="8,2,2,2" Padding="8" Height="40" Width="40">
+                        <Image Source="Immagini/Toolbar/LivePreview.png" Height="24" Width="22"/>
+                    </ToggleButton>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Label Content="{x:Static lang:Resource_WND_Main.DescriptionGuideStructure}" Margin="10,11,103,0" VerticalAlignment="Top" Height="26" Grid.Row="2"/>
+        <Controls:DropDownButton Content="{x:Static lang:Resource_WND_Main.Btn_PRESETS}" Margin="0,11,10,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Right" Width="88" Grid.Row="2">
+            <Controls:DropDownButton.Items>
+                <MenuItem x:Name="MI_CaricaPreset" Header="{x:Static lang:Resource_WND_Main.MI_CaricaPreset}"/>
+                <MenuItem x:Name="MI_SalvaPreset" Header="{x:Static lang:Resource_WND_Main.MI_SalvaPreset}"/>
+                <Separator/>
+                <MenuItem x:Name="MI_CopiaPreset" Header="{x:Static lang:Resource_WND_Main.MI_CopiaPreset}"/>
+                <MenuItem x:Name="MI_IncollaPreset" Header="{x:Static lang:Resource_WND_Main.MI_IncollaPreset}"/>
+            </Controls:DropDownButton.Items>
+        </Controls:DropDownButton>
+        <Popup AllowsTransparency="True" x:Name="PopUp_LVItem" PopupAnimation="Fade" Margin="0,0,794,33" Grid.RowSpan="2"/>
+        <Grid Height="46" Margin="10,42,10,0" VerticalAlignment="Top" Background="White" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="45"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Immagini/writing_32x32.png" Width="28" SnapsToDevicePixels="True" HorizontalAlignment="Center" Height="28" VerticalAlignment="Center" UseLayoutRounding="True"/>
+            <Button x:Name="BTN_AggiungiInfo" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" Height="45" VerticalAlignment="Center" Width="45" Padding="8" Grid.Column="2">
+                <Image SnapsToDevicePixels="True">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="Immagini/Button/Aggiungi_Down_32x32.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="Immagini/Button/Aggiungi_Over_32x32.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+            <ListView dd:DragDrop.DropHandler="{Binding}" dd:DragDrop.UseDefaultDragAdorner="False" dd:DragDrop.UseDefaultEffectDataTemplate="False" dd:DragDrop.DragDropContext="DDLVStruttura" dd:DragDrop.EffectMoveAdornerTemplate="{StaticResource DragAdorner}" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="46" x:Name="LV_StrutturaNomeFile" VerticalAlignment="Center" SelectionMode="Single" AllowDrop="True" Padding="4,0" BorderBrush="{x:Null}" Background="{x:Null}" Tag="0" BorderThickness="0" IsTextSearchEnabled="False" Grid.Column="1">
+                <ListView.Resources>
+                    <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+                        <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
+                        <Setter Property="Background" Value="#D5E0FF" />
+                        <Setter Property="Height" Value="8" />
+                        <Setter Property="MinHeight" Value="8" />
+                        <Setter Property="Template" Value="{StaticResource HorizontalScrollBar}"/>
+                    </Style>
+                </ListView.Resources>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="Transparent" BorderThickness="0,0,0,1" BorderBrush="Black" Margin="4,2,4,0" Padding="6,0">
+                            <!--lo sfondo permette il mouse over nei punti vuoti-->
+                            <TextBlock Foreground="{Binding ColoreTesto}" Text="{Binding Testo}" Height="22" VerticalAlignment="Stretch" />
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <Border x:Name="BR_Item" Height="34">
+                                        <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,2" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="BR_Item" Property="Background" Value="#3E58A8FF"/>
+                                        </Trigger>
+
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsMouseOver" Value="True" />
+                                                <Condition Property="IsSelected" Value="False" />
+                                            </MultiTrigger.Conditions>
+                                            <Setter TargetName="BR_Item" Property="Background" Value="#1F58A8FF"/>
+                                        </MultiTrigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                        <!--animated panel crea problemi di lentezza ui nel resize-->
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Grid>
+        
+        <Grid Grid.Row="2" Background="White" Margin="0,107,0,63">
+            <DataGrid x:Name="DG_Files" RowStyle="{StaticResource DefaultRowStyleWithCM}" AutoGenerateColumns="False" AllowDrop="True" GridLinesVisibility="None" CanUserDeleteRows="False" CanUserAddRows="False" ClipboardCopyMode="None" BorderThickness="0,2" >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn IsReadOnly="True" Width="24" CanUserResize="False" CanUserReorder="False" CanUserSort="False" SortMemberPath="Stato">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Stato, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ConverterInfoStatoToImage}}" Height="14" Width="14" SnapsToDevicePixels="True"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellStyle >
+                            <Style BasedOn="{StaticResource MetroDataGridCell}" TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="#4CE0E7F5" />
+                                <Setter Property="BorderBrush" Value="#4CE0E7F5" />
+                            </Style>
+                        </DataGridTemplateColumn.CellStyle>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_Stato}"  Binding="{Binding StatoInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="140" CanUserReorder="False">
+                        <DataGridTextColumn.CellStyle >
+                            <Style BasedOn="{StaticResource MetroDataGridCell}" TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="#4CE0E7F5" />
+                                <Setter Property="BorderBrush" Value="#4CE0E7F5" />
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_NomeFile}"  Binding="{Binding NomeFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="320"/>
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_NomeFileRinominato}"  Binding="{Binding NomeFileRinominato, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="320">
+                        <DataGridTextColumn.CellStyle >
+                            <Style BasedOn="{StaticResource MetroDataGridCell}" TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="#4CE0E7F5" />
+                                <Setter Property="BorderThickness" Value="0" />
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                        <DataGridTextColumn.EditingElementStyle>
+                            <Style TargetType="{x:Type TextBox}">
+                                <EventSetter Event="PreviewTextInput" Handler="DG_TextBox_NomeFileRinominato_PreviewTextInput" />
+                            </Style>
+                        </DataGridTextColumn.EditingElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_NomeCartella}"  Binding="{Binding NomeCartella, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"  Width="134" />
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_Percorso}"  Binding="{Binding Percorso, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"  Width="210"/>
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_DataCreazione}"  Binding="{Binding DataCreazione, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="144" />
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_DataUltimaModifica}"  Binding="{Binding DataUltimaModifica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="144" />
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_Tipo}"  Binding="{Binding Tipo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"  Width="158"/>
+                    <DataGridTextColumn Header="{x:Static lang:Resource_WND_Main.Column_Dimensione}"  Binding="{Binding Dimensione, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="98" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <StackPanel Height="45" Margin="0,0,21,7" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2">
+            <Button x:Name="BTN_RipristinaSelezione" HorizontalAlignment="Right" Margin="0,0,4,0" VerticalAlignment="Center" Height="32" Padding="2" IsEnabled="False">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Immagini/Button/BTNRipristina.png" Width="18" SnapsToDevicePixels="True" Margin="4,0,0,0"/>
+                    <Label Content="{x:Static lang:Resource_WND_Main.Btn_Selezione}" VerticalContentAlignment="Center" Height="26"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BTN_Ripristina" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center" Height="32" Padding="2" IsEnabled="False">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Immagini/Button/BTNRipristina.png" Width="18" SnapsToDevicePixels="True" Margin="4,0,0,0"/>
+                    <Label Content="{x:Static lang:Resource_WND_Main.Btn_RipristinaTutto}" VerticalContentAlignment="Center" Height="26"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BTN_Anteprima" HorizontalAlignment="Right" Margin="8,0" Height="36" Padding="0" VerticalAlignment="Center" MinWidth="130">
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="Immagini/Button/BTNAnteprima.png" VerticalAlignment="Center" HorizontalAlignment="Left" Width="20"/>
+                    <Label Content="{x:Static lang:Resource_WND_Main.Btn_Anteprima}" VerticalContentAlignment="Center" Height="30"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BTN_Rinomina" Margin="0" VerticalAlignment="Center" Height="32" Padding="2" IsEnabled="False">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{x:Static lang:Resource_WND_Main.Btn_RinominaTutto}" VerticalContentAlignment="Center" Height="26"/>
+                    <Image Source="Immagini/Button/BTNRinomina.png" Width="18" SnapsToDevicePixels="True"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BTN_RinominaSelezione" Margin="4,0,0,0" VerticalAlignment="Center" Height="32" Padding="2" IsEnabled="False">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{x:Static lang:Resource_WND_Main.Btn_Selezione}" VerticalContentAlignment="Center" Height="26"/>
+                    <Image Source="Immagini/Button/BTNRinomina.png" Width="18" SnapsToDevicePixels="True"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BlackList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemTermine>
+    <Termine>x264-wgz</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>x264-bluworld</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>x264</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>Subs</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>ITA</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>Half SBS</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>ENG</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>DTS</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>bluray</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>bdrip</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>AC3</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>3d sbs</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>1080p</Termine>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+</BlackList>

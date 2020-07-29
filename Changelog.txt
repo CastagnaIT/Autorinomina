@@ -1,0 +1,43 @@
+Autorinomina 5.0.5.0
+5.0.5.0 - 20/01/2018
+
+Added new video info "Encoded video library"
+Changed the text of menu "video/audio codec" to "video/audio format"
+Fixed application crash when loading codec video info (thanks to G.Maurizio)
+Fixed problem in pattern used to some particular case of black list words with special characters ex. "H264-beautiful+mind"
+Fixed loading file in Sequential text list window, now use right system text encoding
+Updated MediaInfo library to 17.12.0.0
+
+
+Autorinomina 5.0.4.0
+5.0.4.0 - 02/06/2017
+
+Switch to TheTVDB APIv2 (slower but more precise) APIv1 will be discontinued
+Some improvement in TheTVDB results dialog window
+Added possibility of choice season association to Aired or DVD/BD to TheTVDB (i recommend leave default)
+Added "Reload languages" in the TVDB advanced options
+Removed TVDB field "Number of seasons" deprecated in TheTVDB APIv2
+Reintroduced option to permit fallback to english when an episode title is missing (option missing in TheTVDB APIv2) now customizable in advanced options
+Corrected some mistakes/missing strings in italian and english language
+No more rarely empty episode/season title results when use TheTVDB, caused by cache problem (bug in TheTVDB APIv1)
+No more double english results in The TVDB search (bug in TheTVDB APIv1)
+Removed TheTVDB cache (only used to TheTVDB APIv1)
+Updated license file
+
+
+Autorinomina 5.0.3.0
+5.0.3.0 - 19/04/2017
+
+Fixed parts of code cause of many slowdowns
+Now the preview is speeded up about 90% in both versions (32/64 bit)
+Fixed english language in the "Add text" window dialog
+Live preview no longer prevents the start of preview
+
+
+Autorinomina 5.0.2.0
+5.0.2.0 - 12/04/2017
+
+Preview operations speeded up by about 30% on 32bit version, 5% on 64bit version
+Fixed file row moving with keyboard (keys: add, substract)
+Fixed some graphical issues with UI
+Corrected default numbering style in the "The tvdb standard" preset

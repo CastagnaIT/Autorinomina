@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="GridModifica_Btn_RemoveInfo" xml:space="preserve">
+    <value>Rimuovi campo</value>
+  </data>
+  <data name="GridModifica_Btn_RemoveAllInfo" xml:space="preserve">
+    <value>Rimuovi tutto</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione" xml:space="preserve">
+    <value>Stile della numerazione</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_0" xml:space="preserve">
+    <value>Normale\t\t\t[1,2,3...11,12,13]</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_1" xml:space="preserve">
+    <value>Normale con zeri\t\t[01,02,03...11,12,13]</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_2" xml:space="preserve">
+    <value>Romano\t\t\t[I,II,III...XI,XII,XIII]</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_3" xml:space="preserve">
+    <value>Alfabetico\t\t[A,B,C...AA,AB,AC]</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_4" xml:space="preserve">
+    <value>Alfabetico alt.\t\t[A,B,C...AA,BB,CC]</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_5" xml:space="preserve">
+    <value>Serie Tv - Europeo\t[1x01]</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_6" xml:space="preserve">
+    <value>Serie Tv - Europeo alt.\t[1.01]</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_7" xml:space="preserve">
+    <value>Serie Tv - Americano\t[S01E01]</value>
+  </data>
+  <data name="Grid_StileNumerazione_CB_StileNumerazione_8" xml:space="preserve">
+    <value>Serie Tv - Numerico\t[101]</value>
+  </data>
+  <data name="Grid_NumSeq_Desc" xml:space="preserve">
+    <value>Parametri numerazione</value>
+  </data>
+  <data name="Grid_NumSeq_NumEpisodio" xml:space="preserve">
+    <value>Numero episodio</value>
+  </data>
+  <data name="Grid_NumSeq_NumStag" xml:space="preserve">
+    <value>Numero stagione</value>
+  </data>
+  <data name="Grid_NumSeq_Suffisso" xml:space="preserve">
+    <value>Suffisso</value>
+  </data>
+  <data name="Grid_NumSeq_Prefisso" xml:space="preserve">
+    <value>Prefisso</value>
+  </data>
+  <data name="Grid_NumSeq_AutoPadding" xml:space="preserve">
+    <value>Zeri iniziali automatici</value>
+  </data>
+  <data name="Grid_Separator_Desc" xml:space="preserve">
+    <value>Carattere</value>
+  </data>
+  <data name="Grid_Separator_AddSpace" xml:space="preserve">
+    <value>Aggiungi una spaziatura</value>
+  </data>
+  <data name="Grid_Separator_Btn_ApplyToAll" xml:space="preserve">
+    <value>Applica a tutti</value>
+  </data>
+  <data name="Grid_TitleEpisode_Concatenate" xml:space="preserve">
+    <value>Concatena parti di testo</value>
+  </data>
+  <data name="Grid_TitleEpisode_ConcatenateDesc" xml:space="preserve">
+    <value>Attivare solo nel caso di parti di testo mancanti nel titolo della serie tv</value>
+  </data>
+  <data name="Grid_Text_Desc" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="Grid_FormatLenght_TimeFormat" xml:space="preserve">
+    <value>Formato ora</value>
+  </data>
+  <data name="Grid_FormatLenght_TimeFormat_Ex1" xml:space="preserve">
+    <value>%H.%M</value>
+  </data>
+  <data name="Grid_FormatLenght_TimeFormat_Ex2" xml:space="preserve">
+    <value>%H,%M</value>
+  </data>
+  <data name="Grid_FormatLenght_TimeFormat_Ex3" xml:space="preserve">
+    <value>%Mm %Ss</value>
+  </data>
+  <data name="Grid_FormatLenght_TimeFormat_Ex4" xml:space="preserve">
+    <value>%Mmin %Ssec</value>
+  </data>
+  <data name="Grid_FormatLenght_TimeFormat_Ex5" xml:space="preserve">
+    <value>%M minuti %S secondi</value>
+  </data>
+  <data name="Grid_FormatLenght_TimeFormat_WithSeconds" xml:space="preserve">
+    <value>Mantieni i secondi</value>
+  </data>
+  <data name="Grid_FormatDateTime" xml:space="preserve">
+    <value>Formato data e ora</value>
+  </data>
+  <data name="Grid_FormatDateTime_Ex1" xml:space="preserve">
+    <value>dd-MM-yy</value>
+  </data>
+  <data name="Grid_FormatDateTime_Ex2" xml:space="preserve">
+    <value>dd-MM-yyyy</value>
+  </data>
+  <data name="Grid_FormatDateTime_Ex3" xml:space="preserve">
+    <value>dd-MM-yy HH.mm</value>
+  </data>
+  <data name="Grid_FormatDateTime_Ex4" xml:space="preserve">
+    <value>dd-MM-yyyy HH.mm</value>
+  </data>
+  <data name="Grid_FormatDateTime_Ex5" xml:space="preserve">
+    <value>dddd-MMMM-yyyy</value>
+  </data>
+  <data name="Grid_UnitMeasure" xml:space="preserve">
+    <value>Unità di misura</value>
+  </data>
+  <data name="Grid_UnitMeasure_Type1" xml:space="preserve">
+    <value>Pixel</value>
+  </data>
+  <data name="Grid_UnitMeasure_Type2" xml:space="preserve">
+    <value>Millimetri</value>
+  </data>
+  <data name="Grid_UnitMeasure_Type3" xml:space="preserve">
+    <value>Centimetri</value>
+  </data>
+  <data name="Grid_UnitMeasure_Type4" xml:space="preserve">
+    <value>Pollici</value>
+  </data>
+  <data name="Grid_StyleSize_Format" xml:space="preserve">
+    <value>Formato</value>
+  </data>
+  <data name="Grid_StyleSize_Format_Ex1" xml:space="preserve">
+    <value>%Wx%H</value>
+  </data>
+  <data name="Grid_StyleSize_RoundedValues" xml:space="preserve">
+    <value>Arrotonda valori</value>
+  </data>
+  <data name="Grid_TVDB_OrderEpisode" xml:space="preserve">
+    <value>Riordina episodi</value>
+  </data>
+  <data name="Grid_TVDB_OrderEpisode_1" xml:space="preserve">
+    <value>Ordine di default</value>
+  </data>
+  <data name="Grid_TVDB_OrderEpisode_2" xml:space="preserve">
+    <value>Ordine DVD/BR</value>
+  </data>
+  <data name="Grid_TVDB_OrderEpisode_3" xml:space="preserve">
+    <value>Ordine DVD/BR (più episodi combinati)</value>
+  </data>
+  <data name="Grid_TVDB_OrderEpisode_4" xml:space="preserve">
+    <value>Ordine DVD/BR (combinati con tutti i titoli)</value>
+  </data>
+  <data name="Grid_Extensions_EnableOptions" xml:space="preserve">
+    <value>Abilita opzioni</value>
+  </data>
+  <data name="Grid_Extensions_ConvertChars" xml:space="preserve">
+    <value>Converti i caratteri in</value>
+  </data>
+  <data name="Grid_Extensions_ConvertChars_1" xml:space="preserve">
+    <value>Non convertire</value>
+  </data>
+  <data name="Grid_Extensions_ConvertChars_2" xml:space="preserve">
+    <value>minuscolo</value>
+  </data>
+  <data name="Grid_Extensions_ConvertChars_3" xml:space="preserve">
+    <value>MAIUSCOLO</value>
+  </data>
+  <data name="Grid_Extensions_ReplaceWith" xml:space="preserve">
+    <value>Sostituisci le estensioni con</value>
+  </data>
+  <data name="Title_ByFilter" xml:space="preserve">
+    <value>Numerazione dal filtro</value>
+  </data>
+  <data name="Title_NumSeq" xml:space="preserve">
+    <value>Numerazione sequenziale</value>
+  </data>
+  <data name="Title_TitleOfEpisode" xml:space="preserve">
+    <value>Titolo dell'episodio</value>
+  </data>
+  <data name="Title_TextBox" xml:space="preserve">
+    <value>Casella di testo</value>
+  </data>
+  <data name="Title_SeqList" xml:space="preserve">
+    <value>Testo da elenco</value>
+  </data>
+  <data name="Title_Separator" xml:space="preserve">
+    <value>Separatore di testo</value>
+  </data>
+  <data name="Title_FormatLenght" xml:space="preserve">
+    <value>Formato durata</value>
+  </data>
+  <data name="Title_SizeOptions" xml:space="preserve">
+    <value>Opzioni dimensione</value>
+  </data>
+  <data name="Title_DPIOptions" xml:space="preserve">
+    <value>Opzioni DPI</value>
+  </data>
+  <data name="Title_TVDB_TitleOfEpisode" xml:space="preserve">
+    <value>Titolo dell'episodio</value>
+  </data>
+  <data name="Title_FormatDateTime" xml:space="preserve">
+    <value>Formato data</value>
+  </data>
+  <data name="Title_Extensions" xml:space="preserve">
+    <value>Modifica estensioni</value>
+  </data>
+  <data name="Grid_Extensions_Warning" xml:space="preserve">
+    <value>Attenzione! Modificare l'estensione dei files è una procedura che potrebbe rendere inutilizzabili i file.\nUtilizzarla solo se si è consapevoli dei rischi.</value>
+  </data>
+  <data name="Error_FormatNotSupported" xml:space="preserve">
+    <value>Formato non supportato</value>
+  </data>
+  <data name="Text_Example" xml:space="preserve">
+    <value>Esempio:</value>
+  </data>
+  <data name="Grid_RegexPattern_Desc" xml:space="preserve">
+    <value>Pattern</value>
+  </data>
+  <data name="Title_RegexPattern" xml:space="preserve">
+    <value>Espressione regolare</value>
+  </data>
+  <data name="Grid_Separator_AddSpace_Tooltip" xml:space="preserve">
+    <value>Con spaziatura [pelide - achille.avi] senza [pelide-achille.avi]</value>
+  </data>
+  <data name="Grid_RemoveInsteadInsert" xml:space="preserve">
+    <value>Invece di inserire rimuovi l'informazione</value>
+  </data>
+  <data name="Grid_NumSeq_NumEpisodio_IniziaDa" xml:space="preserve">
+    <value>Inizia da</value>
+  </data>
+</root>

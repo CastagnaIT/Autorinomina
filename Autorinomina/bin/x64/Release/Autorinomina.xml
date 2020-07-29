@@ -1,0 +1,3228 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Autorinomina
+</name>
+</assembly>
+<members>
+<member name="T:Autorinomina.My.MyWpfExtension">
+ <summary>
+ Modulo utilizzato per definire le proprietà disponibili nello spazio dei nomi My per WPF
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:Autorinomina.My.MyWpfExtension.Application">
+ <summary>
+ Restituisce l'oggetto applicazione per l'applicazione in esecuzione
+ </summary>
+</member>
+<member name="P:Autorinomina.My.MyWpfExtension.Computer">
+ <summary>
+ Restituisce le informazioni sul computer host.
+ </summary>
+</member>
+<member name="P:Autorinomina.My.MyWpfExtension.User">
+ <summary>
+ Restituisce le informazioni per l'utente corrente.  Se si desidera eseguire l'applicazione con le 
+ credenziali utente di Windows correnti, chiamare My.User.InitializeWithWindowsUser().
+ </summary>
+</member>
+<member name="P:Autorinomina.My.MyWpfExtension.Log">
+ <summary>
+ Restituisce il registro applicazioni. I listener possono essere configurati dal file di configurazione dell'applicazione.
+ </summary>
+</member>
+<member name="P:Autorinomina.My.MyWpfExtension.Windows">
+ <summary>
+ Restituisce la raccolta di oggetti Window definiti nel progetto.
+ </summary>
+</member>
+<member name="T:Autorinomina.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="T:Autorinomina.Application">
+<summary>
+Application
+</summary>
+</member>
+<member name="M:Autorinomina.Application.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="M:Autorinomina.Application.Main">
+<summary>
+Application Entry Point.
+</summary>
+</member>
+<member name="T:Autorinomina.XmlSerialization">
+ <summary>
+ Functions for performing common XML Serialization operations.
+ <para>Only public properties and variables will be serialized.</para>
+ <para>Use the [XmlIgnore] attribute to prevent a property/variable from being serialized.</para>
+ <para>Object to be serialized must have a parameterless constructor.</para>
+ </summary>
+</member>
+<member name="M:Autorinomina.XmlSerialization.WriteToXmlFile``1(System.String,``0,System.String,System.Boolean)">
+ <summary>
+ Writes the given object instance to an XML file.
+ <para>Only Public properties and variables will be written to the file. These can be any type though, even other classes.</para>
+ <para>If there are public properties/variables that you do not want written to the file, decorate them with the [XmlIgnore] attribute.</para>
+ <para>Object type must have a parameterless constructor.</para>
+ </summary>
+ <typeparam name="T">The type of object being written to the file.</typeparam>
+ <param name="filePath">The file path to write the object instance to.</param>
+ <param name="objectToWrite">The object instance to write to the file.</param>
+ <param name="append">If false the file will be overwritten if it already exists. If true the contents will be appended to the file.</param>
+</member>
+<member name="M:Autorinomina.XmlSerialization.ReadFromXmlFile``1(System.String,System.String)">
+ <summary>
+ Reads an object instance from an XML file.
+ <para>Object type must have a parameterless constructor.</para>
+ </summary>
+ <typeparam name="T">The type of object to read from the file.</typeparam>
+ <param name="filePath">The file path to read the object instance from.</param>
+ <returns>Returns a new instance of the object read from the XML file.</returns>
+</member>
+<member name="T:Autorinomina.CustomToolTip">
+<summary>
+CustomToolTip
+</summary>
+</member>
+<member name="M:Autorinomina.CustomToolTip.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.SuggestionGuide">
+<summary>
+SuggestionGuide
+</summary>
+</member>
+<member name="M:Autorinomina.SuggestionGuide.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_AggiungiTermine">
+<summary>
+DLG_AggiungiTermine
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_AggiungiTermine.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_Aggiungi_TXT">
+<summary>
+DLG_Aggiungi_TXT
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_Aggiungi_TXT.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_FileEsistente">
+<summary>
+DLG_FileEsistente
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_FileEsistente.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_Riepilogo">
+<summary>
+DLG_Riepilogo
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_Riepilogo.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_Rinomina">
+<summary>
+DLG_Rinomina
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_Rinomina.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_CartellePreferite">
+<summary>
+DLG_CartellePreferite
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_CartellePreferite.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_VerificaFiles">
+<summary>
+DLG_VerificaFiles
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_VerificaFiles.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_Anteprima">
+<summary>
+DLG_Anteprima
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_Anteprima.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_IncollaWikipedia">
+<summary>
+DLG_IncollaWikipedia
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_IncollaWikipedia.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_ModificaManuale">
+<summary>
+DLG_ModificaManuale
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_ModificaManuale.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_Preset">
+<summary>
+DLG_Preset
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_Preset.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_SceltaManuale">
+<summary>
+DLG_SceltaManuale
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_SceltaManuale.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.DLG_TheTVDB_Manuale">
+<summary>
+DLG_TheTVDB_Manuale
+</summary>
+</member>
+<member name="M:Autorinomina.DLG_TheTVDB_Manuale.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_BalloonToolTip">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Error_FormatNotSupported">
+<summary>
+  Cerca una stringa localizzata simile a Format not supported.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Extensions_ConvertChars">
+<summary>
+  Cerca una stringa localizzata simile a Convert characters to.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Extensions_ConvertChars_1">
+<summary>
+  Cerca una stringa localizzata simile a Do not convert.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Extensions_ConvertChars_2">
+<summary>
+  Cerca una stringa localizzata simile a lowercase.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Extensions_ConvertChars_3">
+<summary>
+  Cerca una stringa localizzata simile a UPPERCASE.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Extensions_EnableOptions">
+<summary>
+  Cerca una stringa localizzata simile a Enable options.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Extensions_ReplaceWith">
+<summary>
+  Cerca una stringa localizzata simile a Replace extensions with.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Extensions_Warning">
+<summary>
+  Cerca una stringa localizzata simile a Warning! Change the extension of the files is a procedure that could make the file unusable\nUse it only if you are aware of the risks..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatDateTime">
+<summary>
+  Cerca una stringa localizzata simile a Date and Time format.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatDateTime_Ex1">
+<summary>
+  Cerca una stringa localizzata simile a MM-dd-yy.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatDateTime_Ex2">
+<summary>
+  Cerca una stringa localizzata simile a MM-dd-yyyy.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatDateTime_Ex3">
+<summary>
+  Cerca una stringa localizzata simile a MM-dd-yy HH.mm.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatDateTime_Ex4">
+<summary>
+  Cerca una stringa localizzata simile a MM-dd-yyyy HH.mm.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatDateTime_Ex5">
+<summary>
+  Cerca una stringa localizzata simile a MMMM-dddd-yyyy.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatLenght_TimeFormat">
+<summary>
+  Cerca una stringa localizzata simile a Time format.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatLenght_TimeFormat_Ex1">
+<summary>
+  Cerca una stringa localizzata simile a %H.%M.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatLenght_TimeFormat_Ex2">
+<summary>
+  Cerca una stringa localizzata simile a %H,%M.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatLenght_TimeFormat_Ex3">
+<summary>
+  Cerca una stringa localizzata simile a %Mm %Ss.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatLenght_TimeFormat_Ex4">
+<summary>
+  Cerca una stringa localizzata simile a %Mmin %Ssec.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatLenght_TimeFormat_Ex5">
+<summary>
+  Cerca una stringa localizzata simile a %M minuts %S seconds.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_FormatLenght_TimeFormat_WithSeconds">
+<summary>
+  Cerca una stringa localizzata simile a Keep seconds.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_NumSeq_AutoPadding">
+<summary>
+  Cerca una stringa localizzata simile a Auto leading zeros.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_NumSeq_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Numbering parameters.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_NumSeq_NumEpisodio">
+<summary>
+  Cerca una stringa localizzata simile a Episode number.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_NumSeq_NumEpisodio_IniziaDa">
+<summary>
+  Cerca una stringa localizzata simile a Start from.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_NumSeq_NumStag">
+<summary>
+  Cerca una stringa localizzata simile a Season number.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_NumSeq_Prefisso">
+<summary>
+  Cerca una stringa localizzata simile a Prefix.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_NumSeq_Suffisso">
+<summary>
+  Cerca una stringa localizzata simile a Suffix.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_RegexPattern_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Pattern.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_RemoveInsteadInsert">
+<summary>
+  Cerca una stringa localizzata simile a Instead of inserting remove the information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Separator_AddSpace">
+<summary>
+  Cerca una stringa localizzata simile a Add spacing.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Separator_AddSpace_Tooltip">
+<summary>
+  Cerca una stringa localizzata simile a With spacing [Pelide - achille.avi] without [Pelide-achille.avi].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Separator_Btn_ApplyToAll">
+<summary>
+  Cerca una stringa localizzata simile a Apply to all.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Separator_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Character.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione">
+<summary>
+  Cerca una stringa localizzata simile a Numbering style.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_0">
+<summary>
+  Cerca una stringa localizzata simile a Normal\t\t\t[1,2,3 ... 11,12,13].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_1">
+<summary>
+  Cerca una stringa localizzata simile a Normal with zeros\t[01,02,03 ... 11,12,13].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_2">
+<summary>
+  Cerca una stringa localizzata simile a Roman\t\t\t[I, II, III ... XI, XII, XIII].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_3">
+<summary>
+  Cerca una stringa localizzata simile a Alphabetical\t\t[A, B, C ... AA, AB, AC].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_4">
+<summary>
+  Cerca una stringa localizzata simile a Alphabetical alt.\t\t[A, B, C ... AA, BB, CC].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_5">
+<summary>
+  Cerca una stringa localizzata simile a Tv Series - European\t[1x01].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_6">
+<summary>
+  Cerca una stringa localizzata simile a Tv Series - European alt.\t[1.01].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_7">
+<summary>
+  Cerca una stringa localizzata simile a Tv Series - American\t[S01E01].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StileNumerazione_CB_StileNumerazione_8">
+<summary>
+  Cerca una stringa localizzata simile a Tv Series - Numeric\t[101].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StyleSize_Format">
+<summary>
+  Cerca una stringa localizzata simile a Format.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StyleSize_Format_Ex1">
+<summary>
+  Cerca una stringa localizzata simile a %Wx%H.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_StyleSize_RoundedValues">
+<summary>
+  Cerca una stringa localizzata simile a Rounds values.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_Text_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Edit.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_TitleEpisode_Concatenate">
+<summary>
+  Cerca una stringa localizzata simile a Concatenate text parts.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_TitleEpisode_ConcatenateDesc">
+<summary>
+  Cerca una stringa localizzata simile a Activate only in case of missing parts of the text in the title of the TV series.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_TVDB_OrderEpisode">
+<summary>
+  Cerca una stringa localizzata simile a Reorder episodes.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_TVDB_OrderEpisode_1">
+<summary>
+  Cerca una stringa localizzata simile a Default order.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_TVDB_OrderEpisode_2">
+<summary>
+  Cerca una stringa localizzata simile a DVD/BR order.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_TVDB_OrderEpisode_3">
+<summary>
+  Cerca una stringa localizzata simile a DVD/BR order (plus combined episodes).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_TVDB_OrderEpisode_4">
+<summary>
+  Cerca una stringa localizzata simile a DVD/BR order (combined with all the titles).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_UnitMeasure">
+<summary>
+  Cerca una stringa localizzata simile a Unit of measure.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_UnitMeasure_Type1">
+<summary>
+  Cerca una stringa localizzata simile a Pixel.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_UnitMeasure_Type2">
+<summary>
+  Cerca una stringa localizzata simile a Millimeters.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_UnitMeasure_Type3">
+<summary>
+  Cerca una stringa localizzata simile a Centimeters.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Grid_UnitMeasure_Type4">
+<summary>
+  Cerca una stringa localizzata simile a Inches.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.GridModifica_Btn_RemoveAllInfo">
+<summary>
+  Cerca una stringa localizzata simile a Remove all.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.GridModifica_Btn_RemoveInfo">
+<summary>
+  Cerca una stringa localizzata simile a Remove field.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Text_Example">
+<summary>
+  Cerca una stringa localizzata simile a Example:.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_ByFilter">
+<summary>
+  Cerca una stringa localizzata simile a Numbering from the filter.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_DPIOptions">
+<summary>
+  Cerca una stringa localizzata simile a DPI Options.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_Extensions">
+<summary>
+  Cerca una stringa localizzata simile a Edit extensions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_FormatDateTime">
+<summary>
+  Cerca una stringa localizzata simile a Date format.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_FormatLenght">
+<summary>
+  Cerca una stringa localizzata simile a Time format.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_NumSeq">
+<summary>
+  Cerca una stringa localizzata simile a Sequential numbering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_RegexPattern">
+<summary>
+  Cerca una stringa localizzata simile a Regular expression.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_Separator">
+<summary>
+  Cerca una stringa localizzata simile a Text delimiter.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_SeqList">
+<summary>
+  Cerca una stringa localizzata simile a Text from list.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_SizeOptions">
+<summary>
+  Cerca una stringa localizzata simile a Size options.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_TextBox">
+<summary>
+  Cerca una stringa localizzata simile a Text box.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_TitleOfEpisode">
+<summary>
+  Cerca una stringa localizzata simile a Episode title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_BalloonToolTip.Title_TVDB_TitleOfEpisode">
+<summary>
+  Cerca una stringa localizzata simile a Episode title.
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_Common_Dialogs">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FavoriteFolder_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Select the folders containing the files to be renamed.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FavoriteFolder_EmptyFolder">
+<summary>
+  Cerca una stringa localizzata simile a There is no folder in this path, click on the &apos;Change path&apos; button..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FavoriteFolder_Msg_ChangePath">
+<summary>
+  Cerca una stringa localizzata simile a Select the folder containing files/sub-folders..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FavoriteFolder_RowTextFolder">
+<summary>
+  Cerca una stringa localizzata simile a Add folder.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FavoriteFolder_RowTextSubfolder">
+<summary>
+  Cerca una stringa localizzata simile a Add subfolder.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FavoriteFolder_Title">
+<summary>
+  Cerca una stringa localizzata simile a Add files from folder.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FileEsistente_Btn_Ignore">
+<summary>
+  Cerca una stringa localizzata simile a Ignore this file (do not rename).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FileEsistente_Btn_KeepBoth">
+<summary>
+  Cerca una stringa localizzata simile a Keep both files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FileEsistente_Btn_KeepBoth_Desc">
+<summary>
+  Cerca una stringa localizzata simile a The files to be renamed, will be renamed to:.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FileEsistente_Btn_Replace">
+<summary>
+  Cerca una stringa localizzata simile a Replace files in the destination.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FileEsistente_Desc">
+<summary>
+  Cerca una stringa localizzata simile a This path already contains a file named.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_FileEsistente_Title">
+<summary>
+  Cerca una stringa localizzata simile a Replace or ignores.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_InsertTermine_BlackList_Tips">
+<summary>
+  Cerca una stringa localizzata simile a TIP: The space is any character..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_InsertTermine_DistinctionCase">
+<summary>
+  Cerca una stringa localizzata simile a Distinguish upper case/lower case.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_InsertTermine_DistinctionCase_Disabled">
+<summary>
+  Cerca una stringa localizzata simile a Inactive.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_InsertTermine_DistinctionCase_Enabled">
+<summary>
+  Cerca una stringa localizzata simile a Active.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_InsertTermine_Name">
+<summary>
+  Cerca una stringa localizzata simile a Word name.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_InsertTermine_ReplaceWith">
+<summary>
+  Cerca una stringa localizzata simile a Replace with.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_InsertTermine_Substitutions_Tips">
+<summary>
+  Cerca una stringa localizzata simile a TIP: If it is necessary also include the space before/after the word..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_InsertTermine_TermineAlreadyExists">
+<summary>
+  Cerca una stringa localizzata simile a Existing word!.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualFilter_ApplyToAll">
+<summary>
+  Cerca una stringa localizzata simile a Apply the filter on each file.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualFilter_Desc1">
+<summary>
+  Cerca una stringa localizzata simile a Select the most correct result filtered.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualFilter_FilePath">
+<summary>
+  Cerca una stringa localizzata simile a Path:.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualFilter_FileSize">
+<summary>
+  Cerca una stringa localizzata simile a Size.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualFilter_NoResults">
+<summary>
+  Cerca una stringa localizzata simile a It was not possible to apply the filters..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualFilter_Title">
+<summary>
+  Cerca una stringa localizzata simile a Filter selection.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualRename_Desc">
+<summary>
+  Cerca una stringa localizzata simile a It was not possible to filter the filename..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualRename_Desc2">
+<summary>
+  Cerca una stringa localizzata simile a Write the new name of the file (by omitting the extension):.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_ManualRename_Title">
+<summary>
+  Cerca una stringa localizzata simile a Manually change the filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_PasteWiki_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Select the column header to be pasted.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_PasteWiki_NoPasteColumnHeader">
+<summary>
+  Cerca una stringa localizzata simile a Do not paste the column header.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_PasteWiki_SelectHeaderColumn">
+<summary>
+  Cerca una stringa localizzata simile a Select the column header to be pasted..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Presets_DeletePreset">
+<summary>
+  Cerca una stringa localizzata simile a Delete the preset?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Presets_NeedPresetName">
+<summary>
+  Cerca una stringa localizzata simile a You have to give a name to the presets.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Presets_OverwritePreset">
+<summary>
+  Cerca una stringa localizzata simile a Overwrite the existing preset?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Presets_PresetName">
+<summary>
+  Cerca una stringa localizzata simile a Preset name.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Presets_SelectPreset">
+<summary>
+  Cerca una stringa localizzata simile a You must select a preset..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Presets_Title_Load">
+<summary>
+  Cerca una stringa localizzata simile a Load preset.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Presets_Title_Save">
+<summary>
+  Cerca una stringa localizzata simile a Save preset.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Preview_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Preview processing in progress….
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Rename_Desc_Initialize">
+<summary>
+  Cerca una stringa localizzata simile a initialization....
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Rename_Desc_Rename">
+<summary>
+  Cerca una stringa localizzata simile a The process of renaming is in progress....
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Rename_Desc_Restore">
+<summary>
+  Cerca una stringa localizzata simile a The process of restoring is in progress....
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_Btn_Close">
+<summary>
+  Cerca una stringa localizzata simile a Close.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_Btn_ViewResults">
+<summary>
+  Cerca una stringa localizzata simile a View results.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_Desc1">
+<summary>
+  Cerca una stringa localizzata simile a Summary of file restore operations.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_Desc2">
+<summary>
+  Cerca una stringa localizzata simile a Summary of file renaming operations.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_Desc3">
+<summary>
+  Cerca una stringa localizzata simile a It is recommended to check the results.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_Desc4">
+<summary>
+  Cerca una stringa localizzata simile a Summary preview process of files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_PreviewMsg1">
+<summary>
+  Cerca una stringa localizzata simile a Files with correct preview.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_PreviewMsg2">
+<summary>
+  Cerca una stringa localizzata simile a Files without preview for errors.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_PreviewMsg3">
+<summary>
+  Cerca una stringa localizzata simile a Files in conflict with others.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_PreviewMsg4">
+<summary>
+  Cerca una stringa localizzata simile a Files without preview (from settings).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RenameMsg1">
+<summary>
+  Cerca una stringa localizzata simile a Renamed files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RenameMsg2">
+<summary>
+  Cerca una stringa localizzata simile a Not renamed files (user choice).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RenameMsg3">
+<summary>
+  Cerca una stringa localizzata simile a Not renamed files (from settings).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RenameMsg4">
+<summary>
+  Cerca una stringa localizzata simile a Files in conflict with others.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RenameMsg5">
+<summary>
+  Cerca una stringa localizzata simile a Files not renamed for errors.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RestoreMsg1">
+<summary>
+  Cerca una stringa localizzata simile a Restored files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RestoreMsg2">
+<summary>
+  Cerca una stringa localizzata simile a Not restored files (user choice).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RestoreMsg3">
+<summary>
+  Cerca una stringa localizzata simile a Not restored files (from settings).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RestoreMsg4">
+<summary>
+  Cerca una stringa localizzata simile a Files in conflict with others.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_RestoreMsg5">
+<summary>
+  Cerca una stringa localizzata simile a Files not restored for errors.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_Riepilogo_Title">
+<summary>
+  Cerca una stringa localizzata simile a Operation summary.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Btn_Find">
+<summary>
+  Cerca una stringa localizzata simile a Search.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Column_Language">
+<summary>
+  Cerca una stringa localizzata simile a Language.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Column_TitleSeries">
+<summary>
+  Cerca una stringa localizzata simile a Title Series TV.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Desc1">
+<summary>
+  Cerca una stringa localizzata simile a Looking for Tv Series:.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Desc2">
+<summary>
+  Cerca una stringa localizzata simile a If the search has not produced the expected results, start a new search:.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Desc3">
+<summary>
+  Cerca una stringa localizzata simile a Word to search.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Desc4">
+<summary>
+  Cerca una stringa localizzata simile a Searching ... .
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Msg_SelectResult">
+<summary>
+  Cerca una stringa localizzata simile a Select a result..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_NoResults">
+<summary>
+  Cerca una stringa localizzata simile a The search did not yield any results.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_TVDB_Title">
+<summary>
+  Cerca una stringa localizzata simile a Associate results from TheTVDB.com.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_VerificationFiles_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Checking files in progress....
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common_Dialogs.DLG_VerificationFiles_WrongCategory">
+<summary>
+  Cerca una stringa localizzata simile a Added files can not be renamed with the current category.\nSelect the correct category..
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_WND_Languages">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Btn_DoYouWantTranslate">
+<summary>
+  Cerca una stringa localizzata simile a Do you want to translate it?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Column_Author">
+<summary>
+  Cerca una stringa localizzata simile a Authors.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Column_LanguageName">
+<summary>
+  Cerca una stringa localizzata simile a Available languages.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Column_Version">
+<summary>
+  Cerca una stringa localizzata simile a Version.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Desc_SystemDefaultLanguage">
+<summary>
+  Cerca una stringa localizzata simile a (System default).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Description">
+<summary>
+  Cerca una stringa localizzata simile a Change the interface language by choosing from the available languages..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Msg_RebootApp">
+<summary>
+  Cerca una stringa localizzata simile a To apply the new language, close and reopen the application..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Languages.Msg_SelectLanguage">
+<summary>
+  Cerca una stringa localizzata simile a Seleziona una lingua.
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_WND_Impostazioni">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Extensions_Audio">
+<summary>
+  Cerca una stringa localizzata simile a Audio extensions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Extensions_GuideDesc">
+<summary>
+  Cerca una stringa localizzata simile a Each extension must be separated with a comma character &quot;,&quot; and should not be included at the end of the extensions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Extensions_Images">
+<summary>
+  Cerca una stringa localizzata simile a Images extensions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Extensions_ImagesMetadata">
+<summary>
+  Cerca una stringa localizzata simile a Metadata images extensions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Extensions_Video">
+<summary>
+  Cerca una stringa localizzata simile a Video extensions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Extensions_WarningDesc">
+<summary>
+  Cerca una stringa localizzata simile a Warning! Changing extensions recognized by the software may lead to unexpected behavior and errors. Therefore i am not responsible for any damage caused by improper use of this function..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware">
+<summary>
+  Cerca una stringa localizzata simile a Run an external software (on each renamed file).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware_ChangePath">
+<summary>
+  Cerca una stringa localizzata simile a Change path.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware_CommandLine">
+<summary>
+  Cerca una stringa localizzata simile a Command line arguments.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware_CommandLine_desc">
+<summary>
+  Cerca una stringa localizzata simile a The &apos;@&apos; character will be replaced with the full path of the file.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware_Enable">
+<summary>
+  Cerca una stringa localizzata simile a Enable option.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware_ExePath">
+<summary>
+  Cerca una stringa localizzata simile a Executable path.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware_Minimized">
+<summary>
+  Cerca una stringa localizzata simile a Minimized mode.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware_RunDesc">
+<summary>
+  Cerca una stringa localizzata simile a Run.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.ExternalSoftware_RunOnCategory">
+<summary>
+  Cerca una stringa localizzata simile a On category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.FilesVerification">
+<summary>
+  Cerca una stringa localizzata simile a Checking files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.FilesVerification_ExcludeDBFiles">
+<summary>
+  Cerca una stringa localizzata simile a In the category &apos;General&apos; exclude extensions &apos;* .db&apos;.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.FilesVerification_IncludeHiddenFiles">
+<summary>
+  Cerca una stringa localizzata simile a Include hidden files and folders.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.FilesVerification_IncludeHiddenFiles_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Recursive method explores all folders and subfolders.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.FilesVerification_WindowOnTop">
+<summary>
+  Cerca una stringa localizzata simile a Always bring the window on top when auto-capture of files end.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Msg_SelectExternalSoftware">
+<summary>
+  Cerca una stringa localizzata simile a Select the external software.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.OtherOptions">
+<summary>
+  Cerca una stringa localizzata simile a Miscellaneous.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.OtherOptions_DisableExtensionWarning">
+<summary>
+  Cerca una stringa localizzata simile a Disable warning message when editing extensions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.OtherOptions_NotifyUpdates">
+<summary>
+  Cerca una stringa localizzata simile a Enable notifications for checking updates every.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.OtherOptions_NotifyUpdates_Days">
+<summary>
+  Cerca una stringa localizzata simile a days.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.OtherOptions_PermanentAlwaysOnTop">
+<summary>
+  Cerca una stringa localizzata simile a Preserve saved the setting &apos;Always on top&apos;.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.OtherOptions_PreviewCheckLocalFile">
+<summary>
+  Cerca una stringa localizzata simile a Preview with cross-checking of local files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Tab_Extensions">
+<summary>
+  Cerca una stringa localizzata simile a Extensions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Tab_ExternalSoftware">
+<summary>
+  Cerca una stringa localizzata simile a External software.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Impostazioni.Tab_OtherOptions">
+<summary>
+  Cerca una stringa localizzata simile a Miscellaneous.
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_OpzioniAvanzate">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Audio_ID3Missing">
+<summary>
+  Cerca una stringa localizzata simile a Do not rename when there is no ID3 Tag.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Audio_NoTagNumber">
+<summary>
+  Cerca una stringa localizzata simile a Behavior for missing numbering &apos;Tag-track number&apos;.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Audio_NoTagNumber_ExcludeNumeration">
+<summary>
+  Cerca una stringa localizzata simile a Do not include the numbering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Audio_NoTagNumber_NoRename">
+<summary>
+  Cerca una stringa localizzata simile a Do not rename the file.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Audio_NoTagNumber_UseFilter">
+<summary>
+  Cerca una stringa localizzata simile a Try to obtain it from the filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Audio_NoTagNumber_UseSequentialNumber">
+<summary>
+  Cerca una stringa localizzata simile a Use the sequential numbering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Audio_TagNumber_ExcludeOtherChars">
+<summary>
+  Cerca una stringa localizzata simile a Exclude any non-numeric characters in the &apos;Tag-track number&apos;.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Desc_NoNumberCase">
+<summary>
+  Cerca una stringa localizzata simile a Behavior for missing numbering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Desc_OtherOptions">
+<summary>
+  Cerca una stringa localizzata simile a Miscellaneous options.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Desc_ReverseSearchNumber">
+<summary>
+  Cerca una stringa localizzata simile a Use reverse lookup to find the numbering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Msg_DeletePatternRegex">
+<summary>
+  Cerca una stringa localizzata simile a Remove pattern &apos;{0}&apos; ?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Msg_InsertPattern">
+<summary>
+  Cerca una stringa localizzata simile a Enter regex pattern.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Msg_InsertPatternNote">
+<summary>
+  Cerca una stringa localizzata simile a Enter any notes.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Msg_PatternTest">
+<summary>
+  Cerca una stringa localizzata simile a Enter a filename (without extension).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.Msg_TVDB_ClearCache">
+<summary>
+  Cerca una stringa localizzata simile a Empty the cache?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.OpzioniFiltro">
+<summary>
+  Cerca una stringa localizzata simile a Filter options.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.RemoveBracket">
+<summary>
+  Cerca una stringa localizzata simile a Delete brackets &apos;() []&apos; from the filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_ConvertRomanNumbers">
+<summary>
+  Cerca una stringa localizzata simile a Convert roman to arabic numbers.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_ConvertRomanNumbers_Tooltip">
+<summary>
+  Cerca una stringa localizzata simile a Example (Part II) becomes (Part 2).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_DescRegex">
+<summary>
+  Cerca una stringa localizzata simile a Regex to recognize the numbering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Error">
+<summary>
+  Cerca una stringa localizzata simile a Behavior in case of error.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Error_ManualFix">
+<summary>
+  Cerca una stringa localizzata simile a Ask to manually correct the filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Error_NoRename">
+<summary>
+  Cerca una stringa localizzata simile a Do not rename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita">
+<summary>
+  Cerca una stringa localizzata simile a Execution mode.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_Auto">
+<summary>
+  Cerca una stringa localizzata simile a Automatic.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_CanChoose">
+<summary>
+  Cerca una stringa localizzata simile a Allow filter choice.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_Modalita_OnlyOnError">
+<summary>
+  Cerca una stringa localizzata simile a Allow filter choice only on error.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_PatternAdd">
+<summary>
+  Cerca una stringa localizzata simile a Add pattern.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_PatternClipboard">
+<summary>
+  Cerca una stringa localizzata simile a Copy pattern.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_PatternDelete">
+<summary>
+  Cerca una stringa localizzata simile a Delete pattern.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_PatternTest">
+<summary>
+  Cerca una stringa localizzata simile a Test pattern.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_RecognizeLinkedEpisode">
+<summary>
+  Cerca una stringa localizzata simile a Recognize numbering episodes linked.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_RecognizeLinkedEpisode_Tooltip">
+<summary>
+  Cerca una stringa localizzata simile a Example &quot;1x01-02&quot; if it is not necessary it is recommended to disable.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_RemoveBracketEpisode">
+<summary>
+  Cerca una stringa localizzata simile a Delete brackets &apos;() []&apos; from the episode title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.SerieTv_OpzioniFiltro_RemoveBracketSeriesTitle">
+<summary>
+  Cerca una stringa localizzata simile a Delete brackets &apos;() []&apos; from the title of the TV series.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TabName_TheTvdb">
+<summary>
+  Cerca una stringa localizzata simile a The TVDB.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_DescInfo">
+<summary>
+  Cerca una stringa localizzata simile a The services of The TVDB require a working internet connection.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_Language_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Languages used in research.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_Language_Main">
+<summary>
+  Cerca una stringa localizzata simile a Main language.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_Language_Secondary">
+<summary>
+  Cerca una stringa localizzata simile a Secondary language.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_ManageCache">
+<summary>
+  Cerca una stringa localizzata simile a Cache management.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_Auto">
+<summary>
+  Cerca una stringa localizzata simile a Automatic.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_ClearCache">
+<summary>
+  Cerca una stringa localizzata simile a Clear cache.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_Limit_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Limit is set to.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_ManualLimit">
+<summary>
+  Cerca una stringa localizzata simile a Determine the limit manually.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_ManageCache_SpaceOccuped_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Occupied space.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_ResearchOptions_Desc">
+<summary>
+  Cerca una stringa localizzata simile a Search options.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_SearchMethod">
+<summary>
+  Cerca una stringa localizzata simile a Search Mode.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_SearchMethod_Auto">
+<summary>
+  Cerca una stringa localizzata simile a Automatic.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_SearchMethod_CanChoose">
+<summary>
+  Cerca una stringa localizzata simile a Let me choose.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_SearchMethod_Info">
+<summary>
+  Cerca una stringa localizzata simile a The automatic search mode in some cases might not give positive results..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_SearchNoResults">
+<summary>
+  Cerca una stringa localizzata simile a Behavior in case of no result.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.TVDB_SearchNoResults_UseFilter">
+<summary>
+  Cerca una stringa localizzata simile a Use the filter.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.WeakFilter">
+<summary>
+  Cerca una stringa localizzata simile a Use a less aggressive filtering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_OpzioniAvanzate.WeakFilter_Tooltip">
+<summary>
+  Cerca una stringa localizzata simile a It keeps text similar to the original text.
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_WND_Termini">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.BlackList_desc">
+<summary>
+  Cerca una stringa localizzata simile a List of words in black-list by category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Column_DistinguiMaiuscoleMinuscole">
+<summary>
+  Cerca una stringa localizzata simile a Case sensitive/non sensitive.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Column_Termine">
+<summary>
+  Cerca una stringa localizzata simile a Word.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Column_TermineSostituisci">
+<summary>
+  Cerca una stringa localizzata simile a Replace.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Desc_SortTermini">
+<summary>
+  Cerca una stringa localizzata simile a Order of words (the order of removal influences in the results).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Desc_SpecialChar">
+<summary>
+  Cerca una stringa localizzata simile a The &quot;▪&quot; characters represent the spaces at the beginning/end of a word.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.EliminaTermine">
+<summary>
+  Cerca una stringa localizzata simile a Remove word.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.EsportaTermini">
+<summary>
+  Cerca una stringa localizzata simile a Export words.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.ImportaTermini">
+<summary>
+  Cerca una stringa localizzata simile a Import words.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.InserisciTermine">
+<summary>
+  Cerca una stringa localizzata simile a Insert word.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Msg_ExportFile">
+<summary>
+  Cerca una stringa localizzata simile a Export of words completed..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Msg_ImportFile">
+<summary>
+  Cerca una stringa localizzata simile a File imported successfully.{0}Imported words:{1}Already existing words:{2}.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Msg_RemoveSelected">
+<summary>
+  Cerca una stringa localizzata simile a Do you want remove the selected words?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Sostituzioni_desc">
+<summary>
+  Cerca una stringa localizzata simile a List of words to be replace by category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Switch_Automatic">
+<summary>
+  Cerca una stringa localizzata simile a     Automatic.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Termini.Switch_Manual">
+<summary>
+  Cerca una stringa localizzata simile a     Manual.
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_Common">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.AR_Core_Episodes">
+<summary>
+  Cerca una stringa localizzata simile a episodes.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.AR_Core_Error_ID3MetadataMissing">
+<summary>
+  Cerca una stringa localizzata simile a Missing ID3 Tag metadata..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.AR_Core_Error_SeqTextIncomplete">
+<summary>
+  Cerca una stringa localizzata simile a Incomplete list of sequential text. Recheck..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.AR_Core_Error_TVDB_Error">
+<summary>
+  Cerca una stringa localizzata simile a There is a problem with The TvDB..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.AR_Core_Error_TVDB_InexistentDVDnumerazion">
+<summary>
+  Cerca una stringa localizzata simile a Missing numbering of the DVD episodes in The TVDB..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.AR_Core_Immagini_OpenFileError">
+<summary>
+  Cerca una stringa localizzata simile a Open file error..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.AutomaticChoose">
+<summary>
+  Cerca una stringa localizzata simile a Automatic choice.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Btn_Add">
+<summary>
+  Cerca una stringa localizzata simile a Add.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Btn_Apply">
+<summary>
+  Cerca una stringa localizzata simile a Apply.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Btn_Cancel">
+<summary>
+  Cerca una stringa localizzata simile a Cancel.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Btn_Delete">
+<summary>
+  Cerca una stringa localizzata simile a Delete.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Btn_Interrupt">
+<summary>
+  Cerca una stringa localizzata simile a Abort.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Btn_Ok">
+<summary>
+  Cerca una stringa localizzata simile a Ok.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Btn_Open">
+<summary>
+  Cerca una stringa localizzata simile a Open.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Btn_Save">
+<summary>
+  Cerca una stringa localizzata simile a Save.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.CancelEsc">
+<summary>
+  Cerca una stringa localizzata simile a Cancel (Esc).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Desc_Status">
+<summary>
+  Cerca una stringa localizzata simile a State.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Exception_General">
+<summary>
+  Cerca una stringa localizzata simile a It has encountered the following error:.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Guide_Step1">
+<summary>
+  Cerca una stringa localizzata simile a Welcome to Autorinomina!\nFollow the quick guide to learn how to rename in just 3 steps.\n\nClick here to start (Esc to exit).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Guide_Step2">
+<summary>
+  Cerca una stringa localizzata simile a Step 1\nSelect the matching category for the type of files to rename.\nFor example &quot;Category images&quot; to rename your photos.\n\nClick here to continue....
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Guide_Step3">
+<summary>
+  Cerca una stringa localizzata simile a Step 2\nDrag here your selected files to rename.\n\nClick here to continue....
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Guide_Step4">
+<summary>
+  Cerca una stringa localizzata simile a Step 3\nCostumize the text of your files.\nUse the &quot;+&quot; button to add new field information.\n\nClick here to continue....
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Guide_Step5">
+<summary>
+  Cerca una stringa localizzata simile a Congratulations! Now you are ready to rename!\nFor a detailed guide line please visit the web homepage\n\nClick here to close..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Salta">
+<summary>
+  Cerca una stringa localizzata simile a Skip.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_AlreadyRenamed">
+<summary>
+  Cerca una stringa localizzata simile a File already renamed.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_AlreadyRestored">
+<summary>
+  Cerca una stringa localizzata simile a File already restored.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_FileAlreadyExist">
+<summary>
+  Cerca una stringa localizzata simile a In the folder there is already a file by that name.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_FileAlreadyRenamedWith">
+<summary>
+  Cerca una stringa localizzata simile a Another renamed file uses the same name.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_ManualEditing">
+<summary>
+  Cerca una stringa localizzata simile a Manually edited.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_NameMissing">
+<summary>
+  Cerca una stringa localizzata simile a Missing the target name.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_NoPreviewBySettings">
+<summary>
+  Cerca una stringa localizzata simile a Preview not generated (from settings).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_NotExist">
+<summary>
+  Cerca una stringa localizzata simile a The file is no longer present with this name.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_NotRenamed">
+<summary>
+  Cerca una stringa localizzata simile a Not renamed (from settings).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_NotRenamedUserChoice">
+<summary>
+  Cerca una stringa localizzata simile a Not renamed.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_NotRestored">
+<summary>
+  Cerca una stringa localizzata simile a Not restored (from settings).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_PreviewOK">
+<summary>
+  Cerca una stringa localizzata simile a Ready.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_Renamed">
+<summary>
+  Cerca una stringa localizzata simile a Renamed.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_Restored">
+<summary>
+  Cerca una stringa localizzata simile a Restored.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_SkippedSameName">
+<summary>
+  Cerca una stringa localizzata simile a Skipped because the names are the same.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.StateFileInfo_UserInterrupt">
+<summary>
+  Cerca una stringa localizzata simile a Operation stopped by the user.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Common.Text_All">
+<summary>
+  Cerca una stringa localizzata simile a All.
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_WND_About">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.Copyright">
+<summary>
+  Cerca una stringa localizzata simile a Copyright © 2009-2017 Stefano Gottardo. All rights reserved..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.Desc_app">
+<summary>
+  Cerca una stringa localizzata simile a Organize at the most your information, one of the easiest software to rename files in the world, Autorinomina gives you the ability to rename many files through a simple, intuitive interface..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.Homepage">
+<summary>
+  Cerca una stringa localizzata simile a Home page.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.Ringraziamenti">
+<summary>
+  Cerca una stringa localizzata simile a Acknowledgments:.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.Supporto">
+<summary>
+  Cerca una stringa localizzata simile a Support.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.Version">
+<summary>
+  Cerca una stringa localizzata simile a Version.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_About.VisualizzaLicenza">
+<summary>
+  Cerca una stringa localizzata simile a View license.
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_Struttura">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.AR_Anno">
+<summary>
+  Cerca una stringa localizzata simile a Year.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.AR_Data">
+<summary>
+  Cerca una stringa localizzata simile a Date.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.AR_NomeDelFile">
+<summary>
+  Cerca una stringa localizzata simile a Filtered filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.AR_Numerazione">
+<summary>
+  Cerca una stringa localizzata simile a Numbering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.AR_RegexPattern">
+<summary>
+  Cerca una stringa localizzata simile a Regular expression.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.AR_TitoloEpisodio">
+<summary>
+  Cerca una stringa localizzata simile a Episode title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.AR_TitoloSerieTv">
+<summary>
+  Cerca una stringa localizzata simile a TV show title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.CATEGORIA_audio">
+<summary>
+  Cerca una stringa localizzata simile a Music.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.CATEGORIA_generica">
+<summary>
+  Cerca una stringa localizzata simile a General.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.CATEGORIA_immagini">
+<summary>
+  Cerca una stringa localizzata simile a Images.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.CATEGORIA_serietv">
+<summary>
+  Cerca una stringa localizzata simile a TV series.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.CATEGORIA_titolo">
+<summary>
+  Cerca una stringa localizzata simile a Category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.CATEGORIA_video">
+<summary>
+  Cerca una stringa localizzata simile a Video.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.DLG_TVDB_Desc2">
+<summary>
+  Cerca una stringa localizzata simile a Select the exact match from the results obtained from TheTVDB.com.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_ApertureValue">
+<summary>
+  Cerca una stringa localizzata simile a Aperture value.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_BrightnessValue">
+<summary>
+  Cerca una stringa localizzata simile a Brightness value.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_ColorSpace">
+<summary>
+  Cerca una stringa localizzata simile a Color space.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_CompressedBitPerPixel">
+<summary>
+  Cerca una stringa localizzata simile a Compressed BPP.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_DateTimeDigitized">
+<summary>
+  Cerca una stringa localizzata simile a DateTime digitized.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_DateTimeOriginal">
+<summary>
+  Cerca una stringa localizzata simile a DateTime original.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_DigitalZoomRatio">
+<summary>
+  Cerca una stringa localizzata simile a Digital zoom ratio.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_ExposureBiasValue">
+<summary>
+  Cerca una stringa localizzata simile a Exposure bias value.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_ExposureMode">
+<summary>
+  Cerca una stringa localizzata simile a Exposure mode.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_ExposureTime">
+<summary>
+  Cerca una stringa localizzata simile a Exposure time.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_Flash">
+<summary>
+  Cerca una stringa localizzata simile a Flash.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_FlashEnergy">
+<summary>
+  Cerca una stringa localizzata simile a Flash energy BCPS.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_FocalLenght">
+<summary>
+  Cerca una stringa localizzata simile a Focal length MM.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Artist">
+<summary>
+  Cerca una stringa localizzata simile a Artist.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Compression">
+<summary>
+  Cerca una stringa localizzata simile a Compression.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Copyright">
+<summary>
+  Cerca una stringa localizzata simile a Copyright.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_DateTime">
+<summary>
+  Cerca una stringa localizzata simile a Date.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_EquipmentModel">
+<summary>
+  Cerca una stringa localizzata simile a Equipment model.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_ImageDescription">
+<summary>
+  Cerca una stringa localizzata simile a Image description.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_ImageHeight">
+<summary>
+  Cerca una stringa localizzata simile a Image height.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_ImageWidth">
+<summary>
+  Cerca una stringa localizzata simile a Image width.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Make">
+<summary>
+  Cerca una stringa localizzata simile a Make.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation">
+<summary>
+  Cerca una stringa localizzata simile a Orientation.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation_Value_1">
+<summary>
+  Cerca una stringa localizzata simile a Horizontal.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation_Value_2">
+<summary>
+  Cerca una stringa localizzata simile a Horizontal mirrored.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation_Value_3">
+<summary>
+  Cerca una stringa localizzata simile a Vertical.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation_Value_4">
+<summary>
+  Cerca una stringa localizzata simile a Vertical mirrored.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation_Value_5">
+<summary>
+  Cerca una stringa localizzata simile a Left side.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation_Value_6">
+<summary>
+  Cerca una stringa localizzata simile a Left side mirrored.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation_Value_7">
+<summary>
+  Cerca una stringa localizzata simile a Right side.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Orientation_Value_8">
+<summary>
+  Cerca una stringa localizzata simile a Right side mirrored.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_ResolutionUnit">
+<summary>
+  Cerca una stringa localizzata simile a Resolution unit.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_Software">
+<summary>
+  Cerca una stringa localizzata simile a Software.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_XResolution">
+<summary>
+  Cerca una stringa localizzata simile a X Resolution.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MAIN_YResolution">
+<summary>
+  Cerca una stringa localizzata simile a Y Resolution.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_MaxApertureValue">
+<summary>
+  Cerca una stringa localizzata simile a Max value openings.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_PixelXDimension">
+<summary>
+  Cerca una stringa localizzata simile a Pixel X Dimension.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_PixelYDimension">
+<summary>
+  Cerca una stringa localizzata simile a Pixel Y Dimension.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_Saturation">
+<summary>
+  Cerca una stringa localizzata simile a Saturation.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_SceneCaptureType">
+<summary>
+  Cerca una stringa localizzata simile a Scene capture type.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_SensingMethod">
+<summary>
+  Cerca una stringa localizzata simile a Sensing method.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_Sharpness">
+<summary>
+  Cerca una stringa localizzata simile a Sharpness.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_ShutterSpeedValue">
+<summary>
+  Cerca una stringa localizzata simile a Shutter speed value.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXIF_WhiteBalance">
+<summary>
+  Cerca una stringa localizzata simile a white balance.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.EXT_Opzioni">
+<summary>
+  Cerca una stringa localizzata simile a [Extensions].
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.II_AspectRatio">
+<summary>
+  Cerca una stringa localizzata simile a Aspect ratio.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.II_BitsPerPixel">
+<summary>
+  Cerca una stringa localizzata simile a Color depth.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.II_Dimensione">
+<summary>
+  Cerca una stringa localizzata simile a Size.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.II_DPI">
+<summary>
+  Cerca una stringa localizzata simile a DPI Resolution.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.II_UniqueColors">
+<summary>
+  Cerca una stringa localizzata simile a Unique colors.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_ByLine">
+<summary>
+  Cerca una stringa localizzata simile a Creator.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_ByLineTitle">
+<summary>
+  Cerca una stringa localizzata simile a Job creator.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_CaprionAbstract">
+<summary>
+  Cerca una stringa localizzata simile a Description.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_Category">
+<summary>
+  Cerca una stringa localizzata simile a Category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_City">
+<summary>
+  Cerca una stringa localizzata simile a City.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_CopyrightNotice">
+<summary>
+  Cerca una stringa localizzata simile a Copyright notice.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_CountryPrimaryLocationName">
+<summary>
+  Cerca una stringa localizzata simile a Country.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_Credit">
+<summary>
+  Cerca una stringa localizzata simile a Credit line.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_DateCreated">
+<summary>
+  Cerca una stringa localizzata simile a Date.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_HeadLine">
+<summary>
+  Cerca una stringa localizzata simile a Title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_ObjectName">
+<summary>
+  Cerca una stringa localizzata simile a Title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_OriginalTransmissionReference">
+<summary>
+  Cerca una stringa localizzata simile a ID process.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_ProvinceState">
+<summary>
+  Cerca una stringa localizzata simile a Province.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_Separator_Contact">
+<summary>
+  Cerca una stringa localizzata simile a Contact.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_Separator_Details">
+<summary>
+  Cerca una stringa localizzata simile a Details.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_Separator_State">
+<summary>
+  Cerca una stringa localizzata simile a State.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_Source">
+<summary>
+  Cerca una stringa localizzata simile a Origin.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_SpecialInstructions">
+<summary>
+  Cerca una stringa localizzata simile a Instructions.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.IPTC_WriterEditor">
+<summary>
+  Cerca una stringa localizzata simile a Author description.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MenuAddInfo">
+<summary>
+  Cerca una stringa localizzata simile a Add field.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AspectRatio">
+<summary>
+  Cerca una stringa localizzata simile a Aspect ratio.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioBitRate">
+<summary>
+  Cerca una stringa localizzata simile a Bit rate (Kbps).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioDurata">
+<summary>
+  Cerca una stringa localizzata simile a Length.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioFrequenza">
+<summary>
+  Cerca una stringa localizzata simile a Frequency (Khz).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioModalitaBitRate">
+<summary>
+  Cerca una stringa localizzata simile a Bit rate mode.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioNumeroCanali">
+<summary>
+  Cerca una stringa localizzata simile a Number of channels.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagAlbum">
+<summary>
+  Cerca una stringa localizzata simile a Album title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagArtista">
+<summary>
+  Cerca una stringa localizzata simile a Artist.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagCompositore">
+<summary>
+  Cerca una stringa localizzata simile a Compositor.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagDataRegistrazione">
+<summary>
+  Cerca una stringa localizzata simile a Recorded date.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagDataRilascio">
+<summary>
+  Cerca una stringa localizzata simile a Released date.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagGenere">
+<summary>
+  Cerca una stringa localizzata simile a Genre.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagNumero">
+<summary>
+  Cerca una stringa localizzata simile a Track number.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagPubliscer">
+<summary>
+  Cerca una stringa localizzata simile a Record label.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_AudioTagTitolo">
+<summary>
+  Cerca una stringa localizzata simile a Track title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_CodecAudio">
+<summary>
+  Cerca una stringa localizzata simile a Audio codec.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_CodecAudioLingua">
+<summary>
+  Cerca una stringa localizzata simile a Audio codec with language.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_CodecVideo">
+<summary>
+  Cerca una stringa localizzata simile a Video codec.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_Durata">
+<summary>
+  Cerca una stringa localizzata simile a Length.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_FrameRate">
+<summary>
+  Cerca una stringa localizzata simile a Frame rate.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_Lingue">
+<summary>
+  Cerca una stringa localizzata simile a Audio languages.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_LingueSottotitoli">
+<summary>
+  Cerca una stringa localizzata simile a Subtitle languages.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_RisoluzioneFilmato">
+<summary>
+  Cerca una stringa localizzata simile a Resolution.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_Separator_Codifica">
+<summary>
+  Cerca una stringa localizzata simile a Encoding information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.MI_TotaleCapitoli">
+<summary>
+  Cerca una stringa localizzata simile a Number chapters.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.PF_DataCreazione">
+<summary>
+  Cerca una stringa localizzata simile a Date created.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.PF_DataUltimaModifica">
+<summary>
+  Cerca una stringa localizzata simile a Last modified.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.PF_DataUltimoAccesso">
+<summary>
+  Cerca una stringa localizzata simile a Last accessed.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.PF_NomeFile">
+<summary>
+  Cerca una stringa localizzata simile a Original filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_ElencoSequenziale">
+<summary>
+  Cerca una stringa localizzata simile a Sequential text.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_Estensione">
+<summary>
+  Cerca una stringa localizzata simile a Extension.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_FiltraNomeFile">
+<summary>
+  Cerca una stringa localizzata simile a Filter from the filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_InfoAudio">
+<summary>
+  Cerca una stringa localizzata simile a Audio information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_InfoEXIFFotocamera">
+<summary>
+  Cerca una stringa localizzata simile a Exif camera information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_InfoEXIFGeneriche">
+<summary>
+  Cerca una stringa localizzata simile a Exif general information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_InfoID3Tag">
+<summary>
+  Cerca una stringa localizzata simile a ID3 Tag information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_InfoImmagine">
+<summary>
+  Cerca una stringa localizzata simile a Image information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_InfoIPTC">
+<summary>
+  Cerca una stringa localizzata simile a IPTC information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_InfoMultimediali">
+<summary>
+  Cerca una stringa localizzata simile a Multimedia information.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_NumerazioneSequenziale">
+<summary>
+  Cerca una stringa localizzata simile a Sequential numbering.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_ProprietaFile">
+<summary>
+  Cerca una stringa localizzata simile a File properties.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_Separatore">
+<summary>
+  Cerca una stringa localizzata simile a Separator.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_Testo">
+<summary>
+  Cerca una stringa localizzata simile a Text.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.STD_TheTvdb">
+<summary>
+  Cerca una stringa localizzata simile a The TVDB.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_Creator">
+<summary>
+  Cerca una stringa localizzata simile a Creator.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_DataPrimaTv">
+<summary>
+  Cerca una stringa localizzata simile a First aired.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_Director">
+<summary>
+  Cerca una stringa localizzata simile a Director.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_Genere">
+<summary>
+  Cerca una stringa localizzata simile a Gender.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_Network">
+<summary>
+  Cerca una stringa localizzata simile a Network.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_NumeroEpisodi">
+<summary>
+  Cerca una stringa localizzata simile a Number of episodes.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_NumeroStagioni">
+<summary>
+  Cerca una stringa localizzata simile a Number of seasons.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_TitoloEpisodio">
+<summary>
+  Cerca una stringa localizzata simile a Episode title.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_Struttura.TVDB_TitoloSerieTv">
+<summary>
+  Cerca una stringa localizzata simile a TV show title.
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_WND_ElencoSequenziale">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Clear">
+<summary>
+  Cerca una stringa localizzata simile a Clear.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Descrizione">
+<summary>
+  Cerca una stringa localizzata simile a Create or edit the sequential text list.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Guida">
+<summary>
+  Cerca una stringa localizzata simile a How it works: each lines of the text matches to a file exactly as ordered. For example the text of the third line will be copied into the file ordered for third. In order to use this feature you must add the field [Sequential text]..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.OpenFile">
+<summary>
+  Cerca una stringa localizzata simile a Open a file.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.PasteFromWiki">
+<summary>
+  Cerca una stringa localizzata simile a Paste from table.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Status_empty">
+<summary>
+  Cerca una stringa localizzata simile a Write a list or alternatively open a file or paste a table..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Status_full">
+<summary>
+  Cerca una stringa localizzata simile a The list is ready..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Status_missing">
+<summary>
+  Cerca una stringa localizzata simile a Need more {0} strings..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Status_nofile">
+<summary>
+  Cerca una stringa localizzata simile a Impossible to determine, the file list is empty..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Status_surplus">
+<summary>
+  Cerca una stringa localizzata simile a There are {0} excess lines. Correct the list..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.Titolo">
+<summary>
+  Cerca una stringa localizzata simile a Sequential text list.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_ElencoSequenziale.WikiPaste_error">
+<summary>
+  Cerca una stringa localizzata simile a There are some problems, some text may not have been pasted..
+</summary>
+</member>
+<member name="T:Autorinomina.Localization.Resource_WND_Main">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Attivato">
+<summary>
+  Cerca una stringa localizzata simile a Enabled.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Btn_Anteprima">
+<summary>
+  Cerca una stringa localizzata simile a PREVIEW.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Btn_Menu_ConvertiMaiuscoleMinuscole">
+<summary>
+  Cerca una stringa localizzata simile a Convert to upper/lower case.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Btn_PRESETS">
+<summary>
+  Cerca una stringa localizzata simile a PRESETS.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Btn_RinominaTutto">
+<summary>
+  Cerca una stringa localizzata simile a RENAME ALL.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Btn_RipristinaTutto">
+<summary>
+  Cerca una stringa localizzata simile a RESTORE ALL.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Btn_Selezione">
+<summary>
+  Cerca una stringa localizzata simile a SELECTION.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.CategoryUserChange">
+<summary>
+  Cerca una stringa localizzata simile a Changing category the files in the list will be removed.\nDo you want to continue?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_DataCreazione">
+<summary>
+  Cerca una stringa localizzata simile a Date created.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_DataUltimaModifica">
+<summary>
+  Cerca una stringa localizzata simile a Date modified.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_Dimensione">
+<summary>
+  Cerca una stringa localizzata simile a Size.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_NomeCartella">
+<summary>
+  Cerca una stringa localizzata simile a Folder.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_NomeFile">
+<summary>
+  Cerca una stringa localizzata simile a Current filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_NomeFileRinominato">
+<summary>
+  Cerca una stringa localizzata simile a New filename.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_Percorso">
+<summary>
+  Cerca una stringa localizzata simile a Folder path.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_Stato">
+<summary>
+  Cerca una stringa localizzata simile a State.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Column_Tipo">
+<summary>
+  Cerca una stringa localizzata simile a Type.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Desc_AggiungiCartella">
+<summary>
+  Cerca una stringa localizzata simile a Select the folder containing the files to be added.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Desc_ElencoVuoto">
+<summary>
+  Cerca una stringa localizzata simile a Add files or folders by dragging them here or by using the menu..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.DescriptionGuideStructure">
+<summary>
+  Cerca una stringa localizzata simile a DEFINE THE MAIN INFORMATION FOR THE NAMES OF THE FILES.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Disattivato">
+<summary>
+  Cerca una stringa localizzata simile a Disabled.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.FileListEmpty">
+<summary>
+  Cerca una stringa localizzata simile a The list of files is empty.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MaiuscoleMinuscole_0">
+<summary>
+  Cerca una stringa localizzata simile a Do not convert.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MaiuscoleMinuscole_1">
+<summary>
+  Cerca una stringa localizzata simile a Capitalize words.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MaiuscoleMinuscole_2">
+<summary>
+  Cerca una stringa localizzata simile a Capitalize words (long only).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MaiuscoleMinuscole_3">
+<summary>
+  Cerca una stringa localizzata simile a Capitalize sentence (otherwise lower case).
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MaiuscoleMinuscole_4">
+<summary>
+  Cerca una stringa localizzata simile a Capitalize sentence, even after each separator.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MaiuscoleMinuscole_5">
+<summary>
+  Cerca una stringa localizzata simile a All lower case.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MaiuscoleMinuscole_6">
+<summary>
+  Cerca una stringa localizzata simile a All UPPER CASE.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Menu_Categoria">
+<summary>
+  Cerca una stringa localizzata simile a Category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Menu_File">
+<summary>
+  Cerca una stringa localizzata simile a File.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Menu_Help">
+<summary>
+  Cerca una stringa localizzata simile a Help.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Menu_Modifica">
+<summary>
+  Cerca una stringa localizzata simile a Edit.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Menu_Visualizza">
+<summary>
+  Cerca una stringa localizzata simile a View.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_Aggiungi">
+<summary>
+  Cerca una stringa localizzata simile a Add....
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_AggiungiDeiFiles">
+<summary>
+  Cerca una stringa localizzata simile a Add files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_AggiungiFilesDaCartellaPreferita">
+<summary>
+  Cerca una stringa localizzata simile a Add files from favorite folder.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_AggiungiUnaCartellaDiFiles">
+<summary>
+  Cerca una stringa localizzata simile a Add a folder of files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_Apri">
+<summary>
+  Cerca una stringa localizzata simile a Open.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_AutoCatturaAppunti">
+<summary>
+  Cerca una stringa localizzata simile a Auto-capture clipboard.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_CambiaCategoria">
+<summary>
+  Cerca una stringa localizzata simile a Change category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_CambiaLingua">
+<summary>
+  Cerca una stringa localizzata simile a Change language.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_CaricaPreset">
+<summary>
+  Cerca una stringa localizzata simile a Load Preset.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_CatturaFilesCartelleDiFiles">
+<summary>
+  Cerca una stringa localizzata simile a Capture files/folders of files.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_CatturaPreset">
+<summary>
+  Cerca una stringa localizzata simile a Capture preset.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_ControlloAggiornamenti">
+<summary>
+  Cerca una stringa localizzata simile a Check for updates.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_CopiaPreset">
+<summary>
+  Cerca una stringa localizzata simile a Copy Preset.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_DeselezionaTutto">
+<summary>
+  Cerca una stringa localizzata simile a Select none.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_Donazione">
+<summary>
+  Cerca una stringa localizzata simile a Make a donation.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_Exit">
+<summary>
+  Cerca una stringa localizzata simile a Exit.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_GuidaRapida">
+<summary>
+  Cerca una stringa localizzata simile a Quick guide.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_Impostazioni">
+<summary>
+  Cerca una stringa localizzata simile a Settings.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_IncludiFilesDelleSottocartelle">
+<summary>
+  Cerca una stringa localizzata simile a Include files of subfolders.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_IncollaPreset">
+<summary>
+  Cerca una stringa localizzata simile a Paste Preset.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_InformazioniSuAutoRinomina">
+<summary>
+  Cerca una stringa localizzata simile a About Autorinomina.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_MostraBarraDegliStrumenti">
+<summary>
+  Cerca una stringa localizzata simile a Show toolbar.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_MostraColonne">
+<summary>
+  Cerca una stringa localizzata simile a Show/Hide columns.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_OpzioniAvanzate">
+<summary>
+  Cerca una stringa localizzata simile a Advanced options.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_Proprietà">
+<summary>
+  Cerca una stringa localizzata simile a Property.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_RimuoviSelezionati">
+<summary>
+  Cerca una stringa localizzata simile a Remove selected.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_RimuoviTutto">
+<summary>
+  Cerca una stringa localizzata simile a Remove all.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_RinominaSelezionati">
+<summary>
+  Cerca una stringa localizzata simile a Rename selected.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_RipristinaSelezionati">
+<summary>
+  Cerca una stringa localizzata simile a Restore selected.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_SalvaPreset">
+<summary>
+  Cerca una stringa localizzata simile a Save Preset.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_SelezionaTutto">
+<summary>
+  Cerca una stringa localizzata simile a Select all.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_SempreInPrimoPiano">
+<summary>
+  Cerca una stringa localizzata simile a Always on top.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_SostituzioneTermini">
+<summary>
+  Cerca una stringa localizzata simile a Replacing words.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_SpostaInGiu">
+<summary>
+  Cerca una stringa localizzata simile a Move down.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_SpostaInSu">
+<summary>
+  Cerca una stringa localizzata simile a Move up.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_TerminiInBlackList">
+<summary>
+  Cerca una stringa localizzata simile a Words in Black-list.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.MI_VisualizzaStato">
+<summary>
+  Cerca una stringa localizzata simile a View status.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Msg_AppBusy">
+<summary>
+  Cerca una stringa localizzata simile a Complete the current operation or clear the list of files added..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Msg_FileStructureEmpty">
+<summary>
+  Cerca una stringa localizzata simile a To generate the preview add information fields..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Msg_LivePreviewOccuped">
+<summary>
+  Cerca una stringa localizzata simile a Wait until the live preview is completed.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Msg_NewVersion">
+<summary>
+  Cerca una stringa localizzata simile a A new version {0} of Autorinomina is available. Do you want to open the web page of downloads?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Msg_NoInternetConnection">
+<summary>
+  Cerca una stringa localizzata simile a To generate the preview using The TVDB requires an active internet connection..
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Msg_NoNewVersion">
+<summary>
+  Cerca una stringa localizzata simile a You are using the latest version.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Msg_RimuovereSelezionati">
+<summary>
+  Cerca una stringa localizzata simile a Remove the selected files from the list?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Msg_RimuovereTutti">
+<summary>
+  Cerca una stringa localizzata simile a Remove all files from the list?.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.NewSWVersion_TitleBar">
+<summary>
+  Cerca una stringa localizzata simile a There is a new version!.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Nome_CATEGORIA_audio">
+<summary>
+  Cerca una stringa localizzata simile a Audio Category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Nome_CATEGORIA_generica">
+<summary>
+  Cerca una stringa localizzata simile a General Category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Nome_CATEGORIA_immagini">
+<summary>
+  Cerca una stringa localizzata simile a Images Category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Nome_CATEGORIA_serietv">
+<summary>
+  Cerca una stringa localizzata simile a TV Series Category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Nome_CATEGORIA_video">
+<summary>
+  Cerca una stringa localizzata simile a Video Category.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.PresetPasteOk">
+<summary>
+  Cerca una stringa localizzata simile a Preset pasted correctly.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Toggle_AttivaDisattivaLivePreview">
+<summary>
+  Cerca una stringa localizzata simile a Live preview.
+</summary>
+</member>
+<member name="P:Autorinomina.Localization.Resource_WND_Main.Toggle_AttivaDisattivaSostituzioni">
+<summary>
+  Cerca una stringa localizzata simile a Enable/disable replacements.
+</summary>
+</member>
+<member name="T:Autorinomina.WND_About">
+<summary>
+WND_About
+</summary>
+</member>
+<member name="M:Autorinomina.WND_About.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.WND_ElencoSequenziale">
+<summary>
+WND_ElencoSequenziale
+</summary>
+</member>
+<member name="M:Autorinomina.WND_ElencoSequenziale.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.WND_Impostazioni">
+<summary>
+WND_Impostazioni
+</summary>
+</member>
+<member name="M:Autorinomina.WND_Impostazioni.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.WND_Languages">
+<summary>
+WND_Languages
+</summary>
+</member>
+<member name="M:Autorinomina.WND_Languages.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.WND_OpzioniAvanzate">
+<summary>
+WND_OpzioniAvanzate
+</summary>
+</member>
+<member name="M:Autorinomina.WND_OpzioniAvanzate.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.WND_Termini">
+<summary>
+WND_Termini
+</summary>
+</member>
+<member name="M:Autorinomina.WND_Termini.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:Autorinomina.MainWindow">
+<summary>
+MainWindow
+</summary>
+</member>
+<member name="M:Autorinomina.MainWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="WND_Languages"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Autorinomina"
+        xmlns:lang="clr-namespace:Autorinomina.Localization"
+        mc:Ignorable="d"
+        Title="{x:Static lang:Resource_WND_Main.MI_CambiaLingua}" Height="307.375" Width="557.277" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="{x:Static lang:Resource_WND_Languages.Description}" Margin="10,10,10,0" VerticalAlignment="Top"/>
+        <Button x:Name="BTN_Annulla" Content="{x:Static lang:Resource_Common.Btn_Cancel}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="96" Height="28" IsCancel="True" TabIndex="3" Padding="0"/>
+        <Button x:Name="BTN_Applica" Content="{x:Static lang:Resource_Common.Btn_Apply}" HorizontalAlignment="Right" Margin="0,0,115,10" VerticalAlignment="Bottom" Width="96" Height="28" IsDefault="True" TabIndex="2" Padding="0"/>
+        <Button x:Name="BTN_VuoiTradurre" Content="{x:Static lang:Resource_WND_Languages.Btn_DoYouWantTranslate}" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Padding="0" Width="245" TabIndex="1"/>
+        <DataGrid x:Name="DG_Lingue" Margin="10,41,10,54" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" AutoGenerateColumns="False" ClipboardCopyMode="None" HeadersVisibility="Column" IsReadOnly="True" SelectionMode="Single" BorderThickness="2" TabIndex="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static lang:Resource_WND_Languages.Column_LanguageName}" Binding="{Binding Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="0.5*" />
+                <DataGridTextColumn Header="{x:Static lang:Resource_WND_Languages.Column_Version}" Binding="{Binding Versione, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="0.17*" />
+                <DataGridTextColumn Header="{x:Static lang:Resource_WND_Languages.Column_Author}" Binding="{Binding Autore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="0.4*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

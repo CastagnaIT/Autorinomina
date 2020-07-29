@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<strutture>
+  <CATEGORIA_serietv nome="Default">
+    <AR_Numerazione>
+      <NumerazioneStile>5</NumerazioneStile>
+      <NumerazionePrefisso>()</NumerazionePrefisso>
+    </AR_Numerazione>
+    <STD_Separatore>
+      <SeparatoreCarattere>-</SeparatoreCarattere>
+    </STD_Separatore>
+    <AR_TitoloSerieTv />
+    <STD_Separatore />
+    <AR_Data />
+  </CATEGORIA_serietv>
+  <CATEGORIA_video nome="Default">
+    <AR_NomeDelFile />
+    <STD_Testo>
+      <Testo>[</Testo>
+    </STD_Testo>
+    <MI_Durata>
+      <FormatoDurataStile>%Mmin %Ssec</FormatoDurataStile>
+    </MI_Durata>
+    <STD_Testo>
+      <Testo>]</Testo>
+    </STD_Testo>
+    <AR_Anno />
+  </CATEGORIA_video>
+  <CATEGORIA_audio nome="Default">
+    <MI_AudioTagNumero>
+      <NumerazioneStile>1</NumerazioneStile>
+    </MI_AudioTagNumero>
+    <STD_Separatore />
+    <MI_AudioTagAlbum />
+    <STD_Separatore />
+    <MI_AudioTagTitolo />
+  </CATEGORIA_audio>
+  <CATEGORIA_immagini nome="Default">
+    <STD_NumerazioneSequenziale>
+      <NumerazioneStile>0</NumerazioneStile>
+    </STD_NumerazioneSequenziale>
+    <STD_Separatore>
+      <SeparatoreCarattere>-</SeparatoreCarattere>
+    </STD_Separatore>
+    <STD_Testo>
+      <Testo><![CDATA[my beautiful dog]]></Testo>
+    </STD_Testo>
+    <STD_Separatore>
+      <SeparatoreCarattere>♥</SeparatoreCarattere>
+      <SeparatoreSpaziatura>True</SeparatoreSpaziatura>
+    </STD_Separatore>
+    <STD_ElencoSequenziale />
+  </CATEGORIA_immagini>
+  <CATEGORIA_generica nome="Default">
+    <STD_NumerazioneSequenziale>
+      <NumerazioneStile>1</NumerazioneStile>
+    </STD_NumerazioneSequenziale>
+    <STD_Separatore />
+    <STD_Testo>
+      <Testo>Dispensa lavoro</Testo>
+    </STD_Testo>
+  </CATEGORIA_generica>
+  <CATEGORIA_immagini nome="Il mio primo preset">
+    <STD_NumerazioneSequenziale>
+      <NumerazioneStile>0</NumerazioneStile>
+    </STD_NumerazioneSequenziale>
+    <STD_Separatore>
+      <SeparatoreCarattere>-</SeparatoreCarattere>
+    </STD_Separatore>
+    <STD_Testo>
+      <Testo><![CDATA[my beautiful dog]]></Testo>
+    </STD_Testo>
+    <STD_Separatore>
+      <SeparatoreCarattere>♥</SeparatoreCarattere>
+      <SeparatoreSpaziatura>True</SeparatoreSpaziatura>
+    </STD_Separatore>
+    <STD_ElencoSequenziale />
+  </CATEGORIA_immagini>
+</strutture>

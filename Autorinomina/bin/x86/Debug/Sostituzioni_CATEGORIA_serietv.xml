@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sostituzioni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemTermine>
+    <Termine>dell </Termine>
+    <TermineSostituto>dell'</TermineSostituto>
+    <CaseSensitive>True</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>dall </Termine>
+    <TermineSostituto>dall'</TermineSostituto>
+    <CaseSensitive>True</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine> L </Termine>
+    <TermineSostituto> L'</TermineSostituto>
+    <CaseSensitive>True</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine> l </Termine>
+    <TermineSostituto> l'</TermineSostituto>
+    <CaseSensitive>True</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>what s</Termine>
+    <TermineSostituto>what's</TermineSostituto>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>&amp;quot;</Termine>
+    <TermineSostituto>'</TermineSostituto>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+  <ItemTermine>
+    <Termine>&amp;#39;</Termine>
+    <TermineSostituto>'</TermineSostituto>
+    <CaseSensitive>False</CaseSensitive>
+  </ItemTermine>
+</Sostituzioni>

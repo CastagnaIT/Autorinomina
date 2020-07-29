@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Btn_Add" xml:space="preserve">
+    <value>Aggiungi</value>
+  </data>
+  <data name="Btn_Apply" xml:space="preserve">
+    <value>Applica</value>
+  </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Btn_Save" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="Desc_Status" xml:space="preserve">
+    <value>Stato</value>
+  </data>
+  <data name="Exception_General" xml:space="preserve">
+    <value>Si è verificato il seguente errore:</value>
+  </data>
+  <data name="Text_All" xml:space="preserve">
+    <value>Tutte</value>
+  </data>
+  <data name="Guide_Step1" xml:space="preserve">
+    <value>Benvenuto in Autorinomina!\nSegui la guida rapida per imparare a rinominare in soli 3 passi.\n\nClicca per iniziare (Esc per uscire)</value>
+  </data>
+  <data name="Guide_Step2" xml:space="preserve">
+    <value>1° Passo\nSeleziona la categoria corrispondente al tipo di files da rinominare.\nAd esempio "Categoria immagini" per rinominare le tue foto.\n\nClicca per proseguire...</value>
+  </data>
+  <data name="Guide_Step3" xml:space="preserve">
+    <value>2° Passo\nTrascina qui i tuoi files da rinominare.\n\nClicca per proseguire…</value>
+  </data>
+  <data name="Guide_Step4" xml:space="preserve">
+    <value>3° Passo\nPersonalizza il testo dei tuoi files.\nUtilizza il tasto "+" per aggiungere campi informazioni.\n\nClicca per proseguire...</value>
+  </data>
+  <data name="Guide_Step5" xml:space="preserve">
+    <value>Complimenti! ora sei pronto per rinominare!\nPer una guida dettagliata visita il sito web.\n\nClicca per chiudere.</value>
+  </data>
+  <data name="CancelEsc" xml:space="preserve">
+    <value>Annulla (Esc)</value>
+  </data>
+  <data name="StateFileInfo_UserInterrupt" xml:space="preserve">
+    <value>Operazione interrotta dall'utente</value>
+  </data>
+  <data name="StateFileInfo_FileAlreadyExist" xml:space="preserve">
+    <value>Nella cartella esiste già un file con questo nome</value>
+  </data>
+  <data name="StateFileInfo_NotRestored" xml:space="preserve">
+    <value>Non ripristinato (da impostazioni)</value>
+  </data>
+  <data name="StateFileInfo_NotRenamed" xml:space="preserve">
+    <value>Non rinominato (da impostazioni)</value>
+  </data>
+  <data name="StateFileInfo_AlreadyRestored" xml:space="preserve">
+    <value>File già ripristinato</value>
+  </data>
+  <data name="StateFileInfo_AlreadyRenamed" xml:space="preserve">
+    <value>File già rinominato</value>
+  </data>
+  <data name="StateFileInfo_NotExist" xml:space="preserve">
+    <value>Il file non è più presente con questo nome</value>
+  </data>
+  <data name="StateFileInfo_NameMissing" xml:space="preserve">
+    <value>Manca il nome di destinazione</value>
+  </data>
+  <data name="StateFileInfo_NotRenamedUserChoice" xml:space="preserve">
+    <value>Non rinominato</value>
+  </data>
+  <data name="StateFileInfo_SkippedSameName" xml:space="preserve">
+    <value>Saltato perchè i nomi coincidono</value>
+  </data>
+  <data name="StateFileInfo_Restored" xml:space="preserve">
+    <value>Ripristinato</value>
+  </data>
+  <data name="StateFileInfo_Renamed" xml:space="preserve">
+    <value>Rinominato</value>
+  </data>
+  <data name="Btn_Interrupt" xml:space="preserve">
+    <value>Interrompi</value>
+  </data>
+  <data name="Btn_Ok" xml:space="preserve">
+    <value>Conferma</value>
+  </data>
+  <data name="Salta" xml:space="preserve">
+    <value>Salta</value>
+  </data>
+  <data name="Btn_Open" xml:space="preserve">
+    <value>Apri</value>
+  </data>
+  <data name="Btn_Delete" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="AR_Core_Error_SeqTextIncomplete" xml:space="preserve">
+    <value>Elenco di testo sequenziale incompleto. Ricontrollare.</value>
+  </data>
+  <data name="AutomaticChoose" xml:space="preserve">
+    <value>Scelta automatica</value>
+  </data>
+  <data name="AR_Core_Error_TVDB_Error" xml:space="preserve">
+    <value>C'è un problema con The TvDB.</value>
+  </data>
+  <data name="AR_Core_Error_TVDB_InexistentDVDnumerazion" xml:space="preserve">
+    <value>Su The TVDB manca la numerazione degli episodi del DVD.</value>
+  </data>
+  <data name="AR_Core_Episodes" xml:space="preserve">
+    <value>episodi</value>
+  </data>
+  <data name="StateFileInfo_FileAlreadyRenamedWith" xml:space="preserve">
+    <value>Un'altro file rinominato utilizza lo stesso nome</value>
+  </data>
+  <data name="StateFileInfo_NoPreviewBySettings" xml:space="preserve">
+    <value>Anteprima non generata (da impostazioni)</value>
+  </data>
+  <data name="StateFileInfo_ManualEditing" xml:space="preserve">
+    <value>Modificato manualmente</value>
+  </data>
+  <data name="StateFileInfo_PreviewOK" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="AR_Core_Immagini_OpenFileError" xml:space="preserve">
+    <value>Errore apertura file.</value>
+  </data>
+  <data name="AR_Core_Error_ID3MetadataMissing" xml:space="preserve">
+    <value>Metadata ID3 Tag mancante.</value>
+  </data>
+</root>

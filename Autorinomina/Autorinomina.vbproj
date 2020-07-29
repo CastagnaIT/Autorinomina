@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5292A0E-D80A-453B-8B97-D97B9B7482B5}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Autorinomina</RootNamespace>
+    <AssemblyName>Autorinomina</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>true</IncrementalBuild>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Autorinomina.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>false</IncrementalBuild>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Autorinomina.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>Autorinomina.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>Autorinomina.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo_48x48.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>Autorinomina.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>Autorinomina.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FreeImageNET, Version=3.15.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExtLibraries\FreeImageNET.dll</HintPath>
+    </Reference>
+    <Reference Include="GongSolutions.Wpf.DragDrop, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\gong-wpf-dragdrop.1.1.0\lib\net45\GongSolutions.Wpf.DragDrop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ObservableCollectionEx.4.0, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObservableCollectionEx.1.3.4\lib\net40\ObservableCollectionEx.4.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TvdbLib, Version=0.8.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\TvdbLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Customizations\CustomToolTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customizations\SuggestionGuide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DLG_Windows\DLG_AggiungiTermine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_Aggiungi_TXT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DLG_Windows\DLG_FileEsistente.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_Riepilogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DLG_Windows\DLG_Rinomina.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_CartellePreferite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_VerificaFiles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_Anteprima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DLG_Windows\DLG_IncollaWikipedia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_ModificaManuale.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_Preset.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_SceltaManuale.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DLG_Windows\DLG_TheTVDB_Manuale.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WND_About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WND_ElencoSequenziale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WND_Impostazioni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WND_Languages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WND_OpzioniAvanzate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WND_Termini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Application.xaml.vb">
+      <DependentUpon>Application.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassiCoreCategorie\AR_Core.vb" />
+    <Compile Include="ClassiCoreCategorie\AR_Core_Generica.vb" />
+    <Compile Include="ClassiCoreCategorie\AR_Core_Video.vb" />
+    <Compile Include="ClassiCoreCategorie\AR_Core_Immagini.vb" />
+    <Compile Include="ClassiCoreCategorie\AR_Core_Audio.vb" />
+    <Compile Include="ClassiCoreCategorie\AR_Core_RunPreview.vb" />
+    <Compile Include="ClassiCoreCategorie\AR_Core_SerieTv.vb" />
+    <Compile Include="ClassiVarie\CustomizeWindow.vb" />
+    <Compile Include="Customizations\Converter_Chars.vb" />
+    <Compile Include="Customizations\Converter_InfoStatoToImage.vb" />
+    <Compile Include="Customizations\Converter_SpaceToSimbol.vb" />
+    <Compile Include="ClassiVarie\FileSearch.vb" />
+    <Compile Include="ClassiVarie\FunzioniVarie.vb" />
+    <Compile Include="ClassiVarie\GestioneXML.vb" />
+    <Compile Include="ClassiVarie\GetAssociatedIconFile.vb" />
+    <Compile Include="ClassiVarie\GlobalVariables.vb" />
+    <Compile Include="ClassiVarie\ItemFileDataInfoStato.vb" />
+    <Compile Include="ClassiVarie\ItemLanguage.vb" />
+    <Compile Include="ClassiVarie\ItemTermine.vb" />
+    <Compile Include="ClassiVarie\ItemStruttura.vb" />
+    <Compile Include="ClassiVarie\ItemFileData.vb" />
+    <Compile Include="ClassiVarie\MediaInfoDLL.vb" />
+    <Compile Include="ClassiVarie\NativeMethods.vb" />
+    <Compile Include="ClassiVarie\NumeriRomaniConverter.vb" />
+    <Compile Include="ClassiVarie\WindowsVersion.vb" />
+    <Compile Include="ClassiVarie\XmlSerialization.vb" />
+    <Compile Include="Customizations\AnimatedStackPanel.vb" />
+    <Compile Include="Customizations\AnimatedWrapPanel.vb" />
+    <Compile Include="Customizations\Converter_YearDatePicker.vb" />
+    <Compile Include="Customizations\CustomToolTip.xaml.vb">
+      <DependentUpon>CustomToolTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customizations\ARCoreException.vb" />
+    <Compile Include="Customizations\SuggestionGuide.xaml.vb">
+      <DependentUpon>SuggestionGuide.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customizations\SystemComparer.vb" />
+    <Compile Include="Customizations\UserInterruptedException.vb" />
+    <Compile Include="Customizations\RangeObservableCollection.vb" />
+    <Compile Include="Customizations\YearDatePicker.vb" />
+    <Compile Include="DLG_Windows\DLG_AggiungiTermine.xaml.vb">
+      <DependentUpon>DLG_AggiungiTermine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_Aggiungi_TXT.xaml.vb">
+      <DependentUpon>DLG_Aggiungi_TXT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_FileEsistente.xaml.vb">
+      <DependentUpon>DLG_FileEsistente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_Riepilogo.xaml.vb">
+      <DependentUpon>DLG_Riepilogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_Rinomina.xaml.vb">
+      <DependentUpon>DLG_Rinomina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_CartellePreferite.xaml.vb">
+      <DependentUpon>DLG_CartellePreferite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_VerificaFiles.xaml.vb">
+      <DependentUpon>DLG_VerificaFiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_Anteprima.xaml.vb">
+      <DependentUpon>DLG_Anteprima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_IncollaWikipedia.xaml.vb">
+      <DependentUpon>DLG_IncollaWikipedia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_ModificaManuale.xaml.vb">
+      <DependentUpon>DLG_ModificaManuale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_Preset.xaml.vb">
+      <DependentUpon>DLG_Preset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_SceltaManuale.xaml.vb">
+      <DependentUpon>DLG_SceltaManuale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DLG_Windows\DLG_TheTVDB_Manuale.xaml.vb">
+      <DependentUpon>DLG_TheTVDB_Manuale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\Resource_BalloonToolTip.it.Designer.vb">
+      <DependentUpon>Resource_BalloonToolTip.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_BalloonToolTip.Designer.vb">
+      <DependentUpon>Resource_BalloonToolTip.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_Common_Dialogs.it.Designer.vb">
+      <DependentUpon>Resource_Common_Dialogs.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_Common_Dialogs.Designer.vb">
+      <DependentUpon>Resource_Common_Dialogs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_Languages.it.Designer.vb">
+      <DependentUpon>Resource_WND_Languages.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_Languages.Designer.vb">
+      <DependentUpon>Resource_WND_Languages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_Impostazioni.it.Designer.vb">
+      <DependentUpon>Resource_WND_Impostazioni.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_Impostazioni.Designer.vb">
+      <DependentUpon>Resource_WND_Impostazioni.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_OpzioniAvanzate.it.Designer.vb">
+      <DependentUpon>Resource_OpzioniAvanzate.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_OpzioniAvanzate.Designer.vb">
+      <DependentUpon>Resource_OpzioniAvanzate.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_Termini.it.Designer.vb">
+      <DependentUpon>Resource_WND_Termini.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_Termini.Designer.vb">
+      <DependentUpon>Resource_WND_Termini.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_Common.it.Designer.vb">
+      <DependentUpon>Resource_Common.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_Common.Designer.vb">
+      <DependentUpon>Resource_Common.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_About.it.Designer.vb">
+      <DependentUpon>Resource_WND_About.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_About.Designer.vb">
+      <DependentUpon>Resource_WND_About.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="WND_About.xaml.vb">
+      <DependentUpon>WND_About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WND_ElencoSequenziale.xaml.vb">
+      <DependentUpon>WND_ElencoSequenziale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WND_Impostazioni.xaml.vb">
+      <DependentUpon>WND_Impostazioni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WND_Languages.xaml.vb">
+      <DependentUpon>WND_Languages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WND_OpzioniAvanzate.xaml.vb">
+      <DependentUpon>WND_OpzioniAvanzate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WND_Termini.xaml.vb">
+      <DependentUpon>WND_Termini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\Resource_Struttura.it.Designer.vb">
+      <DependentUpon>Resource_Struttura.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_Struttura.Designer.vb">
+      <DependentUpon>Resource_Struttura.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_ElencoSequenziale.it.Designer.vb">
+      <DependentUpon>Resource_WND_ElencoSequenziale.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_ElencoSequenziale.Designer.vb">
+      <DependentUpon>Resource_WND_ElencoSequenziale.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_Main.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource_WND_Main.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\Resource_WND_Main.it.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource_WND_Main.it.resx</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.vb">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System.Threading.Tasks" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWpfExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.WPF.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Localization\Resource_BalloonToolTip.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_BalloonToolTip.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_BalloonToolTip.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_BalloonToolTip.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_BalloonToolTip.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_Common.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_Common_Dialogs.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_Common_Dialogs.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Common_Dialogs.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_Common_Dialogs.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Common_Dialogs.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_OpzioniAvanzate.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_Struttura.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_WND_About.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_WND_ElencoSequenziale.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_WND_Impostazioni.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_WND_Languages.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_WND_Languages.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_Languages.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_Languages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_Languages.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_Impostazioni.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_Impostazioni.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_Impostazioni.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_Impostazioni.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_OpzioniAvanzate.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_OpzioniAvanzate.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_OpzioniAvanzate.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_OpzioniAvanzate.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_Main.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_WND_Termini.en.resx" />
+    <EmbeddedResource Include="Localization\Resource_WND_Termini.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_Termini.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_Termini.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_Termini.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_Common.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Common.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_Common.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Common.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_About.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_About.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_About.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_About.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_Struttura.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Struttura.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_Struttura.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Struttura.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_ElencoSequenziale.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_ElencoSequenziale.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_ElencoSequenziale.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_ElencoSequenziale.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_Main.it.resx">
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_Main.it.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Resource_WND_Main.resx">
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_WND_Main.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Toolbar\delete.png" />
+    <Resource Include="Immagini\Toolbar\down-arrow.png" />
+    <Resource Include="Immagini\Toolbar\File_aggiungi.png" />
+    <Resource Include="Immagini\Toolbar\Folder_aggiungi.png" />
+    <Resource Include="Immagini\Toolbar\Folder_custom_aggiungi.png" />
+    <Resource Include="Immagini\Toolbar\minus.png" />
+    <Resource Include="Immagini\Toolbar\up-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Button\Aggiungi_Down_32x32.png" />
+    <Resource Include="Immagini\Button\Aggiungi_Over_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Categorie\CATEGORIA_generica.png" />
+    <Resource Include="Immagini\Categorie\CATEGORIA_video.png" />
+    <Resource Include="Immagini\Categorie\CATEGORIA_immagini.png" />
+    <Resource Include="Immagini\Categorie\CATEGORIA_audio.png" />
+    <Resource Include="Immagini\Categorie\CATEGORIA_serietv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Button\BTNAnteprima.png" />
+    <Resource Include="Immagini\Button\BTNRinomina.png" />
+    <Resource Include="Immagini\Button\BTNRipristina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuCategorie\STD_ElencoSequenziale.png" />
+    <Resource Include="Immagini\iconeMenuCategorie\STD_FiltraNomeFile.png" />
+    <Resource Include="Immagini\iconeMenuCategorie\STD_InfoMultimediali.png" />
+    <Resource Include="Immagini\iconeMenuCategorie\STD_NumerazioneSequenziale.png" />
+    <Resource Include="Immagini\iconeMenuCategorie\STD_ProprietaFile.png" />
+    <Resource Include="Immagini\iconeMenuCategorie\STD_Separatore.png" />
+    <Resource Include="Immagini\iconeMenuCategorie\STD_Testo.png" />
+    <Resource Include="Immagini\iconeMenuCategorie\STD_TheTvdb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\writing_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Altro\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Altro\unchecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\validator_warning_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FreeImageNET.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MediaInfo.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="TvdbLib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FreeImage.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuCategorie\EXT_Opzioni.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Toolbar\Sostituzioni.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Folder_Arrow_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\MMConversion\MM_CaseConversion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Opzioni_Generale1_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Opzioni_Generale2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Knob_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeStato\status_anteprima.png" />
+    <Resource Include="Immagini\iconeStato\status_errore.png" />
+    <Resource Include="Immagini\iconeStato\status_nullo.png" />
+    <Resource Include="Immagini\iconeStato\status_ok.png" />
+    <Resource Include="Immagini\iconeStato\status_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\CommandLink_Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuWND\BlackList.png" />
+    <Resource Include="Immagini\iconeMenuWND\BlackList_64x64.png" />
+    <Resource Include="Immagini\iconeMenuWND\Sostituisci.png" />
+    <Resource Include="Immagini\iconeMenuWND\Sostituisci_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Arrow_suggestions_Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Arrow_suggestions_Left.png" />
+    <Resource Include="Immagini\Arrow_suggestions_Right.png" />
+    <Resource Include="Immagini\Arrow_suggestions_Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Arrow_suggestions_Right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\light-bulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Logo_BW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Toolbar\LivePreview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Logo_74x74.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo_48x48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\TheTVDB_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Riepilogo_problems.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Riepilogo_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Toolbar\ElencoSequenziale_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuWND\ElencoSequenziale_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuCategorie\STD_InfoEXIFGeneriche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuCategorie\STD_InfoIPTC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuCategorie\STD_InfoEXIFFotocamera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuCategorie\STD_InfoID3Tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuCategorie\STD_InfoAudio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\iconeMenuCategorie\STD_InfoImmagine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

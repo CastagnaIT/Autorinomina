@@ -1,0 +1,65 @@
+<Actors>
+  <Actor>
+    <id>351959</id>
+    <Image>actors/351959.jpg</Image>
+    <Role>Kara Danvers</Role>
+    <SortOrder>0</SortOrder>
+    <Name>Melissa Benoist</Name>
+  </Actor>
+  <Actor>
+    <id>351960</id>
+    <Image>actors/351960.jpg</Image>
+    <Role>Alex Danvers</Role>
+    <SortOrder>1</SortOrder>
+    <Name>Chyler Leigh</Name>
+  </Actor>
+  <Actor>
+    <id>412172</id>
+    <Image>actors/412172.jpg</Image>
+    <Role>Mon-El</Role>
+    <SortOrder>2</SortOrder>
+    <Name>Chris Wood</Name>
+  </Actor>
+  <Actor>
+    <id>352102</id>
+    <Image>actors/352102.jpg</Image>
+    <Role>Hank Henshaw</Role>
+    <SortOrder>2</SortOrder>
+    <Name>David Harewood</Name>
+  </Actor>
+  <Actor>
+    <id>351964</id>
+    <Image>actors/351964.jpg</Image>
+    <Role>James "Jimmy" Olsen</Role>
+    <SortOrder>2</SortOrder>
+    <Name>Mehcad Brooks</Name>
+  </Actor>
+  <Actor>
+    <id>351963</id>
+    <Image>actors/351963.jpg</Image>
+    <Role>Winn Schott</Role>
+    <SortOrder>2</SortOrder>
+    <Name>Jeremy Jordan</Name>
+  </Actor>
+  <Actor>
+    <id>351962</id>
+    <Image>actors/351962.jpg</Image>
+    <Role>Cat Grant</Role>
+    <SortOrder>2</SortOrder>
+    <Name>Calista Flockhart</Name>
+  </Actor>
+  <Actor>
+    <id>413833</id>
+    <Image>actors/413833.jpg</Image>
+    <Role>Lena Luthor</Role>
+    <SortOrder>3</SortOrder>
+    <Name>Katie McGrath</Name>
+  </Actor>
+  <Actor>
+    <id>413831</id>
+    <Image>actors/413831.jpg</Image>
+    <Role>Maggie Sawyer</Role>
+    <SortOrder>3</SortOrder>
+    <Name>Floriana Lima</Name>
+  </Actor>
+</Actors>

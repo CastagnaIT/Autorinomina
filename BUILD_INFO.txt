@@ -1,0 +1,15 @@
+The source code is of version 5.0.2.0
+
+Unfortunately the hdd was broken with the sources of the latest version v5.0.5.0
+In the changelog you can understand the missing changes
+
+
+Developed with:
+Visual Studio 2017
+.NET Framework 4.5
+WPF
+
+
+How run from VS in debug mode:
+Copy the xml files from ZIP portable version to vs debug folder
+Copy the DLL library from LibraryDLL folder to vs debug folder

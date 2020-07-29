@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DLG_Preview_Desc" xml:space="preserve">
+    <value>Elaborazione dell'anteprima in corso...</value>
+  </data>
+  <data name="DLG_VerificationFiles_Desc" xml:space="preserve">
+    <value>Verifica dei files in corso...</value>
+  </data>
+  <data name="DLG_VerificationFiles_WrongCategory" xml:space="preserve">
+    <value>I file aggiunti non possono essere rinominati con la categoria attuale.\nSelezionare la categoria esatta.</value>
+  </data>
+  <data name="DLG_Rename_Desc_Initialize" xml:space="preserve">
+    <value>Inizializzazione…</value>
+  </data>
+  <data name="DLG_Rename_Desc_Rename" xml:space="preserve">
+    <value>Processo di rinomina è in corso...</value>
+  </data>
+  <data name="DLG_Rename_Desc_Restore" xml:space="preserve">
+    <value>Processo di ripristono in corso...</value>
+  </data>
+  <data name="DLG_TVDB_Title" xml:space="preserve">
+    <value>Associa risultati da TheTVDB.com</value>
+  </data>
+  <data name="DLG_TVDB_Desc1" xml:space="preserve">
+    <value>Serie Tv ricercata:</value>
+  </data>
+  <data name="DLG_TVDB_Column_TitleSeries" xml:space="preserve">
+    <value>Titolo Serie Tv</value>
+  </data>
+  <data name="DLG_TVDB_Column_Language" xml:space="preserve">
+    <value>Lingua</value>
+  </data>
+  <data name="DLG_TVDB_Desc2" xml:space="preserve">
+    <value>Se la ricerca non ha prodotto i risultati aspettati, effettua una nuova ricerca:</value>
+  </data>
+  <data name="DLG_TVDB_Btn_Find" xml:space="preserve">
+    <value>Cerca</value>
+  </data>
+  <data name="DLG_TVDB_Desc3" xml:space="preserve">
+    <value>Parola da cercare</value>
+  </data>
+  <data name="DLG_TVDB_Desc4" xml:space="preserve">
+    <value>Ricerca in corso ... </value>
+  </data>
+  <data name="DLG_TVDB_Msg_SelectResult" xml:space="preserve">
+    <value>Selezionare un risultato.</value>
+  </data>
+  <data name="DLG_TVDB_NoResults" xml:space="preserve">
+    <value>La ricerca non ha ottenuto nessun risultato</value>
+  </data>
+  <data name="DLG_ManualFilter_Title" xml:space="preserve">
+    <value>Selezione del filtro</value>
+  </data>
+  <data name="DLG_ManualFilter_Desc1" xml:space="preserve">
+    <value>Seleziona il risultato filtrato più corretto</value>
+  </data>
+  <data name="DLG_ManualFilter_FilePath" xml:space="preserve">
+    <value>Percorso:</value>
+  </data>
+  <data name="DLG_ManualFilter_ApplyToAll" xml:space="preserve">
+    <value>Applica il filtro su ogni file</value>
+  </data>
+  <data name="DLG_ManualFilter_FileSize" xml:space="preserve">
+    <value>Dimensione</value>
+  </data>
+  <data name="DLG_ManualFilter_NoResults" xml:space="preserve">
+    <value>Non è stato possibile applicare i filtri.</value>
+  </data>
+  <data name="DLG_Presets_PresetName" xml:space="preserve">
+    <value>Nome preset</value>
+  </data>
+  <data name="DLG_Presets_SelectPreset" xml:space="preserve">
+    <value>Devi selezionare un preset.</value>
+  </data>
+  <data name="DLG_Presets_NeedPresetName" xml:space="preserve">
+    <value>Devi dare un nome al preset.</value>
+  </data>
+  <data name="DLG_Presets_OverwritePreset" xml:space="preserve">
+    <value>Sovrascrivere il preset esistente?</value>
+  </data>
+  <data name="DLG_Presets_DeletePreset" xml:space="preserve">
+    <value>Eliminare il preset?</value>
+  </data>
+  <data name="DLG_ManualRename_Title" xml:space="preserve">
+    <value>Modifica manualmente il nome del file</value>
+  </data>
+  <data name="DLG_ManualRename_Desc" xml:space="preserve">
+    <value>Non è stato possibile filtrare il nome del file.</value>
+  </data>
+  <data name="DLG_ManualRename_Desc2" xml:space="preserve">
+    <value>Scrivi il nuovo nome del file (omettendo l'estensione):</value>
+  </data>
+  <data name="DLG_PasteWiki_Desc" xml:space="preserve">
+    <value>Seleziona l'intestazione della colonna da incollare</value>
+  </data>
+  <data name="DLG_PasteWiki_NoPasteColumnHeader" xml:space="preserve">
+    <value>Non incollare l'intestazione della colonna</value>
+  </data>
+  <data name="DLG_PasteWiki_SelectHeaderColumn" xml:space="preserve">
+    <value>Seleziona l'intestazione della colonna da incollare.</value>
+  </data>
+  <data name="DLG_FileEsistente_Title" xml:space="preserve">
+    <value>Sostituisci o ignora</value>
+  </data>
+  <data name="DLG_FileEsistente_Desc" xml:space="preserve">
+    <value>Questo percorso contiene già un file denominato</value>
+  </data>
+  <data name="DLG_FileEsistente_Btn_Replace" xml:space="preserve">
+    <value>Sostituisci il file nella destinazione</value>
+  </data>
+  <data name="DLG_FileEsistente_Btn_Ignore" xml:space="preserve">
+    <value>Ignora questo file (non rinominare)</value>
+  </data>
+  <data name="DLG_FileEsistente_Btn_KeepBoth" xml:space="preserve">
+    <value>Mantieni entrambi i file</value>
+  </data>
+  <data name="DLG_FileEsistente_Btn_KeepBoth_Desc" xml:space="preserve">
+    <value>Il file da rinominare, sarà rinominato in:</value>
+  </data>
+  <data name="DLG_FavoriteFolder_Desc" xml:space="preserve">
+    <value>Seleziona le cartelle contenenti i files da rinominare</value>
+  </data>
+  <data name="DLG_FavoriteFolder_Msg_ChangePath" xml:space="preserve">
+    <value>Seleziona la cartella contenente files/sottocartelle.</value>
+  </data>
+  <data name="DLG_FavoriteFolder_EmptyFolder" xml:space="preserve">
+    <value>In questo percorso non ci sono cartelle, clicca sul pulsante 'Cambia percorso'.</value>
+  </data>
+  <data name="DLG_FavoriteFolder_Title" xml:space="preserve">
+    <value>Aggiungi files dalla cartella</value>
+  </data>
+  <data name="DLG_FavoriteFolder_RowTextFolder" xml:space="preserve">
+    <value>Aggiungi cartella</value>
+  </data>
+  <data name="DLG_FavoriteFolder_RowTextSubfolder" xml:space="preserve">
+    <value>Aggiungi sottocartella</value>
+  </data>
+  <data name="DLG_InsertTermine_Name" xml:space="preserve">
+    <value>Nome del termine</value>
+  </data>
+  <data name="DLG_InsertTermine_DistinctionCase" xml:space="preserve">
+    <value>Distingui maiuscole/minuscole</value>
+  </data>
+  <data name="DLG_InsertTermine_DistinctionCase_Enabled" xml:space="preserve">
+    <value>Attivo</value>
+  </data>
+  <data name="DLG_InsertTermine_DistinctionCase_Disabled" xml:space="preserve">
+    <value>Non attivo</value>
+  </data>
+  <data name="DLG_InsertTermine_ReplaceWith" xml:space="preserve">
+    <value>Sostituisci con</value>
+  </data>
+  <data name="DLG_InsertTermine_BlackList_Tips" xml:space="preserve">
+    <value>SUGGERIMENTO: Lo spazio rappresenta un qualsiasi carattere.</value>
+  </data>
+  <data name="DLG_InsertTermine_Substitutions_Tips" xml:space="preserve">
+    <value>SUGGERIMENTO: Se necessario includi gli spazi anche prima/dopo la parola.</value>
+  </data>
+  <data name="DLG_InsertTermine_TermineAlreadyExists" xml:space="preserve">
+    <value>Termine esistente!</value>
+  </data>
+  <data name="DLG_Riepilogo_Desc3" xml:space="preserve">
+    <value>Si raccomanda di controllare i risultati</value>
+  </data>
+  <data name="DLG_Riepilogo_Desc1" xml:space="preserve">
+    <value>Riepilogo operazioni di ripristino dei file</value>
+  </data>
+  <data name="DLG_Riepilogo_Desc2" xml:space="preserve">
+    <value>Riepilogo operazioni di rinomina dei file</value>
+  </data>
+  <data name="DLG_Riepilogo_Btn_ViewResults" xml:space="preserve">
+    <value>Visualizza risultati</value>
+  </data>
+  <data name="DLG_Riepilogo_Btn_Close" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="DLG_Riepilogo_Title" xml:space="preserve">
+    <value>Riepilogo operazioni</value>
+  </data>
+  <data name="DLG_Riepilogo_RestoreMsg1" xml:space="preserve">
+    <value>File ripristinati</value>
+  </data>
+  <data name="DLG_Riepilogo_RestoreMsg2" xml:space="preserve">
+    <value>File non ripristinati (da scelta utente)</value>
+  </data>
+  <data name="DLG_Riepilogo_RestoreMsg3" xml:space="preserve">
+    <value>File non ripristinati (da impostazioni)</value>
+  </data>
+  <data name="DLG_Riepilogo_RestoreMsg4" xml:space="preserve">
+    <value>File in conflitto con altri</value>
+  </data>
+  <data name="DLG_Riepilogo_RestoreMsg5" xml:space="preserve">
+    <value>File non ripristinati per errori</value>
+  </data>
+  <data name="DLG_Riepilogo_RenameMsg1" xml:space="preserve">
+    <value>File rinominati</value>
+  </data>
+  <data name="DLG_Riepilogo_RenameMsg2" xml:space="preserve">
+    <value>File non rinominati (da scelta utente)</value>
+  </data>
+  <data name="DLG_Riepilogo_RenameMsg3" xml:space="preserve">
+    <value>File non rinominati (da impostazioni)</value>
+  </data>
+  <data name="DLG_Riepilogo_RenameMsg5" xml:space="preserve">
+    <value>File non rinominati per errori</value>
+  </data>
+  <data name="DLG_Riepilogo_RenameMsg4" xml:space="preserve">
+    <value>File in conflitto con altri</value>
+  </data>
+  <data name="DLG_Riepilogo_Desc4" xml:space="preserve">
+    <value>Riepilogo operazione di anteprima dei file</value>
+  </data>
+  <data name="DLG_Riepilogo_PreviewMsg1" xml:space="preserve">
+    <value>File con anteprima corretta</value>
+  </data>
+  <data name="DLG_Riepilogo_PreviewMsg2" xml:space="preserve">
+    <value>File senza anteprima per errori</value>
+  </data>
+  <data name="DLG_Riepilogo_PreviewMsg3" xml:space="preserve">
+    <value>File in conflitto con altri</value>
+  </data>
+  <data name="DLG_Riepilogo_PreviewMsg4" xml:space="preserve">
+    <value>File senza anteprima (da impostazioni)</value>
+  </data>
+  <data name="DLG_Presets_Title_Save" xml:space="preserve">
+    <value>Salva preset</value>
+  </data>
+  <data name="DLG_Presets_Title_Load" xml:space="preserve">
+    <value>Carica preset</value>
+  </data>
+</root>

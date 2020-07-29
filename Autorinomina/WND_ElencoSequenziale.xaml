@@ -1,0 +1,35 @@
+﻿<Controls:MetroWindow
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Autorinomina"
+        xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="WND_ElencoSequenziale"
+        xmlns:lang="clr-namespace:Autorinomina.Localization"
+        mc:Ignorable="d"
+                      BorderThickness="1"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+        ResizeMode="CanResizeWithGrip"    
+    Title="{x:Static lang:Resource_WND_ElencoSequenziale.Titolo}" Height="481.314" Width="717.446" WindowStartupLocation="CenterScreen" WindowTransitionsEnabled="False">
+    <Grid>
+        <Label Content="{x:Static lang:Resource_WND_ElencoSequenziale.Descrizione}" Margin="0,10,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="13"/>
+
+        <Border BorderThickness="0" Height="48" Margin="0,41,0,0" VerticalAlignment="Top" Background="#FFAED1FB">
+            <StackPanel x:Name="SP_Categorie" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BTN_Apri"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.OpenFile}" Margin="2,0,8,0" Tag="CATEGORIA_serietv" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" MinWidth="110" TabIndex="0" Padding="0"/>
+                <Button x:Name="BTN_IncollaWiki"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.PasteFromWiki}" Margin="2,0" Tag="CATEGORIA_video" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" TabIndex="1" Padding="0"/>
+                <Button x:Name="BTN_IncollaWiki_Help"  Content="?" Margin="2,0" Width="30" Tag="CATEGORIA_audio" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" TabIndex="2" Padding="0"/>
+                <Button x:Name="BTN_Pulisci"  Content="{x:Static lang:Resource_WND_ElencoSequenziale.Clear}" Margin="8,0,2,0" Tag="CATEGORIA_immagini" Height="28" Custom:ControlsHelper.ContentCharacterCasing="Upper" MinWidth="100" TabIndex="3" Padding="0"/>
+            </StackPanel>
+        </Border>
+        <TextBlock Margin="0,89,0,0" TextWrapping="Wrap" Text="{x:Static lang:Resource_WND_ElencoSequenziale.Guida}" VerticalAlignment="Top" Height="67" Padding="10"/>
+        <TextBox x:Name="TB_Contenuto" Margin="10,187,10,55" AcceptsReturn="True" TabIndex="4"/>
+        <Button x:Name="BTN_Annulla" Content="{x:Static lang:Resource_Common.Btn_Cancel}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="96" Height="28" IsCancel="True" TabIndex="6" Padding="0"/>
+        <Button x:Name="BTN_Salva" Content="{x:Static lang:Resource_Common.Btn_Save}" HorizontalAlignment="Right" Margin="0,0,115,10" VerticalAlignment="Bottom" Width="96" Height="28" IsDefault="True" TabIndex="5" Padding="0"/>
+        <Label Content="{x:Static lang:Resource_Common.Desc_Status}" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="LB_StatusDescrizione" Content="--" HorizontalAlignment="Left" Margin="84,156,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+
+    </Grid>
+</Controls:MetroWindow>

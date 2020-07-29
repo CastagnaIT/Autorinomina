@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuAddInfo" xml:space="preserve">
+    <value>Add field</value>
+  </data>
+  <data name="STD_Testo" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="STD_Separatore" xml:space="preserve">
+    <value>Separator</value>
+  </data>
+  <data name="STD_ElencoSequenziale" xml:space="preserve">
+    <value>Sequential text</value>
+  </data>
+  <data name="STD_NumerazioneSequenziale" xml:space="preserve">
+    <value>Sequential numbering</value>
+  </data>
+  <data name="STD_FiltraNomeFile" xml:space="preserve">
+    <value>Filter from the filename</value>
+  </data>
+  <data name="STD_InfoMultimediali" xml:space="preserve">
+    <value>Multimedia information</value>
+  </data>
+  <data name="STD_TheTvdb" xml:space="preserve">
+    <value>The TVDB</value>
+  </data>
+  <data name="STD_InfoImmagine" xml:space="preserve">
+    <value>Image information</value>
+  </data>
+  <data name="STD_InfoEXIFGeneriche" xml:space="preserve">
+    <value>Exif general information</value>
+  </data>
+  <data name="STD_InfoEXIFFotocamera" xml:space="preserve">
+    <value>Exif camera information</value>
+  </data>
+  <data name="STD_InfoIPTC" xml:space="preserve">
+    <value>IPTC information</value>
+  </data>
+  <data name="STD_ProprietaFile" xml:space="preserve">
+    <value>File properties</value>
+  </data>
+  <data name="AR_Numerazione" xml:space="preserve">
+    <value>Numbering</value>
+  </data>
+  <data name="AR_TitoloEpisodio" xml:space="preserve">
+    <value>Episode title</value>
+  </data>
+  <data name="AR_TitoloSerieTv" xml:space="preserve">
+    <value>TV show title</value>
+  </data>
+  <data name="AR_NomeDelFile" xml:space="preserve">
+    <value>Filtered filename</value>
+  </data>
+  <data name="AR_Anno" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="MI_Separator_Codifica" xml:space="preserve">
+    <value>Encoding information</value>
+  </data>
+  <data name="MI_Durata" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="MI_RisoluzioneFilmato" xml:space="preserve">
+    <value>Resolution</value>
+  </data>
+  <data name="MI_AspectRatio" xml:space="preserve">
+    <value>Aspect ratio</value>
+  </data>
+  <data name="MI_FrameRate" xml:space="preserve">
+    <value>Frame rate</value>
+  </data>
+  <data name="MI_CodecVideo" xml:space="preserve">
+    <value>Video codec</value>
+  </data>
+  <data name="MI_CodecAudio" xml:space="preserve">
+    <value>Audio codec</value>
+  </data>
+  <data name="MI_CodecAudioLingua" xml:space="preserve">
+    <value>Audio codec with language</value>
+  </data>
+  <data name="MI_Lingue" xml:space="preserve">
+    <value>Audio languages</value>
+  </data>
+  <data name="MI_LingueSottotitoli" xml:space="preserve">
+    <value>Subtitle languages</value>
+  </data>
+  <data name="MI_TotaleCapitoli" xml:space="preserve">
+    <value>Number chapters</value>
+  </data>
+  <data name="MI_AudioDurata" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="MI_AudioTagNumero" xml:space="preserve">
+    <value>Track number</value>
+  </data>
+  <data name="MI_AudioTagArtista" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="MI_AudioTagAlbum" xml:space="preserve">
+    <value>Album title</value>
+  </data>
+  <data name="MI_AudioTagTitolo" xml:space="preserve">
+    <value>Track title</value>
+  </data>
+  <data name="MI_AudioTagGenere" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="MI_AudioFrequenza" xml:space="preserve">
+    <value>Frequency (Khz)</value>
+  </data>
+  <data name="MI_AudioBitRate" xml:space="preserve">
+    <value>Bit rate (Kbps)</value>
+  </data>
+  <data name="MI_AudioModalitaBitRate" xml:space="preserve">
+    <value>Bit rate mode</value>
+  </data>
+  <data name="MI_AudioNumeroCanali" xml:space="preserve">
+    <value>Number of channels</value>
+  </data>
+  <data name="TVDB_TitoloSerieTv" xml:space="preserve">
+    <value>TV show title</value>
+  </data>
+  <data name="TVDB_TitoloEpisodio" xml:space="preserve">
+    <value>Episode title</value>
+  </data>
+  <data name="TVDB_DataPrimaTv" xml:space="preserve">
+    <value>First aired</value>
+  </data>
+  <data name="II_Dimensione" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="II_AspectRatio" xml:space="preserve">
+    <value>Aspect ratio</value>
+  </data>
+  <data name="II_DPI" xml:space="preserve">
+    <value>DPI Resolution</value>
+  </data>
+  <data name="II_BitsPerPixel" xml:space="preserve">
+    <value>Color depth</value>
+  </data>
+  <data name="II_UniqueColors" xml:space="preserve">
+    <value>Unique colors</value>
+  </data>
+  <data name="EXIF_MAIN_Artist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="EXIF_MAIN_Compression" xml:space="preserve">
+    <value>Compression</value>
+  </data>
+  <data name="EXIF_MAIN_Copyright" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="EXIF_MAIN_DateTime" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="EXIF_MAIN_EquipmentModel" xml:space="preserve">
+    <value>Equipment model</value>
+  </data>
+  <data name="EXIF_MAIN_ImageDescription" xml:space="preserve">
+    <value>Image description</value>
+  </data>
+  <data name="EXIF_MAIN_ImageHeight" xml:space="preserve">
+    <value>Image height</value>
+  </data>
+  <data name="EXIF_MAIN_ImageWidth" xml:space="preserve">
+    <value>Image width</value>
+  </data>
+  <data name="EXIF_MAIN_Make" xml:space="preserve">
+    <value>Make</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation" xml:space="preserve">
+    <value>Orientation</value>
+  </data>
+  <data name="EXIF_MAIN_Software" xml:space="preserve">
+    <value>Software</value>
+  </data>
+  <data name="EXIF_MAIN_ResolutionUnit" xml:space="preserve">
+    <value>Resolution unit</value>
+  </data>
+  <data name="EXIF_MAIN_XResolution" xml:space="preserve">
+    <value>X Resolution</value>
+  </data>
+  <data name="EXIF_MAIN_YResolution" xml:space="preserve">
+    <value>Y Resolution</value>
+  </data>
+  <data name="EXIF_ApertureValue" xml:space="preserve">
+    <value>Aperture value</value>
+  </data>
+  <data name="EXIF_BrightnessValue" xml:space="preserve">
+    <value>Brightness value</value>
+  </data>
+  <data name="EXIF_ColorSpace" xml:space="preserve">
+    <value>Color space</value>
+  </data>
+  <data name="EXIF_CompressedBitPerPixel" xml:space="preserve">
+    <value>Compressed BPP</value>
+  </data>
+  <data name="EXIF_DateTimeDigitized" xml:space="preserve">
+    <value>DateTime digitized</value>
+  </data>
+  <data name="EXIF_DateTimeOriginal" xml:space="preserve">
+    <value>DateTime original</value>
+  </data>
+  <data name="EXIF_DigitalZoomRatio" xml:space="preserve">
+    <value>Digital zoom ratio</value>
+  </data>
+  <data name="EXIF_ExposureBiasValue" xml:space="preserve">
+    <value>Exposure bias value</value>
+  </data>
+  <data name="EXIF_ExposureMode" xml:space="preserve">
+    <value>Exposure mode</value>
+  </data>
+  <data name="EXIF_ExposureTime" xml:space="preserve">
+    <value>Exposure time</value>
+  </data>
+  <data name="EXIF_Flash" xml:space="preserve">
+    <value>Flash</value>
+  </data>
+  <data name="EXIF_FlashEnergy" xml:space="preserve">
+    <value>Flash energy BCPS</value>
+  </data>
+  <data name="EXIF_FocalLenght" xml:space="preserve">
+    <value>Focal length MM</value>
+  </data>
+  <data name="EXIF_MaxApertureValue" xml:space="preserve">
+    <value>Max value openings</value>
+  </data>
+  <data name="EXIF_PixelXDimension" xml:space="preserve">
+    <value>Pixel X Dimension</value>
+  </data>
+  <data name="EXIF_PixelYDimension" xml:space="preserve">
+    <value>Pixel Y Dimension</value>
+  </data>
+  <data name="EXIF_Saturation" xml:space="preserve">
+    <value>Saturation</value>
+  </data>
+  <data name="EXIF_SceneCaptureType" xml:space="preserve">
+    <value>Scene capture type</value>
+  </data>
+  <data name="EXIF_SensingMethod" xml:space="preserve">
+    <value>Sensing method</value>
+  </data>
+  <data name="EXIF_Sharpness" xml:space="preserve">
+    <value>Sharpness</value>
+  </data>
+  <data name="EXIF_ShutterSpeedValue" xml:space="preserve">
+    <value>Shutter speed value</value>
+  </data>
+  <data name="EXIF_WhiteBalance" xml:space="preserve">
+    <value>white balance</value>
+  </data>
+  <data name="IPTC_ByLine" xml:space="preserve">
+    <value>Creator</value>
+  </data>
+  <data name="IPTC_ByLineTitle" xml:space="preserve">
+    <value>Job creator</value>
+  </data>
+  <data name="IPTC_DateCreated" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="IPTC_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="IPTC_ProvinceState" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="IPTC_CountryPrimaryLocationName" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="IPTC_HeadLine" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="IPTC_CaprionAbstract" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="IPTC_WriterEditor" xml:space="preserve">
+    <value>Author description</value>
+  </data>
+  <data name="PF_NomeFile" xml:space="preserve">
+    <value>Original filename</value>
+  </data>
+  <data name="PF_DataCreazione" xml:space="preserve">
+    <value>Date created</value>
+  </data>
+  <data name="PF_DataUltimaModifica" xml:space="preserve">
+    <value>Last modified</value>
+  </data>
+  <data name="PF_DataUltimoAccesso" xml:space="preserve">
+    <value>Last accessed</value>
+  </data>
+  <data name="EXT_Opzioni" xml:space="preserve">
+    <value>[Extensions]</value>
+  </data>
+  <data name="STD_Estensione" xml:space="preserve">
+    <value>Extension</value>
+  </data>
+  <data name="CATEGORIA_titolo" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="CATEGORIA_serietv" xml:space="preserve">
+    <value>TV series</value>
+  </data>
+  <data name="CATEGORIA_video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="CATEGORIA_immagini" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="CATEGORIA_audio" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="CATEGORIA_generica" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="DLG_TVDB_Desc2" xml:space="preserve">
+    <value>Select the exact match from the results obtained from TheTVDB.com</value>
+  </data>
+  <data name="IPTC_Separator_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="IPTC_Separator_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="IPTC_Separator_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="IPTC_ObjectName" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="IPTC_OriginalTransmissionReference" xml:space="preserve">
+    <value>ID process</value>
+  </data>
+  <data name="IPTC_SpecialInstructions" xml:space="preserve">
+    <value>Instructions</value>
+  </data>
+  <data name="IPTC_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="IPTC_Credit" xml:space="preserve">
+    <value>Credit line</value>
+  </data>
+  <data name="IPTC_Source" xml:space="preserve">
+    <value>Origin</value>
+  </data>
+  <data name="IPTC_CopyrightNotice" xml:space="preserve">
+    <value>Copyright notice</value>
+  </data>
+  <data name="AR_RegexPattern" xml:space="preserve">
+    <value>Regular expression</value>
+  </data>
+  <data name="TVDB_Creator" xml:space="preserve">
+    <value>Creator</value>
+  </data>
+  <data name="TVDB_NumeroEpisodi" xml:space="preserve">
+    <value>Number of episodes</value>
+  </data>
+  <data name="TVDB_NumeroStagioni" xml:space="preserve">
+    <value>Number of seasons</value>
+  </data>
+  <data name="TVDB_Genere" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="TVDB_Network" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="TVDB_Director" xml:space="preserve">
+    <value>Director</value>
+  </data>
+  <data name="STD_InfoAudio" xml:space="preserve">
+    <value>Audio information</value>
+  </data>
+  <data name="STD_InfoID3Tag" xml:space="preserve">
+    <value>ID3 Tag information</value>
+  </data>
+  <data name="AR_Data" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation_Value_1" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation_Value_2" xml:space="preserve">
+    <value>Horizontal mirrored</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation_Value_3" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation_Value_4" xml:space="preserve">
+    <value>Vertical mirrored</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation_Value_5" xml:space="preserve">
+    <value>Left side</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation_Value_6" xml:space="preserve">
+    <value>Left side mirrored</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation_Value_7" xml:space="preserve">
+    <value>Right side</value>
+  </data>
+  <data name="EXIF_MAIN_Orientation_Value_8" xml:space="preserve">
+    <value>Right side mirrored</value>
+  </data>
+  <data name="MI_AudioTagCompositore" xml:space="preserve">
+    <value>Compositor</value>
+  </data>
+  <data name="MI_AudioTagDataRilascio" xml:space="preserve">
+    <value>Released date</value>
+  </data>
+  <data name="MI_AudioTagDataRegistrazione" xml:space="preserve">
+    <value>Recorded date</value>
+  </data>
+  <data name="MI_AudioTagPubliscer" xml:space="preserve">
+    <value>Record label</value>
+  </data>
+</root>
