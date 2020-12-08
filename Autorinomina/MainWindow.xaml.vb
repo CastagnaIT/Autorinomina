@@ -1,8 +1,10 @@
 ﻿Imports System.ComponentModel
 Imports System.Globalization
+Imports System.IO
 Imports System.Text.RegularExpressions
 Imports System.Threading
 Imports Microsoft.Win32
+Imports Newtonsoft.Json.Linq
 
 Class MainWindow
     Dim CM_Categoria As New ContextMenu()
@@ -1386,18 +1388,17 @@ Class MainWindow
 
                 XMLSettings_Save("MainWindow_CheckNewVersion_LastCheck", Format(Date.Now, "dd/MM/yyyy"))
                 Try
-                    Dim wRemote As Net.WebRequest
-                    wRemote = Net.WebRequest.Create("http://www.autorinomina.it/download/app_version.txt")
-                    '  wRemote.Credentials = New Net.NetworkCredential("name", "pass")
-
-                    Dim myWebResponse As Net.WebResponse = wRemote.GetResponse
-                    Dim sChunks As IO.Stream = myWebResponse.GetResponseStream
-                    sChunks.ReadTimeout = 200000
-
-                    Dim srRead As System.IO.StreamReader
-                    srRead = New System.IO.StreamReader(sChunks)
-                    Result_SoftwareVersion = srRead.ReadToEnd.ToString
-
+                    Net.ServicePointManager.SecurityProtocol = Net.SecurityProtocolType.Ssl3 Or Net.SecurityProtocolType.Tls12 Or Net.SecurityProtocolType.Tls11 Or Net.SecurityProtocolType.Tls
+                    Net.ServicePointManager.ServerCertificateValidationCallback = Function(s, c, h, spe) True
+                    Dim request As Net.HttpWebRequest = Net.HttpWebRequest.Create("https://api.github.com/repos/CastagnaIT/autorinomina/tags")
+                    request.Accept = "text/json, */*"
+                    request.UseDefaultCredentials = True
+                    request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+                    Dim response As Net.WebResponse = request.GetResponse()
+                    Dim responseString = New StreamReader(response.GetResponseStream()).ReadToEnd()
+                    Dim DataList As JArray = JArray.Parse(responseString)
+                    ' Get the first tag from the list (so last commit version tagged on version bump)
+                    Result_SoftwareVersion = DataList(0)("name").ToString.Replace("v", "")
                 Catch ex As Exception
                     Debug.Print(ex.Message)
                     Result_SoftwareVersion = ""
@@ -1441,7 +1442,7 @@ Class MainWindow
 
         If ResultMsg = MsgBoxResult.Yes Then
             Try
-                System.Diagnostics.Process.Start("http://www.autorinomina.it/index.php/autorinomina/scarica")
+                System.Diagnostics.Process.Start("https://github.com/CastagnaIT/autorinomina/tree/master/Portable_ZIP")
             Catch ex As Exception
                 MsgBox(Localization.Resource_Common.Exception_General & vbCrLf & ex.Message, MsgBoxStyle.Exclamation, Me.Title)
             End Try
@@ -1682,7 +1683,7 @@ Class MainWindow
 
     Private Sub MI_Menu_Donazione_Click(sender As Object, e As RoutedEventArgs) Handles MI_Menu_Donazione.Click
         Try
-            System.Diagnostics.Process.Start("http://www.autorinomina.it/index.php/contribuisci/donazione")
+            'System.Diagnostics.Process.Start("http://")
         Catch ex As Exception
             MsgBox(Localization.Resource_Common.Exception_General & vbCrLf & ex.Message, MsgBoxStyle.Exclamation, Me.Title)
         End Try

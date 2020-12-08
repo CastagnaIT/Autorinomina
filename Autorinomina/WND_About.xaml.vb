@@ -5,15 +5,7 @@
 
     Private Sub HY_Homepage_Click(sender As Object, e As RoutedEventArgs)
         Try
-            System.Diagnostics.Process.Start("http://www.autorinomina.it/")
-        Catch ex As Exception
-            MsgBox(Localization.Resource_Common.Exception_General & vbCrLf & ex.Message, MsgBoxStyle.Exclamation, Me.Title)
-        End Try
-    End Sub
-
-    Private Sub HY_Support_click(sender As Object, e As RoutedEventArgs)
-        Try
-            System.Diagnostics.Process.Start("MAILTO:info@autorinomina.it")
+            System.Diagnostics.Process.Start("https://github.com/CastagnaIT/autorinomina/")
         Catch ex As Exception
             MsgBox(Localization.Resource_Common.Exception_General & vbCrLf & ex.Message, MsgBoxStyle.Exclamation, Me.Title)
         End Try

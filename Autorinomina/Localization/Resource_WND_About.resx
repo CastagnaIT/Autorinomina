@@ -124,7 +124,7 @@
     <value>Organize at the most your information, one of the easiest software to rename files in the world, Autorinomina gives you the ability to rename many files through a simple, intuitive interface.</value>
   </data>
   <data name="Homepage" xml:space="preserve">
-    <value>Home page</value>
+    <value>GitHub project:</value>
   </data>
   <data name="Supporto" xml:space="preserve">
     <value>Support</value>
@@ -133,7 +133,7 @@
     <value>Acknowledgments:</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>Copyright © 2009-2018 Stefano Gottardo. All rights reserved.</value>
+    <value>Copyright © 2009-2020 Stefano Gottardo. All rights reserved.</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Version</value>

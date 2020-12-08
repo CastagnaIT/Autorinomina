@@ -21,11 +21,9 @@
         <Border BorderBrush="#FF858585" BorderThickness="0,1" Margin="109,86,14,52" SnapsToDevicePixels="True" Padding="0,5,0,0">
             <Grid>
                 <TextBlock Margin="0,109,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5"><Hyperlink Click="HY_License_Click"><Run Text="{x:Static lang:Resource_WND_About.VisualizzaLicenza}"/></Hyperlink></TextBlock>
-                <TextBlock Margin="74,66,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"><Hyperlink Click="HY_Homepage_Click"><Run Text="http://www.autorinomina.it"/></Hyperlink></TextBlock>
+                <TextBlock Margin="110,66,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"><Hyperlink Click="HY_Homepage_Click"><Run Text="https://github.com/CastagnaIT/autorinomina/"/></Hyperlink></TextBlock>
                 <TextBlock TextWrapping="Wrap" Text="{x:Static lang:Resource_WND_About.Desc_app}" VerticalAlignment="Top" Padding="5"/>
                 <Label Content="{x:Static lang:Resource_WND_About.Homepage}" HorizontalAlignment="Left" Margin="0,61,0,0" VerticalAlignment="Top"/>
-                <TextBlock Margin="69,84,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="5"><Hyperlink Click="HY_Support_click">info@autorinomina.it</Hyperlink></TextBlock>
-                <Label Content="{x:Static lang:Resource_WND_About.Supporto}" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top"/>
                 <Label Content="{x:Static lang:Resource_WND_About.Ringraziamenti}" HorizontalAlignment="Left" Margin="1,172,0,0" VerticalAlignment="Top"/>
                 <TextBlock Margin="1,190,0,0" TextWrapping="Wrap" Text="Nika87&lt;Logo&gt;, Andrea&lt;Bug-fixing&gt;" VerticalAlignment="Top" Padding="5" Height="65"/>
             </Grid>

@@ -124,7 +124,7 @@
     <value>Organizza al meglio i tuoi dati, uno tra i più semplici software per rinominare files al mondo, Autorinomina ti da la possibilità di rinominare grandi quantità di file attraverso un'interfaccia semplice e intuitiva.</value>
   </data>
   <data name="Homepage" xml:space="preserve">
-    <value>Homepage</value>
+    <value>Progetto GitHub:</value>
   </data>
   <data name="Supporto" xml:space="preserve">
     <value>Supporto</value>
@@ -133,7 +133,7 @@
     <value>Ringraziamenti:</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>Copyright © 2009-2018 Stefano Gottardo. Tutti i diritti riservati.</value>
+    <value>Copyright © 2009-2020 Stefano Gottardo. Tutti i diritti riservati.</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versione</value>

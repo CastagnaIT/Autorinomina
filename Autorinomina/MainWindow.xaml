@@ -294,7 +294,7 @@
             </MenuItem>
             <MenuItem Header="{x:Static lang:Resource_WND_Main.Menu_Help}">
                 <MenuItem x:Name="MI_Menu_GuidaRapida"  Header="{x:Static lang:Resource_WND_Main.MI_GuidaRapida}" InputGestureText="F1"/>
-                <MenuItem x:Name="MI_Menu_Donazione"  Header="{x:Static lang:Resource_WND_Main.MI_Donazione}"/>
+                <MenuItem x:Name="MI_Menu_Donazione"  Header="{x:Static lang:Resource_WND_Main.MI_Donazione}" Visibility="Collapsed"/>
                 <Separator/>
                 <MenuItem x:Name="MI_Menu_Aggiornamenti" Header="{x:Static lang:Resource_WND_Main.MI_ControlloAggiornamenti}"/>
                 <Separator/>
