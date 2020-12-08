@@ -1,4 +1,4 @@
-# Autorinomina © 2009-2018 Stefano Gottardo
+# Autorinomina © 2009-2020 Stefano Gottardo
 
 A simple software for Windows to rename lists of files
 

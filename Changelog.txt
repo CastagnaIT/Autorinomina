@@ -1,3 +1,8 @@
+Autorinomina 5.0.6.0 - 08/12/2020
+- Fixed crash on startup due to website inaccessibility
+- Changed website references to GitHub project
+
+
 Autorinomina 5.0.5.0
 5.0.5.0 - 20/01/2018
 
