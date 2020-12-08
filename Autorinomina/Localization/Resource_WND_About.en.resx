@@ -135,7 +135,7 @@
   <data name="Version" xml:space="preserve">
     <value>Version</value>
   </data>
-  <data name="VisualizzaLicenza" xml:space="preserve">
-    <value>View license</value>
+  <data name="License" xml:space="preserve">
+    <value>This software is freeware and open source</value>
   </data>
 </root>

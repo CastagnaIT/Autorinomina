@@ -92,6 +92,15 @@ Namespace Localization
         End Property
         
         '''<summary>
+        '''  Cerca una stringa localizzata simile a This software is freeware and open source.
+        '''</summary>
+        Public Shared ReadOnly Property License() As String
+            Get
+                Return ResourceManager.GetString("License", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Cerca una stringa localizzata simile a Acknowledgments:.
         '''</summary>
         Public Shared ReadOnly Property Ringraziamenti() As String
@@ -115,15 +124,6 @@ Namespace Localization
         Public Shared ReadOnly Property Version() As String
             Get
                 Return ResourceManager.GetString("Version", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Cerca una stringa localizzata simile a View license.
-        '''</summary>
-        Public Shared ReadOnly Property VisualizzaLicenza() As String
-            Get
-                Return ResourceManager.GetString("VisualizzaLicenza", resourceCulture)
             End Get
         End Property
     End Class

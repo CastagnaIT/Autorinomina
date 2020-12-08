@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="VisualizzaLicenza" xml:space="preserve">
-    <value>View license</value>
+  <data name="License" xml:space="preserve">
+    <value>This software is freeware and open source</value>
   </data>
   <data name="Desc_app" xml:space="preserve">
     <value>Organize at the most your information, one of the easiest software to rename files in the world, Autorinomina gives you the ability to rename many files through a simple, intuitive interface.</value>
